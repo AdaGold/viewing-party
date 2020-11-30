@@ -1,5 +1,28 @@
 # viewing-party
 
+## Setup
+
+Install dependencies once at the beginning of this project with
+
+```
+python3 -m pip install -r requirements.txt
+```
+
+## Run Tests
+
+Run tests with
+
+```
+python3 -m pytest
+```
+
+If you want to see any `print` statements print to the console:
+
+```
+python3 -m pytest -s
+```
+
+## Project Write-Up
 
 ```
 {
