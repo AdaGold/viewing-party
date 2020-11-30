@@ -269,3 +269,95 @@ def test_genre_is_None_if_empty_watched():
 
     # Assert
     assert popular_genre is None
+
+def test_my_unique_movies():
+    # Arrange
+    amandas_data = {
+        "watched": [
+            {
+                "title": "Title A"
+            },
+            {
+                "title": "Title B"
+            },
+            {
+                "title": "Title C"
+            },
+            {
+                "title": "Title D"
+            },
+            {
+                "title": "Title E"
+            },
+        ],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title C"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title D"
+                    },
+                    {
+                        "title": "Title F"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    amandas_unique_movies = main.get_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(amandas_unique_movies) is 2
+    assert {"title": "Title B"} in amandas_unique_movies
+    assert {"title": "Title E"} in amandas_unique_movies
+
+def test_my_not_unique_movies():
+    # Arrange
+    amandas_data = {
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title C"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title D"
+                    },
+                    {
+                        "title": "Title F"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    amandas_unique_movies = main.get_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(amandas_unique_movies) is 0

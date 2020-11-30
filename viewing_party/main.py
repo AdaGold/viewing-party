@@ -53,6 +53,18 @@ def get_most_watched_genre(user_data):
     popular_genre = max(frequency_map)
     return popular_genre
 
-    # Using list comprehensions:
-    # genres = [movie["genre"] for movie in user_data["watched"]]
-    # return max(genres)
+def get_unique_watched(user_data):
+    # Approach with multiple loops
+    watched_movies = user_data["watched"]
+    friends_movies = []
+
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            friends_movies.append(movie)
+
+    unique_movies = []
+    for movie in watched_movies:
+        if movie not in friends_movies:
+            unique_movies.append(movie)
+
+    return unique_movies
