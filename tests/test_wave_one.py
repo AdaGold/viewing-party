@@ -554,7 +554,7 @@ def test_no_available_friend_recs():
     }
 
     # Act
-    recommendations = main.get_available_rec(amandas_data)
+    recommendations = main.get_available_recs(amandas_data)
 
     # Arrange
     assert len(recommendations) is 0
