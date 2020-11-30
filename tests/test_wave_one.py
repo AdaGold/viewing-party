@@ -1,10 +1,6 @@
 import pytest
 from viewing_party import main
 
-def test_hw():
-    assert main.hw()
-
-
 def test_create_successful_movie():
     # Arrange
     movie_title = "Title A"
@@ -524,12 +520,12 @@ def test_get_available_friend_rec():
     }
 
     # Act
-    recommendation = main.get_available_rec(amandas_data)
+    recommendations = main.get_available_recs(amandas_data)
 
     # Arrange
-    assert len(recommendation) is 2
-    assert {"title": "Title A", "host": "Service A"} in recommendation
-    assert {"title": "Title B", "host": "Service B"} in recommendation
+    assert len(recommendations) is 2
+    assert {"title": "Title A", "host": "Service A"} in recommendations
+    assert {"title": "Title B", "host": "Service B"} in recommendations
 
 
 def test_no_available_friend_recs():
@@ -558,10 +554,10 @@ def test_no_available_friend_recs():
     }
 
     # Act
-    recommendation = main.get_available_rec(amandas_data)
+    recommendations = main.get_available_rec(amandas_data)
 
     # Arrange
-    assert len(recommendation) is 0
+    assert len(recommendations) is 0
 
 def test_new_genre_rec():
     # Arrange
