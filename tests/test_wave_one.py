@@ -361,3 +361,90 @@ def test_my_not_unique_movies():
 
     # Arrange
     assert len(amandas_unique_movies) is 0
+
+def test_friends_unique_movies():
+    # Arrange
+    amandas_data = {
+        "watched": [
+            {
+                "title": "Title A"
+            },
+            {
+                "title": "Title B"
+            },
+            {
+                "title": "Title C"
+            }
+        ],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title C"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title D"
+                    },
+                    {
+                        "title": "Title E"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(friends_unique_movies) is 2
+    assert {"title": "Title D"} in friends_unique_movies
+    assert {"title": "Title E"} in friends_unique_movies
+
+
+def test_friends_not_unique_movies():
+    # Arrange
+    amandas_data = {
+        "watched": [
+            {
+                "title": "Title A"
+            },
+            {
+                "title": "Title B"
+            },
+            {
+                "title": "Title C"
+            }
+        ],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title C"
+                    }
+                ]
+            },
+            {
+                "watched": []
+            }
+        ]
+    }
+
+    # Act
+    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(friends_unique_movies) is 0
