@@ -69,13 +69,24 @@ def get_unique_watched(user_data):
 
     return unique_movies
 
+# Is this implementation annoying?
 def get_friends_unique_watched(user_data):
     watched_movies = user_data["watched"]
     unique_movies = []
 
     for friend in user_data["friends"]:
         for movie in friend["watched"]:
-            if movie not in watched_movies:
+            if movie not in watched_movies and movie not in unique_movies:
                 unique_movies.append(movie)
 
     return unique_movies
+
+def get_available_rec(user_data):
+    friend_recs = get_friends_unique_watched(user_data)
+    recommendations = []
+
+    for movie in friend_recs:
+        if movie["host"] in user_data["subscriptions"]:
+            recommendations.append(movie)
+
+    return recommendations

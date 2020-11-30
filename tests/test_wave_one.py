@@ -412,6 +412,43 @@ def test_friends_unique_movies():
     assert {"title": "Title E"} in friends_unique_movies
 
 
+def test_friends_unique_movies_not_duplicated():
+    # Arrange
+    amandas_data = {
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title B"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title A"
+                    },
+                    {
+                        "title": "Title C"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(friends_unique_movies) is 3
+    assert {"title": "Title A"} in friends_unique_movies
+    assert {"title": "Title B"} in friends_unique_movies
+    assert {"title": "Title C"} in friends_unique_movies
+
 def test_friends_not_unique_movies():
     # Arrange
     amandas_data = {
@@ -448,3 +485,80 @@ def test_friends_not_unique_movies():
 
     # Arrange
     assert len(friends_unique_movies) is 0
+
+def test_get_available_friend_rec():
+    # Arrange
+    amandas_data = {
+        "subscriptions": [ "Service A", "Service B" ],
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A",
+                        "host": "Service A"
+                    },
+                    {
+                        "title": "Title C",
+                        "host": "Service C"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title A",
+                        "host": "Service A"
+                    },
+                    {
+                        "title": "Title B",
+                        "host": "Service B"
+                    },
+                    {
+                        "title": "Title D",
+                        "host": "Service D"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    recommendation = main.get_available_rec(amandas_data)
+
+    # Arrange
+    assert len(recommendation) is 2
+    assert {"title": "Title A", "host": "Service A"} in recommendation
+    assert {"title": "Title B", "host": "Service B"} in recommendation
+
+
+def test_no_available_friend_recs():
+    # Arrange
+    amandas_data = {
+        "subscriptions": ["Service A", "Service B"],
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title C",
+                        "host": "Service C"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title D",
+                        "host": "Service D"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    recommendation = main.get_available_rec(amandas_data)
+
+    # Arrange
+    assert len(recommendation) is 0
