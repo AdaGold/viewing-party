@@ -90,3 +90,15 @@ def get_available_rec(user_data):
             recommendations.append(movie)
 
     return recommendations
+
+
+def get_new_rec_by_genre(user_data):
+    movies = get_friends_unique_watched(user_data)
+    genre = get_most_watched_genre(user_data)
+    recs = []
+
+    for movie in movies:
+        if movie["genre"] is genre:
+            recs.append(movie)
+
+    return recs
