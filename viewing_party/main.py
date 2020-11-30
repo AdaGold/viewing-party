@@ -21,7 +21,7 @@ def watch_movie(user_data, title):
         movie = user_data["watchlist"][i]
         if movie["title"] is title:
             add_to_watched(user_data, movie)
-            del user_data["watchlist"][i]
+            user_data["watchlist"].remove(movie)
             break # TODO: write a test that fails if this is missing
     return user_data
 
