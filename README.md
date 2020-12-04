@@ -215,6 +215,28 @@ In `main.py`, there should be a function named `watch_movie`. This function shou
   - If the title is not a movie in the user's watchlist:
     - return the `user_data`
 
+### Wave 2
+
+1. The first two tests are about a `get_watched_avg_rating()` function.
+
+In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+  - take one parameter: `user_data`
+    - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries
+        - This represents that the user has a list of watched movies
+  - Calculate the average rating of all movies in the watched list
+      - The average rating of an empty watched list is `0.0`
+  - return the average rating
+
+2. The next two tests are about a `get_most_watched_genre()` function.
+
+In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+  - take one parameter: `user_data`
+    - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries. Each movie dictionary has a key `"genre"`.
+        - This represents that the user has a list of watched movies. Each watched movie has a genre.
+        - The values of `"genre"` is a string.
+  - Determine which genre is most frequently occurring in the watched list
+  - return the genre that is the most frequently watched
+
 
 
 ```
@@ -227,13 +249,6 @@ In `main.py`, there should be a function named `watch_movie`. This function shou
     }
 }
 ```
-
-Creates a data structure from input:
-Given some fields, creates a movie dict
-Given some user data, adds a movie to the watched list
-Given some user data, adds a movie to the watchlist
-
-move a movie from watchlist to watched
 
 
 One loop:
