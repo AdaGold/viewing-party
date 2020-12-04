@@ -1,5 +1,5 @@
 import pytest
-from viewing_party import main
+from viewing_party.main import create_movie, add_to_watched, add_to_watchlist, watch_movie, get_watched_avg_rating, get_most_watched_genre, get_unique_watched, get_friends_unique_watched, get_available_recs, get_new_rec_by_genre, get_rec_from_favorites
 
 def test_create_successful_movie():
     # Arrange
@@ -8,7 +8,7 @@ def test_create_successful_movie():
     rating = 3.5
 
     # Act
-    new_movie = main.create_movie(movie_title, genre, rating)
+    new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
     assert new_movie["title"] is "Title A"
@@ -20,7 +20,7 @@ def test_create_no_title_movie():
     rating = 3.5
 
     # Act
-    new_movie = main.create_movie(movie_title, genre, rating)
+    new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
     assert new_movie is None
@@ -32,7 +32,7 @@ def test_create_no_genre_movie():
     rating = 3.5
 
     # Act
-    new_movie = main.create_movie(movie_title, genre, rating)
+    new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
     assert new_movie is None
@@ -44,7 +44,7 @@ def test_create_no_rating_movie():
     rating = None
 
     # Act
-    new_movie = main.create_movie(movie_title, genre, rating)
+    new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
     assert new_movie is None
@@ -61,7 +61,7 @@ def test_adds_movie_to_user_watched():
     }
 
     # Act
-    updated_data = main.add_to_watched(user_data, movie)
+    updated_data = add_to_watched(user_data, movie)
 
     # Assert
     assert len(updated_data["watched"]) is 1
@@ -82,7 +82,7 @@ def test_adds_movie_to_user_watchlist():
     }
 
     # Act
-    updated_data = main.add_to_watchlist(user_data, movie)
+    updated_data = add_to_watchlist(user_data, movie)
 
     # Assert
     assert len(updated_data["watchlist"]) is 1
@@ -103,7 +103,7 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     }
 
     # Act
-    updated_data = main.watch_movie(janes_data, "Title A")
+    updated_data = watch_movie(janes_data, "Title A")
 
     # Assert
     assert len(updated_data["watchlist"]) is 0
@@ -139,7 +139,7 @@ def test_moves_movie_from_watchlist_to_watched():
     }
 
     # Act
-    updated_data = main.watch_movie(janes_data, movie_to_watch["title"])
+    updated_data = watch_movie(janes_data, movie_to_watch["title"])
 
     # Assert
     assert len(updated_data["watchlist"]) is 1
@@ -171,7 +171,7 @@ def test_does_nothing_if_movie_not_in_watchlist():
     }
 
     # Act
-    updated_data = main.watch_movie(janes_data, "Title A")
+    updated_data = watch_movie(janes_data, "Title A")
 
     # Assert
     assert len(updated_data["watchlist"]) is 1
@@ -202,7 +202,7 @@ def test_calculates_watched_average_rating():
     }
 
     # Act
-    average = main.get_watched_avg_rating(janes_data)
+    average = get_watched_avg_rating(janes_data)
 
     # Assert
     assert average == pytest.approx(3.56666666664)
@@ -216,7 +216,7 @@ def test_empty_watched_average_rating_is_zero():
     }
 
     # Act
-    average = main.get_watched_avg_rating(janes_data)
+    average = get_watched_avg_rating(janes_data)
 
     # Assert
     assert average == pytest.approx(0.0)
@@ -249,7 +249,7 @@ def test_most_watched_genre():
     }
 
     # Act
-    popular_genre = main.get_most_watched_genre(janes_data)
+    popular_genre = get_most_watched_genre(janes_data)
 
     # Assert
     assert popular_genre is "Intrigue"
@@ -261,7 +261,7 @@ def test_genre_is_None_if_empty_watched():
     }
 
     # Act
-    popular_genre = main.get_most_watched_genre(janes_data)
+    popular_genre = get_most_watched_genre(janes_data)
 
     # Assert
     assert popular_genre is None
@@ -314,7 +314,7 @@ def test_my_unique_movies():
     }
 
     # Act
-    amandas_unique_movies = main.get_unique_watched(amandas_data)
+    amandas_unique_movies = get_unique_watched(amandas_data)
 
     # Arrange
     assert len(amandas_unique_movies) is 2
@@ -353,7 +353,7 @@ def test_my_not_unique_movies():
     }
 
     # Act
-    amandas_unique_movies = main.get_unique_watched(amandas_data)
+    amandas_unique_movies = get_unique_watched(amandas_data)
 
     # Arrange
     assert len(amandas_unique_movies) is 0
@@ -400,7 +400,7 @@ def test_friends_unique_movies():
     }
 
     # Act
-    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+    friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Arrange
     assert len(friends_unique_movies) is 2
@@ -437,7 +437,7 @@ def test_friends_unique_movies_not_duplicated():
     }
 
     # Act
-    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+    friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Arrange
     assert len(friends_unique_movies) is 3
@@ -477,7 +477,7 @@ def test_friends_not_unique_movies():
     }
 
     # Act
-    friends_unique_movies = main.get_friends_unique_watched(amandas_data)
+    friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Arrange
     assert len(friends_unique_movies) is 0
@@ -520,7 +520,7 @@ def test_get_available_friend_rec():
     }
 
     # Act
-    recommendations = main.get_available_recs(amandas_data)
+    recommendations = get_available_recs(amandas_data)
 
     # Arrange
     assert len(recommendations) is 2
@@ -554,7 +554,7 @@ def test_no_available_friend_recs():
     }
 
     # Act
-    recommendations = main.get_available_recs(amandas_data)
+    recommendations = get_available_recs(amandas_data)
 
     # Arrange
     assert len(recommendations) is 0
@@ -601,7 +601,7 @@ def test_new_genre_rec():
     }
 
     # Act
-    recommendations = main.get_new_rec_by_genre(sonyas_data)
+    recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
     for rec in recommendations:
@@ -640,7 +640,7 @@ def test_new_genre_rec_from_empty_watched():
     }
 
     # Act
-    recommendations = main.get_new_rec_by_genre(sonyas_data)
+    recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
     assert len(recommendations) is 0
@@ -666,7 +666,7 @@ def test_new_genre_rec_from_empty_friends():
 
 
     # Act
-    recommendations = main.get_new_rec_by_genre(sonyas_data)
+    recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
     assert len(recommendations) is 0
@@ -715,7 +715,7 @@ def test_unique_rec_from_favorites():
     }
 
     # Act
-    recommendations = main.get_rec_from_favorites(sonyas_data)
+    recommendations = get_rec_from_favorites(sonyas_data)
 
     # Assert
     assert len(recommendations) is 1
@@ -750,7 +750,7 @@ def test_unique_from_empty_favorites():
     }
 
     # Act
-    recommendations = main.get_new_rec_by_genre(sonyas_data)
+    recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
     assert len(recommendations) is 0
@@ -776,7 +776,7 @@ def test_new_rec_from_empty_friends():
     }
 
     # Act
-    recommendations = main.get_new_rec_by_genre(sonyas_data)
+    recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
     assert len(recommendations) is 0
