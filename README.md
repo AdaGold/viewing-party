@@ -264,21 +264,41 @@ In `main.py`, there should be a function named `get_friends_unique_watched`. Thi
   - Return a list of dictionaries, that represents a list of movies
 
 
+### Wave 4
 
+1. There are two tests about a `get_available_recs` function
 
-One loop:
-What is the average rating of the movies I've watched
-What is the most common genre of the movies I've watched
+Create a function named `get_available_recs`
+  - takes one parameter: `user_data`
+    - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
+      - This represents the names of streaming services that the user has access to
+      - each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which a string that says what streaming service it's hosted on
+  - Determine a list of recommended movies. A movie should be added to this list if and only if:
+    - The user has not watched it
+    - At least one of the user's friends has watched
+    - The `"host"` of the movie is a service that is in the user's `"subscriptions"`
+  - Return the list of recommended movies
 
-Nested loops:
-Between my friends, what is the average rating of the movies they've watched
-Most common genre of movies my friends have watched
+### Wave 5
 
-Nested loops + Compare with me (could be another loop):
-What are all the movies I've seen that they haven't seen
-What are all the movies they've seen that I haven't seen
-What are all the movies they've seen that I haven't seen on a streaming service that I have
+1. There are five tests about a `get_new_rec_by_genre` function
 
-Intense logic that can rely on previous functions if useful, probably the most optional?:
-Pick a movie for me; it should match my most common genre, a movie i haven't seen, but one of my friends has
-Pick a movie for me; it should be in my favorites, and my friends haven't seen it
+Create a function named `get_new_rec_by_genre`
+  - takes one parameter: `user_data`
+  - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+    - The user has not watched it
+    - At least one of the user's friends has watched
+    - The `"genre"` of the movie is the same as the user's most frequent genre
+  - Return the list of recommended movies
+
+1. There are three tests about a `get_rec_from_favorites` function
+
+Create a function named `get_new_rec_by_genre`
+  - takes one parameter: `user_data`
+    - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
+      - This represents the user's favorite movies
+  - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+    - The movie is in the user's `"favorites"`
+    - None of the user's friends have watched it
+  - Return the list of recommended movies
+
