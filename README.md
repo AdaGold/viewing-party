@@ -237,18 +237,33 @@ In `main.py`, there should be a function named `get_watched_avg_rating`. This fu
   - Determine which genre is most frequently occurring in the watched list
   - return the genre that is the most frequently watched
 
+### Wave 3
+
+1. The first two tests are about a `get_unique_watched()` function.
+
+In `main.py`, there should be a function named `get_unique_watched`. This function should...
+  - take one parameter: `user_data`
+    - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
+        - This represents that the user has a list of watched movies and a list of friends
+        - The value of `"friends"` is a list
+        - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
+        - Each movie dictionary has a `"title"`.
+  - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user has watched, but none of their friends have watched.
+  - Return a list of dictionaries, that represents a list of movies
+
+2. The next two tests are about a `get_friends_unique_watched()` function.
+
+In `main.py`, there should be a function named `get_friends_unique_watched`. This function should...
+  - take one parameter: `user_data`
+    - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
+        - This represents that the user has a list of watched movies and a list of friends
+        - The value of `"friends"` is a list
+        - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
+        - Each movie dictionary has a `"title"`.
+  - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user's friends have watched, but the user has not watched.
+  - Return a list of dictionaries, that represents a list of movies
 
 
-```
-{
-  watchlist:[]
-  favorites:[]
-  watched:[]
-  friends: {
-    watched:[]
-    }
-}
-```
 
 
 One loop:
