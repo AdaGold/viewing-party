@@ -109,7 +109,7 @@ $ deactivate
 
 Callout: Alternatively, you could close this Terminal tab/window.
 
-## Run Tests
+## Details About How to Run Tests
 
 Run all unskipped tests that exist in this project with:
 
@@ -129,9 +129,93 @@ If you want to run all unskipped tests that exist in one file, use:
 $ python3 -m pytest tests/test_file_name.py
 ```
 
-Where `test_file_name.py` is relpaced with the correct test file name.
+... where `test_file_name.py` is relpaced with the correct test file name.
 
-## Project Write-Up
+## Project Write-Up: How to Complete and Submit
+
+The goal of this project is to write code in `main.py` so that as many of the tests pass as possible.
+
+To complete this project, use the above workflow and follow these steps:
+
+1. Start with making the tests in `test_wave_one.py` pass.
+1. Review your code in `main.py` and see if there are ways you can make the code more readable.
+1. Then, work on making the tests in `test_wave_two.py` pass.
+1. Review your code in `main.py`
+1. Then, work on making the tests in `test_wave_three.py` pass.
+1. Review your code in `main.py`
+
+At submission time, no matter where you are, submit the project via ...
+
+## Project Directions
+
+This project is designed such that one could puzzle together how to implement this project without many directions.
+
+Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
+
+When our test failures leave us confused and stuck, let's use the detailed project requirements below.
+
+### Wave 1
+
+1. The first four tests are about a `create_movie()` function.
+
+In `main.py`, there should be a function named `create_movie`. This function should...
+  - take there parameters: `title`, `genre`, `rating`
+  - If those there attributes are truthy, then return a dictionary. This dictionary should...
+      - Have three key-value pairs, with specific keys
+      - The three keys should be `"title"`, `"genre"`, and `"rating"`
+      - The values of these key-value pairs should be appropriate values
+  - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
+
+2. The next test is about a `add_to_watched()` function.
+
+In `main.py`, there should be a function named `add_to_watched`. This function should...
+  - take two parameters: `user_data`, `movie`
+    - the value of `user_data` will be a dictionary with a key `"watched"`, and a value `[]`
+        - This represents that the user has no movies in their watched list
+    - the value of `movie` will be a dictionary in this format:
+        - ```python
+          {
+            "title": "Title A",
+            "genre": "Horror",
+            "rating": 3.5
+          }
+          ```
+  - add the `movie` to the `"watched"` list inside of `user_data`
+  - return the `user_data`
+
+3. The next test is about a `add_to_watchlist()` function.
+
+In `main.py`, there should be a function named `add_to_watchlist`. This function should...
+  - take two parameters: `user_data`, `movie`
+    - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value `[]`
+        - This represents that the user has no movies in their watchlist
+    - the value of `movie` will be a dictionary in this format:
+        - ```python
+          {
+            "title": "Title A",
+            "genre": "Horror",
+            "rating": 3.5
+          }
+          ```
+  - add the `movie` to the `"watchlist"` list inside of `user_data`
+  - return the `user_data`
+
+4. There are three tests about a `watch_movie()` function.
+
+In `main.py`, there should be a function named `watch_movie`. This function should...
+  - take two parameters: `user_data`, `title`
+    - the value of `user_data` will be a dictionary with a `"watchlist"` and a `"watched"`
+        - This represents that the user has a watchlist and a list of watched movies
+    - the value of `title` will be a string
+        - This represents the title of the movie the user has watched
+  - If the title is in a movie in the user's watchlist:
+    - remove that movie from the watchlist
+    - add that movie to watched
+    - return the `user_data`
+  - If the title is not a movie in the user's watchlist:
+    - return the `user_data`
+
+
 
 ```
 {
