@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import create_movie, add_to_watched, add_to_watchlist, watch_movie
+from viewing_party.main import *
 
 def test_create_successful_movie():
     # Arrange
@@ -12,6 +12,8 @@ def test_create_successful_movie():
 
     # Assert
     assert new_movie["title"] is "Title A"
+    assert new_movie["genre"] is "Horror"
+    assert new_movie["rating"] is 3.5
 
 def test_create_no_title_movie():
     # Arrange
@@ -69,7 +71,6 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["genre"] is "Horror"
     assert updated_data["watched"][0]["rating"] is 3.5
 
-
 def test_adds_movie_to_user_watchlist():
     # Arrange
     movie = {
@@ -90,12 +91,12 @@ def test_adds_movie_to_user_watchlist():
     assert updated_data["watchlist"][0]["genre"] is "Horror"
     assert updated_data["watchlist"][0]["rating"] is 3.5
 
+
 def test_moves_movie_from_watchlist_to_empty_watched():
     # Arrange
-    title = "Title A"
     janes_data = {
         "watchlist": [{
-            "title": title,
+            "title": "Title A",
             "genre": "Fantasy",
             "rating": 4.8
         }],
@@ -111,7 +112,6 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     assert updated_data["watched"][0]["title"] is "Title A"
     assert updated_data["watched"][0]["genre"] is "Fantasy"
     assert updated_data["watched"][0]["rating"] is 4.8
-
 
 def test_moves_movie_from_watchlist_to_watched():
     # Arrange

@@ -13,7 +13,7 @@ You and your friends enjoy watching things together online. Of course, everyone 
 
 You've been using a spreadsheet to compare everyone's watched list, favorites list, and watchlist, but it's been getting too cumbersome. In order to find things you've watched and your friends haven't watched, or things that your friends have watched and yo haven't watched, you have to comb through the spreadsheet. You know that there are different ways we can get that information: we can use Python!
 
-For this project, given some data structure that represents the things you've watched, favorited, and want to watch, follow the directions below. The directions will lead you to create a series of functions. These functions will modify the data so you can add and remove things from your lists. Also, many of them will create recommendations, based on different information available!
+For this project, you will be given some data structure that represents the things you've watched, favorited, and want to watch. The directions below will lead you to create a series of functions. These functions will modify the data, and implement features like adding and removing things between different lists. Other features include creating recommendations!
 
 ## One-Time Project Setup
 
@@ -74,7 +74,7 @@ Learn markdown checklist:
 $ source venv/bin/activate
 ```
 
-2. Find the test file that contains the tests you want to run. Ensure that the tests in the file isn't skipped.
+2. Find the test file that contains the test you want to run. Ensure that the test(s) you want to run isn't skipped.
 
    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
@@ -151,7 +151,7 @@ At submission time, no matter where you are, submit the project via ...
 
 This project is designed such that one could puzzle together how to implement this project without many directions.
 
-Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
+Being able to read tests to understand what is expected of our program is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
 
