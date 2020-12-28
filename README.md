@@ -1,11 +1,14 @@
 # Viewing Party
 
-## Learning Goals
+## Skills Assessed
 
-- nested loops
-- nested data structures
-- logic
-- working with lists
+Solving problems with...
+
+- Conditional logic
+- Lists
+- Dictionaries
+- Nested loops
+- Nested data structures
 
 ## Goal
 
@@ -62,14 +65,14 @@ Verify that you're in a python3 virtual environment by running:
 $ pip install -r requirements.txt
 ```
 
-Learn markdown checklist:
+Summary of one-time project setup:
 
-- [] `cd` into your `projects` folder
-- [] Clone the project onto your machine
-- [] `cd` into the `viewing-party` folder
-- [] Create the virtual environment `venv`
-- [] Activate the virtual environment `venv`
-- [] Install the dependences with `pip`
+- [ ] `cd` into your `projects` folder
+- [ ] Clone the project onto your machine
+- [ ] `cd` into the `viewing-party` folder
+- [ ] Create the virtual environment `venv`
+- [ ] Activate the virtual environment `venv`
+- [ ] Install the dependences with `pip`
 
 ## Project Development Workflow
 
@@ -91,7 +94,12 @@ $ source venv/bin/activate
 $ python -m pytest
 ```
 
-Callout: Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
+### !callout-info
+
+## `python -m`?
+Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
+
+### !end-callout
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
@@ -113,7 +121,13 @@ Callout: Why is the command `python -m pytest`? The `python -m` command says "ex
 $ deactivate
 ```
 
-Callout: Alternatively, you could close this Terminal tab/window.
+### !callout-secondary
+
+## `$ deactivate` or Close Terminal
+Alternatively, you could close this Terminal tab/window.
+
+### !end-callout
+
 
 ## Details About How to Run Tests
 
@@ -143,20 +157,17 @@ The goal of this project is to write code in `main.py` so that as many of the te
 
 To complete this project, use the above workflow and follow these steps:
 
-1. Start with making the tests in `test_wave_one.py` pass.
+1. Start with making the tests in `test_wave_01.py` pass.
 1. Review your code in `main.py` and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_two.py` pass.
+1. Then, work on making the tests in `test_wave_02.py` pass.
 1. Review your code in `main.py`
-1. Then, work on making the tests in `test_wave_three.py` pass.
-1. Review your code in `main.py`
+1. Repeat on all test files until submission time.
 
 At submission time, no matter where you are, submit the project via ...
 
 ## Project Directions
 
-This project is designed such that one could puzzle together how to implement this project without many directions.
-
-Being able to read tests to understand what is expected of our program is a skill that needs to be developed; programmers often take years to develop this skill competently.
+This project is designed such that one could puzzle together how to implement this project without many directions. Being able to read tests to understand what is expected of our program is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
 
@@ -166,7 +177,7 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 In `main.py`, there should be a function named `create_movie`. This function should...
 
-- take there parameters: `title`, `genre`, `rating`
+- take three parameters: `title`, `genre`, `rating`
 - If those there attributes are truthy, then return a dictionary. This dictionary should...
   - Have three key-value pairs, with specific keys
   - The three keys should be `"title"`, `"genre"`, and `"rating"`
