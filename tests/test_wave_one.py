@@ -1,4 +1,4 @@
-import pytest 
+import pytest
 from viewing_party.main import *
 
 def test_create_successful_movie():
@@ -11,8 +11,9 @@ def test_create_successful_movie():
     new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
-    # Why not test genre and rating as well?
     assert new_movie["title"] is "Title A"
+    assert new_movie["genre"] is "Horror"
+    assert new_movie["rating"] is 3.5
 
 def test_create_no_title_movie():
     # Arrange
@@ -69,7 +70,6 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["title"] is "Title A"
     assert updated_data["watched"][0]["genre"] is "Horror"
     assert updated_data["watched"][0]["rating"] is 3.5
-    # Should user_data be the same or also updated? Is it problematic to not force them to think about that?
 
 def test_adds_movie_to_user_watchlist():
     # Arrange
@@ -94,11 +94,9 @@ def test_adds_movie_to_user_watchlist():
 
 def test_moves_movie_from_watchlist_to_empty_watched():
     # Arrange
-    # This variable definition feels a little awkward because genre and rating weren't also defined and it doesn't get used after line 101. I would suggest removing it or making variables for each of them and using them everywhere in the test.
-    title = "Title A"
     janes_data = {
         "watchlist": [{
-            "title": title,
+            "title": "Title A",
             "genre": "Fantasy",
             "rating": 4.8
         }],
