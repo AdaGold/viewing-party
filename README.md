@@ -51,10 +51,15 @@ $ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
+Verify that you're in a python3 virtual environment by running:
+
+- `$ python --version` should output a Python 3 version
+- `$ pip --version` should output that it is working with Python 3
+
 6. Install dependencies once at the beginning of this project with
 
 ```
-$ python3 -m pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 Learn markdown checklist:
@@ -83,10 +88,10 @@ $ source venv/bin/activate
 3. Run the tests!
 
 ```
-$ python3 -m pytest
+$ python -m pytest
 ```
 
-Callout: Why is the command `python3 -m pytest`? The `python3 -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python3 -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
+Callout: Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
@@ -115,19 +120,19 @@ Callout: Alternatively, you could close this Terminal tab/window.
 Run all unskipped tests that exist in this project with:
 
 ```
-python3 -m pytest
+python -m pytest
 ```
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```
-python3 -m pytest -s
+python -m pytest -s
 ```
 
 If you want to run all unskipped tests that exist in one file, use:
 
 ```
-$ python3 -m pytest tests/test_file_name.py
+$ python -m pytest tests/test_file_name.py
 ```
 
 ... where `test_file_name.py` is relpaced with the correct test file name.
