@@ -1,6 +1,7 @@
 import pytest
 from viewing_party.main import *
 
+
 def test_create_successful_movie():
     # Arrange
     movie_title = "Title A"
@@ -15,6 +16,7 @@ def test_create_successful_movie():
     assert new_movie["genre"] is "Horror"
     assert new_movie["rating"] is 3.5
 
+
 def test_create_no_title_movie():
     # Arrange
     movie_title = None
@@ -26,6 +28,7 @@ def test_create_no_title_movie():
 
     # Assert
     assert new_movie is None
+
 
 def test_create_no_genre_movie():
     # Arrange
@@ -39,6 +42,7 @@ def test_create_no_genre_movie():
     # Assert
     assert new_movie is None
 
+
 def test_create_no_rating_movie():
     # Arrange
     movie_title = "Title A"
@@ -50,6 +54,7 @@ def test_create_no_rating_movie():
 
     # Assert
     assert new_movie is None
+
 
 def test_adds_movie_to_user_watched():
     # Arrange
@@ -70,6 +75,7 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["title"] is "Title A"
     assert updated_data["watched"][0]["genre"] is "Horror"
     assert updated_data["watched"][0]["rating"] is 3.5
+
 
 def test_adds_movie_to_user_watchlist():
     # Arrange
@@ -113,6 +119,7 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     assert updated_data["watched"][0]["genre"] is "Fantasy"
     assert updated_data["watched"][0]["rating"] is 4.8
 
+
 def test_moves_movie_from_watchlist_to_watched():
     # Arrange
     movie_to_watch = {
@@ -146,6 +153,7 @@ def test_moves_movie_from_watchlist_to_watched():
     assert len(updated_data["watched"]) is 2
     assert movie_to_watch in updated_data["watched"]
 
+
 def test_does_nothing_if_movie_not_in_watchlist():
     # Arrange
     movie_to_watch = {
@@ -178,4 +186,3 @@ def test_does_nothing_if_movie_not_in_watchlist():
     assert len(updated_data["watched"]) is 1
     assert movie_to_watch not in updated_data["watchlist"]
     assert movie_to_watch not in updated_data["watched"]
-

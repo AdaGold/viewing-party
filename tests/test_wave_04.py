@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import create_movie, add_to_watched, add_to_watchlist, watch_movie, get_watched_avg_rating, get_most_watched_genre, get_unique_watched, get_friends_unique_watched, get_available_recs
+from viewing_party.main import *
 
 
 def test_get_available_friend_rec():
@@ -78,5 +78,3 @@ def test_no_available_friend_recs():
 
     # Arrange
     assert len(recommendations) is 0
-
-

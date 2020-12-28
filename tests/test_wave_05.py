@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import create_movie, add_to_watched, add_to_watchlist, watch_movie, get_watched_avg_rating, get_most_watched_genre, get_unique_watched, get_friends_unique_watched, get_available_recs, get_new_rec_by_genre, get_rec_from_favorites
+from viewing_party.main import *
 
 
 def test_new_genre_rec():
