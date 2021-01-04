@@ -91,15 +91,12 @@ $ source venv/bin/activate
 3. Run the tests!
 
 ```
+# Must be in virtual environment
 $ python -m pytest
 ```
 
-### !callout-info
-
-## `python -m`?
+### A small aside: `python -m`?
 Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
-
-### !end-callout
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
@@ -115,37 +112,32 @@ Why is the command `python -m pytest`? The `python -m` command says "execute wha
 
 10. Begin using the test file of the next wave!
 
-11. When you are finished working for the day, deactivate your environment with
+11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
 ```
 $ deactivate
 ```
-
-### !callout-secondary
-
-## `$ deactivate` or Close Terminal
-Alternatively, you could close this Terminal tab/window.
-
-### !end-callout
-
 
 ## Details About How to Run Tests
 
 Run all unskipped tests that exist in this project with:
 
 ```
-python -m pytest
+# Must be in virtual environment
+$ python -m pytest
 ```
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```
-python -m pytest -s
+# Must be in virtual environment
+$ python -m pytest -s
 ```
 
 If you want to run all unskipped tests that exist in one file, use:
 
 ```
+# Must be in virtual environment
 $ python -m pytest tests/test_file_name.py
 ```
 
@@ -163,7 +155,7 @@ To complete this project, use the above workflow and follow these steps:
 1. Review your code in `main.py`
 1. Repeat on all test files until submission time.
 
-At submission time, no matter where you are, submit the project via ...
+At submission time, no matter where you are, submit the project via Learn.
 
 ## Project Directions
 
