@@ -62,6 +62,7 @@ Verify that you're in a python3 virtual environment by running:
 6. Install dependencies once at the beginning of this project with
 
 ```
+# Must be in activated virtual environment
 $ pip install -r requirements.txt
 ```
 
@@ -91,12 +92,9 @@ $ source venv/bin/activate
 3. Run the tests!
 
 ```
-# Must be in virtual environment
-$ python -m pytest
+# Must be in activated virtual environment
+$ pytest
 ```
-
-### A small aside: `python -m`?
-Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
@@ -123,22 +121,22 @@ $ deactivate
 Run all unskipped tests that exist in this project with:
 
 ```
-# Must be in virtual environment
-$ python -m pytest
+# Must be in activated virtual environment
+$ pytest
 ```
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```
-# Must be in virtual environment
-$ python -m pytest -s
+# Must be in activated virtual environment
+$ pytest -s
 ```
 
 If you want to run all unskipped tests that exist in one file, use:
 
 ```
-# Must be in virtual environment
-$ python -m pytest tests/test_file_name.py
+# Must be in activated virtual environment
+$ pytest tests/test_file_name.py
 ```
 
 ... where `test_file_name.py` is relpaced with the correct test file name.
