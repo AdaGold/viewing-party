@@ -95,7 +95,7 @@ def test_my_not_unique_movies():
     # Arrange
     assert len(amandas_unique_movies) is 0
 
-
+@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_unique_movies():
     # Arrange
     amandas_data = {
@@ -145,7 +145,7 @@ def test_friends_unique_movies():
     assert {"title": "Title D"} in friends_unique_movies
     assert {"title": "Title E"} in friends_unique_movies
 
-
+@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_unique_movies_not_duplicated():
     # Arrange
     amandas_data = {
@@ -183,7 +183,7 @@ def test_friends_unique_movies_not_duplicated():
     assert {"title": "Title B"} in friends_unique_movies
     assert {"title": "Title C"} in friends_unique_movies
 
-
+@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_not_unique_movies():
     # Arrange
     amandas_data = {
