@@ -83,41 +83,51 @@ def get_most_watched_genre(user_data):
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
 
-def get_friends_movie_titles(user_data):
-    friend_movie_titles = []
+def get_friends_movies(user_data):
+    friend_movies = []
 
     #get friends movie titles
     for watched_dict in user_data['friends']:
         for movie in watched_dict['watched']:
-            if movie['title'] not in friend_movie_titles:
-                friend_movie_titles.append(movie['title'])
+            if movie not in friend_movies:
+                friend_movies.append(movie)
 
-    return friend_movie_titles
+    return friend_movies
 
 def get_unique_watched(user_data):
     user_movies = user_data['watched']
     user_unique_movie_titles = []
-    friend_movie_titles = get_friends_movie_titles(user_data)
+    friend_movies = get_friends_movies(user_data)
 
     #check for unique titles
     for movie in user_movies:
-        if movie['title'] not in friend_movie_titles:
-            user_unique_movie_titles.append({'title': movie['title']})
+        if movie not in friend_movies:
+            user_unique_movie_titles.append(movie)
     
     return user_unique_movie_titles
 
 
 def get_friends_unique_watched(user_data):
-    friend_movie_titles = get_friends_movie_titles(user_data)
-    unique_friend_unique_movie_titles = []
+    friend_movies = get_friends_movies(user_data)
+    unique_friend_movies = []
 
-    for title in friend_movie_titles:
-        if {'title': title} not in user_data['watched']:
-            unique_friend_unique_movie_titles.append({'title': title})
+    for movie in friend_movies:
+        if {'title': movie['title']} not in user_data['watched']:
+            unique_friend_movies.append(movie)
 
-    return unique_friend_unique_movie_titles
+    return unique_friend_movies
 
         
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
+
+#  def get_available_recs(user_data):
+
+#      unique_friend_movies = get_friends_unique_watched(user_data)
+
+# #     for title in friend_movie_titles:
+# #         if {'title': title} not in user_data['watched']:
+# #             unique_friend_unique_movie_titles.append({'title': title})
+
+# #     for movie in user_has_not_watched:
