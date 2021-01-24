@@ -44,7 +44,7 @@ def calculate_genre_freq(user_data):
     for movie in movies:
         genre = movie['genre']
         try:
-            if genre_freqs[genre] == 0:
+            if genre_freqs[genre] != 0:
                 genre_freqs[genre] += 1
         except: 
             genre_freqs[genre] = 1
@@ -59,8 +59,9 @@ def get_most_watched_genre(user_data):
     if movies == []:
         return None
 
+    #call helper function to get frequencies
     genre_freqs = calculate_genre_freq(user_data)   
-
+    print(genre_freqs)
     highest_freq = 0 
 
     # find most frequent
@@ -71,30 +72,3 @@ def get_most_watched_genre(user_data):
             highest_freq = freq
 
     return most_frequent
-
-# janes_data = {
-#         "watched": [
-#             {
-#                 "title": "Title A",
-#                 "genre": "Fantasy"
-#             },
-#             {
-#                 "title": "Title B",
-#                 "genre": "Intrigue"
-#             },
-#             {
-#                 "title": "Title C",
-#                 "genre": "Intrigue"
-#             },
-#             {
-#                 "title": "Title D",
-#                 "genre": "Fantasy"
-#             },
-#             {
-#                 "title": "Title E",
-#                 "genre": "Intrigue"
-#             },
-#         ]
-#     }
-
-# get_most_watched_genre(janes_data)
