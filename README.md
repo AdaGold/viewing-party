@@ -28,7 +28,11 @@ Follow these directions once, a the beginning of your project:
 $ cd ~/Developer/projects
 ```
 
-2. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `viewing-party`, and then puts the project into this new folder.
+2. In Github click on the "Fork" button in github and fork the repository to your Github account.  This will make a copy of the project in your github account. 
+
+![Fork Button](images/fork.png)
+
+3. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `viewing-party`, and then puts the project into this new folder.  Make sure you are cloning from your copy of the project and not the class version (ada-cX).
 
 ```bash
 $ git clone ...
@@ -36,19 +40,19 @@ $ git clone ...
 
 Use `ls` to confirm there's a new project folder
 
-3. Move your location into this project folder
+4. Move your location into this project folder
 
 ```bash
 $ cd viewing-party
 ```
 
-4. Create a virtual environment named `venv` for this project:
+5. Create a virtual environment named `venv` for this project:
 
 ```bash
 $ python3 -m venv venv
 ```
 
-5. Activate this environment:
+6. Activate this environment:
 
 ```bash
 $ source venv/bin/activate
@@ -296,7 +300,7 @@ Create a function named `get_available_recs`
 
 ### Wave 5
 
-1. There are five tests about a `get_new_rec_by_genre` function
+1. There are four tests about a `get_new_rec_by_genre` function
 
 Create a function named `get_new_rec_by_genre`
 
@@ -307,9 +311,9 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-1. There are three tests about a `get_rec_from_favorites` function
+1. There is also one test about a `get_rec_from_favorites` function
 
-Create a function named `get_new_rec_by_genre`
+Create a function named `get_new_rec_by_favorites`
 
 - takes one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
