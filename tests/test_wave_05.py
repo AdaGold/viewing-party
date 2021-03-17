@@ -2,7 +2,7 @@ import pytest
 from viewing_party.main import *
 
 
-def test_new_genre_rec():
+def test_get_new_rec_by_genre_():
     # Arrange
     sonyas_data = {
         "watched": [
@@ -54,7 +54,7 @@ def test_new_genre_rec():
     assert {"title": "Title E", "genre": "Intrigue"} in recommendations
 
 
-def test_new_genre_rec_from_empty_watched():
+def test_get_new_rec_by_genre_returns_empty_list_when_sonyas_watched_list_is_empty():
     # Arrange
     sonyas_data = {
         "watched": [],
@@ -89,7 +89,7 @@ def test_new_genre_rec_from_empty_watched():
     assert len(recommendations) is 0
 
 
-def test_new_genre_rec_from_empty_friends():
+def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_empty():
     # Arrange
     sonyas_data = {
         "watched": [
@@ -115,7 +115,43 @@ def test_new_genre_rec_from_empty_friends():
     assert len(recommendations) is 0
 
 
-def test_unique_rec_from_favorites():
+
+def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_no_unique_movie_in_watched_list():
+    # Arrange
+    sonyas_data = {
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A",
+                        "genre": "Intrigue"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title B",
+                        "genre": "Fantasy"
+                    },
+                    {
+                        "title": "Title C",
+                        "genre": "Intrigue"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    recommendations = get_new_rec_by_genre(sonyas_data)
+
+    # Assert
+    assert len(recommendations) is 0
+
+
+def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
     # Arrange
     sonyas_data = {
         "watched": [
@@ -164,64 +200,3 @@ def test_unique_rec_from_favorites():
     # Assert
     assert len(recommendations) is 1
     assert {"title": "Title A"} in recommendations
-
-
-def test_unique_from_empty_favorites():
-    # Arrange
-    sonyas_data = {
-        "watched": [],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "genre": "Intrigue"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title B",
-                        "genre": "Fantasy"
-                    },
-                    {
-                        "title": "Title C",
-                        "genre": "Intrigue"
-                    }
-                ]
-            }
-        ]
-    }
-
-    # Act
-    recommendations = get_new_rec_by_genre(sonyas_data)
-
-    # Assert
-    assert len(recommendations) is 0
-
-
-def test_new_rec_from_empty_friends():
-    # Arrange
-    sonyas_data = {
-        "watched": [
-            {
-                "title": "Title A",
-                "genre": "Intrigue"
-            }
-        ],
-        "friends": [
-            {
-                "watched": []
-            },
-            {
-                "watched": []
-            }
-        ]
-    }
-
-    # Act
-    recommendations = get_new_rec_by_genre(sonyas_data)
-
-    # Assert
-    assert len(recommendations) is 0

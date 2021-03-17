@@ -3,7 +3,7 @@ import pytest
 from viewing_party.main import *
 
 
-def test_create_successful_movie():
+def test_create_movie_all_params_valid_returns_movie():
     # Arrange
     movie_title = "Title A"
     genre = "Horror"
@@ -18,7 +18,7 @@ def test_create_successful_movie():
     assert new_movie["rating"] is 3.5
 
 
-def test_create_no_title_movie():
+def test_create_movie_no_title_returns_none():
     # Arrange
     movie_title = None
     genre = "Horror"
@@ -31,7 +31,7 @@ def test_create_no_title_movie():
     assert new_movie is None
 
 
-def test_create_no_genre_movie():
+def test_create_movie_no_genre_returns_none():
     # Arrange
     movie_title = "Title A"
     genre = None
@@ -44,7 +44,7 @@ def test_create_no_genre_movie():
     assert new_movie is None
 
 
-def test_create_no_rating_movie():
+def test_create_movie_no_rating_returns_none():
     # Arrange
     movie_title = "Title A"
     genre = "Horror"
@@ -57,7 +57,7 @@ def test_create_no_rating_movie():
     assert new_movie is None
 
 
-def test_adds_movie_to_user_watched():
+def test_add_to_watched_adds_movie_to_user_watched():
     # Arrange
     movie = {
         "title": "Title A",
@@ -78,7 +78,7 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["rating"] is 3.5
 
 
-def test_adds_movie_to_user_watchlist():
+def test_add_to_watchlist_adds_movie_to_user_watchlist():
     # Arrange
     movie = {
         "title": "Title A",
@@ -99,7 +99,7 @@ def test_adds_movie_to_user_watchlist():
     assert updated_data["watchlist"][0]["rating"] is 3.5
 
 
-def test_moves_movie_from_watchlist_to_empty_watched():
+def test_watch_movie_moves_movie_from_watchlist_to_empty_watched():
     # Arrange
     janes_data = {
         "watchlist": [{
@@ -121,7 +121,7 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     assert updated_data["watched"][0]["rating"] is 4.8
 
 
-def test_moves_movie_from_watchlist_to_watched():
+def test_watch_movie_moves_movie_from_watchlist_to_watched():
     # Arrange
     movie_to_watch = {
         "title": "Title A",
@@ -155,7 +155,7 @@ def test_moves_movie_from_watchlist_to_watched():
     assert movie_to_watch in updated_data["watched"]
 
 
-def test_does_nothing_if_movie_not_in_watchlist():
+def test_watch_movie_does_nothing_if_movie_not_in_watchlist():
     # Arrange
     movie_to_watch = {
         "title": "Title A",
