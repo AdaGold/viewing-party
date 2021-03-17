@@ -115,41 +115,6 @@ def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_
     assert len(recommendations) is 0
 
 
-def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_no_unique_movie_in_watched_list():
-    # Arrange
-    sonyas_data = {
-        "watched": [],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "genre": "Intrigue"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title B",
-                        "genre": "Fantasy"
-                    },
-                    {
-                        "title": "Title C",
-                        "genre": "Intrigue"
-                    }
-                ]
-            }
-        ]
-    }
-
-    # Act
-    recommendations = get_new_rec_by_genre(sonyas_data)
-
-    # Assert
-    assert len(recommendations) is 0
-
-
 def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
     # Arrange
     sonyas_data = {
@@ -199,4 +164,40 @@ def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
     # Assert
     assert len(recommendations) is 1
     assert {"title": "Title A"} in recommendations
+
+
+
+def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_no_unique_movie_in_watched_list():
+    # Arrange
+    sonyas_data = {
+        "watched": [],
+        "friends": [
+            {
+                "watched": [
+                    {
+                        "title": "Title A",
+                        "genre": "Intrigue"
+                    }
+                ]
+            },
+            {
+                "watched": [
+                    {
+                        "title": "Title B",
+                        "genre": "Fantasy"
+                    },
+                    {
+                        "title": "Title C",
+                        "genre": "Intrigue"
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Act
+    recommendations = get_new_rec_by_genre(sonyas_data)
+
+    # Assert
+    assert len(recommendations) is 0
 
