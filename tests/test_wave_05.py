@@ -2,7 +2,7 @@ import pytest
 from viewing_party.main import *
 
 
-def test_get_new_rec_by_genre_():
+def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amount_of_valid_input():
     # Arrange
     sonyas_data = {
         "watched": [
