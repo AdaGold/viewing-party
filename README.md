@@ -300,7 +300,7 @@ Create a function named `get_available_recs`
 
 ### Wave 5
 
-1. There are five tests about a `get_new_rec_by_genre` function
+1. There are four tests about a `get_new_rec_by_genre` function
 
 Create a function named `get_new_rec_by_genre`
 
@@ -311,9 +311,9 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-1. There are three tests about a `get_rec_from_favorites` function
+1. There is also one test about a `get_rec_from_favorites` function
 
-Create a function named `get_new_rec_by_genre`
+Create a function named `get_new_rec_by_favorites`
 
 - takes one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
