@@ -2,7 +2,7 @@ import pytest
 from viewing_party.main import *
 
 
-def test_get_available_friend_rec():
+def test_get_available_recs_returns_appropriate_recommendations_for_valid_input():
     # Arrange
     amandas_data = {
         "subscriptions": ["Service A", "Service B"],
@@ -48,7 +48,7 @@ def test_get_available_friend_rec():
     assert {"title": "Title B", "host": "Service B"} in recommendations
 
 
-def test_no_available_friend_recs():
+def test_get_available_recs_returns_empty_list_for_valid_input_with_no_intersection_in_subscriptions():
     # Arrange
     amandas_data = {
         "subscriptions": ["Service A", "Service B"],
