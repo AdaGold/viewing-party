@@ -77,7 +77,7 @@ Summary of one-time project setup:
 - [ ] `cd` into the `viewing-party` folder
 - [ ] Create the virtual environment `venv`
 - [ ] Activate the virtual environment `venv`
-- [ ] Install the dependences with `pip`
+- [ ] Install the dependencies with `pip`
 
 ## Project Development Workflow
 
@@ -143,7 +143,7 @@ If you want to run all unskipped tests that exist in one file, use:
 $ pytest tests/test_file_name.py
 ```
 
-... where `test_file_name.py` is relpaced with the correct test file name.
+... where `test_file_name.py` is replaced with the correct test file name.
 
 ## Project Write-Up: How to Complete and Submit
 
@@ -245,7 +245,7 @@ In `main.py`, there should be a function named `get_watched_avg_rating`. This fu
 
 2. The next two tests are about a `get_most_watched_genre()` function.
 
-In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+In `main.py`, there should be a function named `get_most_watched_genre`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries. Each movie dictionary has a key `"genre"`.
@@ -269,7 +269,7 @@ In `main.py`, there should be a function named `get_unique_watched`. This functi
 - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user has watched, but none of their friends have watched.
 - Return a list of dictionaries, that represents a list of movies
 
-2. The next two tests are about a `get_friends_unique_watched()` function.
+2. The next three tests are about a `get_friends_unique_watched()` function.
 
 In `main.py`, there should be a function named `get_friends_unique_watched`. This function should...
 
@@ -313,7 +313,7 @@ Create a function named `get_new_rec_by_genre`
 
 1. There is also one test about a `get_rec_from_favorites` function
 
-Create a function named `get_new_rec_by_favorites`
+Create a function named `get_rec_from_favorites`
 
 - takes one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
