@@ -14,54 +14,49 @@ print(answer)
 
 ##2.
 def add_to_watched(user_data,movie):
-      user_data["watched"]=[]
-      user_data["watched"].append(movie)
+      if "watched" in user_data:
+            user_data["watched"].append(movie)
       return user_data
 ###3.
 def add_to_watchlist(user_data,movie):
-      user_data["watchlist"]=[]
-      user_data["watchlist"].append(movie)
-      return user_data
+      if "watchlist" in user_data:
+            user_data["watchlist"].append(movie)
+            return user_data
 ####4.
 def watch_movie(user_data,title):
-      for item in user_data["watchlist"]:
+      for movie in user_data["watchlist"]:
             # print(item)
-            if  item["title"]==title:
-                  user_data["watchlist"].remove(item)
-                  user_data["watched"].append(item)
-                        
-
-                  
+            if  movie["title"]==title:
+                  user_data["watchlist"].remove(movie)
+                  user_data["watched"].append(movie)
+                  break
       return user_data
 #wave2 
 #1
 def get_watched_avg_rating(user_data):
       sum=0
-      average=0.0
-     
-      for item in user_data["watched"]:
-            if len(user_data["watched"])!=0:
-                  sum+=item["rating"]
-                  average = sum/len(user_data["watched"])
-      return average
-
-
+      for movie in user_data["watched"]:
+            sum+=movie["rating"]
+      if len(user_data["watched"])==0:
+            return 0.0
+      return sum/len(user_data["watched"])
 ##2
 def get_most_watched_genre(user_data):
-      my_dict={}
+      numbers_movie_by_genre={}
       if len(user_data["watched"])==0:
             return None
-      for item in user_data["watched"]:
-            if item["genre"] not in my_dict:
-                  my_dict[item["genre"]] = 1
+      for movie in user_data["watched"]:
+            if movie["genre"] not in numbers_movie_by_genre:
+                  numbers_movie_by_genre[movie["genre"]] = 1
             else:
-                  my_dict[item["genre"]] += 1
-                  
-      
-      max_value=max(my_dict.values())
-      max_keys=[k for k,v in my_dict.items() if v==max_value]
-      return max_keys[0]
-      # return max_value
+                  numbers_movie_by_genre[movie["genre"]] += 1
+      max_value=0
+      most_watch_genre=""
+      for movie_genre,watch_times in numbers_movie_by_genre.items():
+            if watch_times > max_value:
+                  max_value=watch_times
+                  most_watch_genre=movie_genre
+      return most_watch_genre
       
 
 #wave3
@@ -81,10 +76,9 @@ def get_unique_watched(user_data):
       for user_movie_title in user_data["watched"]:
             # print(user_movie_title)  
             if user_movie_title not in  friends_movies :
-                       movie_list.append(user_movie_title)                
+                  movie_list.append(user_movie_title)                
       return movie_list
 ##2
- 
 def get_friends_unique_watched(user_data):
       friends_movies = get_friends_movies(user_data)
       movie_list_1=[i for n, i in enumerate(friends_movies) if i not in friends_movies[:n]]
@@ -92,7 +86,7 @@ def get_friends_unique_watched(user_data):
       for movie in movie_list_1:
             # print(user_movie_title)  
             if movie not in  user_data["watched"] :
-                      movie_list_2.append(movie)               
+                  movie_list_2.append(movie)               
       return movie_list_2
 #wave4
 #1
@@ -102,7 +96,7 @@ def get_available_recs(user_data):
             for friend in user_data["friends"]:
                   for movie in friend["watched"]:
                         if service_type== movie["host"]:
-                           list_of_recommended_movies.append(movie)
+                              list_of_recommended_movies.append(movie)
 
       list_1=[i for n, i in enumerate(list_of_recommended_movies) if i not in list_of_recommended_movies[:n]]
       return list_1
@@ -149,4 +143,3 @@ def get_rec_from_favorites(user_data):
                   print(user_fav_movie["title"] ,friends_watched_movies)
                   recommended_movies_from_favs.append(user_fav_movie)
       return recommended_movies_from_favs
-      
