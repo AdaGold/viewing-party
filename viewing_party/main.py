@@ -47,13 +47,23 @@ def calculate_genre_freq(user_data):
     # make genre frequency hash
     genre_freqs = {}
     movies = user_data["watched"]
+    #genre_freq = defaultdict(lambda: 0)
+
     for movie in movies:
         genre = movie['genre']
-        try:
-            if genre_freqs[genre] != 0:
-                genre_freqs[genre] += 1
-        except: 
+        if genre not in genre_freqs.keys():
             genre_freqs[genre] = 1
+        else:
+            genre_freqs[genre] += 1
+
+    
+
+    # genre = movie['genre']
+    # try:
+    #     if genre_freqs[genre] != 0:
+    #         genre_freqs[genre] += 1
+    # except: 
+    #     genre_freqs[genre] = 1
 
     return genre_freqs
 
