@@ -55,9 +55,7 @@ def calculate_genre_freq(user_data):
             genre_freqs[genre] = 1
         else:
             genre_freqs[genre] += 1
-
-    
-
+            
     # genre = movie['genre']
     # try:
     #     if genre_freqs[genre] != 0:
