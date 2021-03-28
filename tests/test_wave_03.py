@@ -52,7 +52,7 @@ def test_get_unique_watched_returns_list_of_movies_in_amandas_data_absent_from_t
     # Act
     amandas_unique_movies = get_unique_watched(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(amandas_unique_movies) is 2
     assert {"title": "Title B"} in amandas_unique_movies
     assert {"title": "Title E"} in amandas_unique_movies
@@ -92,7 +92,7 @@ def test_get_unique_watched_returns_empty_list_when_amandas_movies_are_all_in_he
     # Act
     amandas_unique_movies = get_unique_watched(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(amandas_unique_movies) is 0
 
 
@@ -137,7 +137,7 @@ def test_get_friends_unique_watched_returns_list_of_movies_amanda_has_not_watche
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(friends_unique_movies) is 3
     assert {"title": "Title A"} in friends_unique_movies
     assert {"title": "Title D"} in friends_unique_movies
@@ -175,7 +175,7 @@ def test_get_friends_unique_watched_returns_list_of_movies_amanda_has_not_watche
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(friends_unique_movies) is 3
     assert {"title": "Title A"} in friends_unique_movies
     assert {"title": "Title B"} in friends_unique_movies
@@ -216,5 +216,5 @@ def test_get_friends_unique_watched_returns_empty_list_when_amanda_has_seen_all_
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(friends_unique_movies) is 0
