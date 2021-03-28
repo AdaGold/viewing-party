@@ -3,6 +3,7 @@ from viewing_party.main import *
 
 
 def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amount_of_valid_input():
+### 5.1.1 PASSED ###    
     # Arrange
     sonyas_data = {
         "watched": [
@@ -55,6 +56,7 @@ def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amou
 
 
 def test_get_new_rec_by_genre_returns_empty_list_when_sonyas_watched_list_is_empty():
+### 5.1.2 PASSED ###    
     # Arrange
     sonyas_data = {
         "watched": [],
@@ -90,6 +92,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_sonyas_watched_list_is_emp
 
 
 def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_empty():
+### 5.1.3 PASSED ###  
     # Arrange
     sonyas_data = {
         "watched": [
@@ -117,6 +120,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_
 
 
 def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_no_unique_movie_in_watched_list():
+### 5.1.4 PASSED ###  
     # Arrange
     sonyas_data = {
         "watched": [],
@@ -152,6 +156,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_
 
 
 def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
+### 5.2.1 ###  
     # Arrange
     sonyas_data = {
         "watched": [
