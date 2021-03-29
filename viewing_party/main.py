@@ -77,16 +77,14 @@ def get_most_watched_genre(user_data):
 
 ###################### WAVE 3 PASSED #########################
 ### Wave 3.1 (2 tests) PASSED ###
-def unique_helper(user_data):
 # this solution uses sets to modify the data
 # ...specializes function for removing data that's irrelevant
+def unique_helper(user_data):
     user_set = set()
     friend_set = set()
 
     for user_movies in user_data["watched"]:
         user_set.add(user_movies["title"]) 
-        # now user_set has the values from user(amandas) movies
-        # user_set = {'Title B', 'Title D', 'Title E', 'Title A', 'Title C'}
     for friend_items in user_data["friends"]:
         for movie in friend_items["watched"]:
             for title,val in movie.items():
@@ -94,7 +92,7 @@ def unique_helper(user_data):
     return user_set, friend_set
 
 def get_unique_watched(user_data):
-# Return a list of dictionaries that represents list of movies
+    # Return a list of dictionaries that represents list of movies
     # extra step to put the data back into a dictionary -refactor
     user_set, friend_set = unique_helper(user_data)
     unique2user = (user_set - friend_set)
