@@ -13,9 +13,9 @@ def test_create_movie_all_params_valid_returns_movie():
     new_movie = create_movie(movie_title, genre, rating)
 
     # Assert
-    assert new_movie["title"] is "Title A"
-    assert new_movie["genre"] is "Horror"
-    assert new_movie["rating"] is 3.5
+    assert new_movie["title"] == "Title A"
+    assert new_movie["genre"] == "Horror"
+    assert new_movie["rating"] == 3.5
 
 
 def test_create_movie_no_title_returns_none():
@@ -72,10 +72,10 @@ def test_add_to_watched_adds_movie_to_user_watched():
     updated_data = add_to_watched(user_data, movie)
 
     # Assert
-    assert len(updated_data["watched"]) is 1
-    assert updated_data["watched"][0]["title"] is "Title A"
-    assert updated_data["watched"][0]["genre"] is "Horror"
-    assert updated_data["watched"][0]["rating"] is 3.5
+    assert len(updated_data["watched"]) == 1
+    assert updated_data["watched"][0]["title"] == "Title A"
+    assert updated_data["watched"][0]["genre"] == "Horror"
+    assert updated_data["watched"][0]["rating"] == 3.5
 
 
 def test_add_to_watchlist_adds_movie_to_user_watchlist():
@@ -93,10 +93,10 @@ def test_add_to_watchlist_adds_movie_to_user_watchlist():
     updated_data = add_to_watchlist(user_data, movie)
 
     # Assert
-    assert len(updated_data["watchlist"]) is 1
-    assert updated_data["watchlist"][0]["title"] is "Title A"
-    assert updated_data["watchlist"][0]["genre"] is "Horror"
-    assert updated_data["watchlist"][0]["rating"] is 3.5
+    assert len(updated_data["watchlist"]) == 1
+    assert updated_data["watchlist"][0]["title"] == "Title A"
+    assert updated_data["watchlist"][0]["genre"] == "Horror"
+    assert updated_data["watchlist"][0]["rating"] == 3.5
 
 
 def test_watch_movie_moves_movie_from_watchlist_to_empty_watched():
@@ -114,11 +114,11 @@ def test_watch_movie_moves_movie_from_watchlist_to_empty_watched():
     updated_data = watch_movie(janes_data, "Title A")
 
     # Assert
-    assert len(updated_data["watchlist"]) is 0
-    assert len(updated_data["watched"]) is 1
-    assert updated_data["watched"][0]["title"] is "Title A"
-    assert updated_data["watched"][0]["genre"] is "Fantasy"
-    assert updated_data["watched"][0]["rating"] is 4.8
+    assert len(updated_data["watchlist"]) == 0
+    assert len(updated_data["watched"]) == 1
+    assert updated_data["watched"][0]["title"] == "Title A"
+    assert updated_data["watched"][0]["genre"] == "Fantasy"
+    assert updated_data["watched"][0]["rating"] == 4.8
 
 
 def test_watch_movie_moves_movie_from_watchlist_to_watched():
@@ -150,8 +150,8 @@ def test_watch_movie_moves_movie_from_watchlist_to_watched():
     updated_data = watch_movie(janes_data, movie_to_watch["title"])
 
     # Assert
-    assert len(updated_data["watchlist"]) is 1
-    assert len(updated_data["watched"]) is 2
+    assert len(updated_data["watchlist"]) == 1
+    assert len(updated_data["watched"]) == 2
     assert movie_to_watch in updated_data["watched"]
 
 
@@ -183,7 +183,7 @@ def test_watch_movie_does_nothing_if_movie_not_in_watchlist():
     updated_data = watch_movie(janes_data, "Title A")
 
     # Assert
-    assert len(updated_data["watchlist"]) is 1
-    assert len(updated_data["watched"]) is 1
+    assert len(updated_data["watchlist"]) == 1
+    assert len(updated_data["watched"]) == 1
     assert movie_to_watch not in updated_data["watchlist"]
     assert movie_to_watch not in updated_data["watched"]

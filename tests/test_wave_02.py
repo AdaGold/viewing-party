@@ -76,7 +76,7 @@ def test_get_most_watched_genre_returns_most_frequent_genre_from_list():
     popular_genre = get_most_watched_genre(janes_data)
 
     # Assert
-    assert popular_genre is "Intrigue"
+    assert popular_genre == "Intrigue"
 
 
 def test_get_most_watched_genre_returns_None_if_empty_watched():

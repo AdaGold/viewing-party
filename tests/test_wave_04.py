@@ -43,7 +43,7 @@ def test_get_available_recs_returns_appropriate_recommendations_for_valid_input(
     recommendations = get_available_recs(amandas_data)
 
     # Assert
-    assert len(recommendations) is 2
+    assert len(recommendations) == 2
     assert {"title": "Title A", "host": "Service A"} in recommendations
     assert {"title": "Title B", "host": "Service B"} in recommendations
 
@@ -77,4 +77,4 @@ def test_get_available_recs_returns_empty_list_for_valid_input_with_no_intersect
     recommendations = get_available_recs(amandas_data)
 
     # Assert
-    assert len(recommendations) is 0
+    assert len(recommendations) == 0
