@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import *
+from viewing_party.party import *
 
 
 def test_get_unique_watched_returns_list_of_movies_in_amandas_data_absent_from_their_friends_data():

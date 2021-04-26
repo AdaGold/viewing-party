@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import *
+from viewing_party.party import *
 
 
 def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amount_of_valid_input():

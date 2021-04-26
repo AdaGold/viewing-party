@@ -147,14 +147,14 @@ $ pytest tests/test_file_name.py
 
 ## Project Write-Up: How to Complete and Submit
 
-The goal of this project is to write code in `main.py` so that as many of the tests pass as possible.
+The goal of this project is to write code in `party.py` so that as many of the tests pass as possible.
 
 To complete this project, use the above workflow and follow these steps:
 
 1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in `main.py` and see if there are ways you can make the code more readable.
+1. Review your code in `party.py` and see if there are ways you can make the code more readable.
 1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in `main.py`
+1. Review your code in `party.py`
 1. Repeat on all test files until submission time.
 
 At submission time, no matter where you are, submit the project via Learn.
@@ -169,7 +169,7 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 1. The first four tests are about a `create_movie()` function.
 
-In `main.py`, there should be a function named `create_movie`. This function should...
+In `party.py`, there should be a function named `create_movie`. This function should...
 
 - take three parameters: `title`, `genre`, `rating`
 - If those there attributes are truthy, then return a dictionary. This dictionary should...
@@ -180,7 +180,7 @@ In `main.py`, there should be a function named `create_movie`. This function sho
 
 2. The next test is about a `add_to_watched()` function.
 
-In `main.py`, there should be a function named `add_to_watched`. This function should...
+In `party.py`, there should be a function named `add_to_watched`. This function should...
 
 - take two parameters: `user_data`, `movie`
   - the value of `user_data` will be a dictionary with a key `"watched"`, and a value `[]`
@@ -198,7 +198,7 @@ In `main.py`, there should be a function named `add_to_watched`. This function s
 
 3. The next test is about a `add_to_watchlist()` function.
 
-In `main.py`, there should be a function named `add_to_watchlist`. This function should...
+In `party.py`, there should be a function named `add_to_watchlist`. This function should...
 
 - take two parameters: `user_data`, `movie`
   - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value `[]`
@@ -216,7 +216,7 @@ In `main.py`, there should be a function named `add_to_watchlist`. This function
 
 4. There are three tests about a `watch_movie()` function.
 
-In `main.py`, there should be a function named `watch_movie`. This function should...
+In `party.py`, there should be a function named `watch_movie`. This function should...
 
 - take two parameters: `user_data`, `title`
   - the value of `user_data` will be a dictionary with a `"watchlist"` and a `"watched"`
@@ -234,7 +234,7 @@ In `main.py`, there should be a function named `watch_movie`. This function shou
 
 1. The first two tests are about a `get_watched_avg_rating()` function.
 
-In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+In `party.py`, there should be a function named `get_watched_avg_rating`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries
@@ -245,7 +245,7 @@ In `main.py`, there should be a function named `get_watched_avg_rating`. This fu
 
 2. The next two tests are about a `get_most_watched_genre()` function.
 
-In `main.py`, there should be a function named `get_most_watched_genre`. This function should...
+In `party.py`, there should be a function named `get_most_watched_genre`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries. Each movie dictionary has a key `"genre"`.
@@ -258,7 +258,7 @@ In `main.py`, there should be a function named `get_most_watched_genre`. This fu
 
 1. The first two tests are about a `get_unique_watched()` function.
 
-In `main.py`, there should be a function named `get_unique_watched`. This function should...
+In `party.py`, there should be a function named `get_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
@@ -271,7 +271,7 @@ In `main.py`, there should be a function named `get_unique_watched`. This functi
 
 2. The next three tests are about a `get_friends_unique_watched()` function.
 
-In `main.py`, there should be a function named `get_friends_unique_watched`. This function should...
+In `party.py`, there should be a function named `get_friends_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
