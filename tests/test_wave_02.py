@@ -78,6 +78,38 @@ def test_get_most_watched_genre_returns_most_frequent_genre_from_list():
     # Assert
     assert popular_genre == "Intrigue"
 
+def test_get_most_watched_genre_returns_most_frequent_genre_from_list_even_when_alphabetically_smaller():
+    # Arrange
+    janes_data = {
+        "watched": [
+            {
+                "title": "Title A",
+                "genre": "Fantasy"
+            },
+            {
+                "title": "Title B",
+                "genre": "Action"
+            },
+            {
+                "title": "Title C",
+                "genre": "Action"
+            },
+            {
+                "title": "Title D",
+                "genre": "Fantasy"
+            },
+            {
+                "title": "Title E",
+                "genre": "Action"
+            },
+        ]
+    }
+
+    # Act
+    popular_genre = get_most_watched_genre(janes_data)
+
+    # Assert
+    assert popular_genre == "Action"
 
 def test_get_most_watched_genre_returns_None_if_empty_watched():
     # Arrange
