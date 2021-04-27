@@ -243,7 +243,7 @@ In `party.py`, there should be a function named `get_watched_avg_rating`. This f
   - The average rating of an empty watched list is `0.0`
 - return the average rating
 
-1. The next three tests are about a `get_most_watched_genre()` function.
+2. The next three tests are about a `get_most_watched_genre()` function.
 
 In `party.py`, there should be a function named `get_most_watched_genre`. This function should...
 
