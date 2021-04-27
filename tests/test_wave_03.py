@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import *
+from viewing_party.party import *
 
 
 def test_get_unique_watched_returns_list_of_movies_in_amandas_data_absent_from_their_friends_data():
@@ -53,7 +53,7 @@ def test_get_unique_watched_returns_list_of_movies_in_amandas_data_absent_from_t
     amandas_unique_movies = get_unique_watched(amandas_data)
 
     # Assert
-    assert len(amandas_unique_movies) is 2
+    assert len(amandas_unique_movies) == 2
     assert {"title": "Title B"} in amandas_unique_movies
     assert {"title": "Title E"} in amandas_unique_movies
 
@@ -93,7 +93,7 @@ def test_get_unique_watched_returns_empty_list_when_amandas_movies_are_all_in_he
     amandas_unique_movies = get_unique_watched(amandas_data)
 
     # Assert
-    assert len(amandas_unique_movies) is 0
+    assert len(amandas_unique_movies) == 0
 
 
 def test_get_friends_unique_watched_returns_list_of_movies_amanda_has_not_watched_and_friends_have_but_does_not_include_two_of_the_same_movie():
@@ -138,7 +138,7 @@ def test_get_friends_unique_watched_returns_list_of_movies_amanda_has_not_watche
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Assert
-    assert len(friends_unique_movies) is 3
+    assert len(friends_unique_movies) == 3
     assert {"title": "Title A"} in friends_unique_movies
     assert {"title": "Title D"} in friends_unique_movies
     assert {"title": "Title E"} in friends_unique_movies
@@ -176,7 +176,7 @@ def test_get_friends_unique_watched_returns_list_of_movies_amanda_has_not_watche
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Assert
-    assert len(friends_unique_movies) is 3
+    assert len(friends_unique_movies) == 3
     assert {"title": "Title A"} in friends_unique_movies
     assert {"title": "Title B"} in friends_unique_movies
     assert {"title": "Title C"} in friends_unique_movies
@@ -217,4 +217,4 @@ def test_get_friends_unique_watched_returns_empty_list_when_amanda_has_seen_all_
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Assert
-    assert len(friends_unique_movies) is 0
+    assert len(friends_unique_movies) == 0

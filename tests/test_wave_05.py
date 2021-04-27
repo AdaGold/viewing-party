@@ -1,5 +1,5 @@
 import pytest
-from viewing_party.main import *
+from viewing_party.party import *
 
 
 def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amount_of_valid_input():
@@ -49,7 +49,7 @@ def test_get_new_rec_by_genre_returns_appropriate_recommendations_for_large_amou
     # Assert
     for rec in recommendations:
         assert rec not in sonyas_data["watched"]
-    assert len(recommendations) is 2
+    assert len(recommendations) == 2
     assert {"title": "Title D", "genre": "Intrigue"} in recommendations
     assert {"title": "Title E", "genre": "Intrigue"} in recommendations
 
@@ -86,7 +86,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_sonyas_watched_list_is_emp
     recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
-    assert len(recommendations) is 0
+    assert len(recommendations) == 0
 
 
 def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_empty():
@@ -112,7 +112,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_friends_watched_lists_are_
     recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
-    assert len(recommendations) is 0
+    assert len(recommendations) == 0
 
 
 
@@ -148,7 +148,7 @@ def test_get_new_rec_by_genre_returns_empty_list_when_sonya_has_no_favories_and_
     recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
-    assert len(recommendations) is 0
+    assert len(recommendations) == 0
 
 
 def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
@@ -198,5 +198,5 @@ def test_get_rec_from_favorites_returns_expected_list_from_valid_input():
     recommendations = get_rec_from_favorites(sonyas_data)
 
     # Assert
-    assert len(recommendations) is 1
+    assert len(recommendations) == 1
     assert {"title": "Title A"} in recommendations
