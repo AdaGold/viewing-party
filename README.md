@@ -291,7 +291,7 @@ Create a function named `get_available_recs`
 - takes one parameter: `user_data`
   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
     - This represents the names of streaming services that the user has access to
-    - each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which a string that says what streaming service it's hosted on
+    - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
 - Determine a list of recommended movies. A movie should be added to this list if and only if:
   - The user has not watched it
   - At least one of the user's friends has watched
@@ -311,7 +311,7 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-1. There is also one test about a `get_rec_from_favorites` function
+2. There is also one test about a `get_rec_from_favorites` function
 
 Create a function named `get_rec_from_favorites`
 
