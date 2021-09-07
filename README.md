@@ -284,7 +284,7 @@ In `party.py`, there should be a function named `get_friends_unique_watched`. Th
 
 ### Wave 4
 
-1. There are two tests about a `get_available_recs` function
+1. There are four tests about a `get_available_recs` function
 
 Create a function named `get_available_recs`
 
