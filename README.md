@@ -311,7 +311,7 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-2. There is also one test about a `get_rec_from_favorites` function
+2. There are also two tests about a `get_rec_from_favorites` function
 
 Create a function named `get_rec_from_favorites`
 
