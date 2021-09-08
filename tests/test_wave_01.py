@@ -72,10 +72,42 @@ def test_add_to_watched_adds_movie_to_user_watched():
     updated_data = add_to_watched(user_data, movie)
 
     # Assert
+    assert id(updated_data) == id(user_data)
     assert len(updated_data["watched"]) == 1
     assert updated_data["watched"][0]["title"] == "Title A"
     assert updated_data["watched"][0]["genre"] == "Horror"
     assert updated_data["watched"][0]["rating"] == 3.5
+    assert id(updated_data["watched"][0]) == id(movie)
+
+
+def test_add_to_nonempty_watched_adds_movie_to_user_watched():
+    # Arrange
+    movie = {
+        "title": "Title B",
+        "genre": "Adventure",
+        "rating": 2.0
+    }
+    user_data = {
+        "watched": [{
+            "title": "Title A",
+            "genre": "Horror",
+            "rating": 3.5
+        }]
+    }
+
+    # Act
+    updated_data = add_to_watched(user_data, movie)
+
+    # Assert
+    assert id(updated_data) == id(user_data)
+    assert len(updated_data["watched"]) == 2
+    assert updated_data["watched"][0]["title"] == "Title A"
+    assert updated_data["watched"][0]["genre"] == "Horror"
+    assert updated_data["watched"][0]["rating"] == 3.5
+    assert updated_data["watched"][1]["title"] == "Title B"
+    assert updated_data["watched"][1]["genre"] == "Adventure"
+    assert updated_data["watched"][1]["rating"] == 2.0
+    assert id(updated_data["watched"][1]) == id(movie)
 
 
 def test_add_to_watchlist_adds_movie_to_user_watchlist():
@@ -93,10 +125,42 @@ def test_add_to_watchlist_adds_movie_to_user_watchlist():
     updated_data = add_to_watchlist(user_data, movie)
 
     # Assert
+    assert id(updated_data) == id(user_data)
     assert len(updated_data["watchlist"]) == 1
     assert updated_data["watchlist"][0]["title"] == "Title A"
     assert updated_data["watchlist"][0]["genre"] == "Horror"
     assert updated_data["watchlist"][0]["rating"] == 3.5
+    assert id(updated_data["watchlist"][0]) == id(movie)
+
+
+def test_add_to_nonempty_watchlist_adds_movie_to_user_watchlist():
+    # Arrange
+    movie = {
+        "title": "Title B",
+        "genre": "Adventure",
+        "rating": 2.0
+    }
+    user_data = {
+        "watchlist": [{
+            "title": "Title A",
+            "genre": "Horror",
+            "rating": 3.5
+        }]
+    }
+
+    # Act
+    updated_data = add_to_watchlist(user_data, movie)
+
+    # Assert
+    assert id(updated_data) == id(user_data)
+    assert len(updated_data["watchlist"]) == 2
+    assert updated_data["watchlist"][0]["title"] == "Title A"
+    assert updated_data["watchlist"][0]["genre"] == "Horror"
+    assert updated_data["watchlist"][0]["rating"] == 3.5
+    assert updated_data["watchlist"][1]["title"] == "Title B"
+    assert updated_data["watchlist"][1]["genre"] == "Adventure"
+    assert updated_data["watchlist"][1]["rating"] == 2.0
+    assert id(updated_data["watchlist"][1]) == id(movie)
 
 
 def test_watch_movie_moves_movie_from_watchlist_to_empty_watched():
@@ -153,6 +217,7 @@ def test_watch_movie_moves_movie_from_watchlist_to_watched():
     assert len(updated_data["watchlist"]) == 1
     assert len(updated_data["watched"]) == 2
     assert movie_to_watch in updated_data["watched"]
+    assert movie_to_watch not in updated_data["watchlist"]
 
 
 def test_watch_movie_does_nothing_if_movie_not_in_watchlist():

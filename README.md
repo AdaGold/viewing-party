@@ -172,19 +172,19 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 In `party.py`, there should be a function named `create_movie`. This function should...
 
 - take three parameters: `title`, `genre`, `rating`
-- If those there attributes are truthy, then return a dictionary. This dictionary should...
+- If those three attributes are truthy, then return a dictionary. This dictionary should...
   - Have three key-value pairs, with specific keys
   - The three keys should be `"title"`, `"genre"`, and `"rating"`
   - The values of these key-value pairs should be appropriate values
 - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
 
-2. The next test is about a `add_to_watched()` function.
+2. The next two tests are about an `add_to_watched()` function.
 
 In `party.py`, there should be a function named `add_to_watched`. This function should...
 
 - take two parameters: `user_data`, `movie`
-  - the value of `user_data` will be a dictionary with a key `"watched"`, and a value `[]`
-    - This represents that the user has no movies in their watched list
+  - the value of `user_data` will be a dictionary with a key `"watched"`, and a value which is a list of dictionaries representing the movies the user has watched
+    - An empty list represents that the user has no movies in their watched list
   - the value of `movie` will be a dictionary in this format:
     - ```python
       {
@@ -196,13 +196,13 @@ In `party.py`, there should be a function named `add_to_watched`. This function 
 - add the `movie` to the `"watched"` list inside of `user_data`
 - return the `user_data`
 
-3. The next test is about a `add_to_watchlist()` function.
+3. The next two tests are about an `add_to_watchlist()` function.
 
 In `party.py`, there should be a function named `add_to_watchlist`. This function should...
 
 - take two parameters: `user_data`, `movie`
-  - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value `[]`
-    - This represents that the user has no movies in their watchlist
+  - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value which is a list of dictionaries representing the movies the user wants to watch
+    - An empty list represents that the user has no movies in their watchlist
   - the value of `movie` will be a dictionary in this format:
     - ```python
       {
@@ -284,7 +284,7 @@ In `party.py`, there should be a function named `get_friends_unique_watched`. Th
 
 ### Wave 4
 
-1. There are two tests about a `get_available_recs` function
+1. There are four tests about a `get_available_recs` function
 
 Create a function named `get_available_recs`
 
@@ -311,7 +311,7 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-2. There is also one test about a `get_rec_from_favorites` function
+2. There are also two tests about a `get_rec_from_favorites` function
 
 Create a function named `get_rec_from_favorites`
 
