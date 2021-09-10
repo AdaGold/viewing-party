@@ -63,7 +63,7 @@ Verify that you're in a python3 virtual environment by running:
 - `$ python --version` should output a Python 3 version
 - `$ pip --version` should output that it is working with Python 3
 
-6. Install dependencies once at the beginning of this project with
+7. Install dependencies once at the beginning of this project with
 
 ```bash
 # Must be in activated virtual environment
