@@ -167,3 +167,5 @@ def get_rec_from_favorites(user_data):
             recs.append(movie)
 
     return recs
+
+

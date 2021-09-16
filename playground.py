@@ -1,11 +1,17 @@
-from viewing_party.main import *
+all_genres = ['horror', 'comedy', 'indie', 'comedy']
+max(set(all_genres), key=all_genres.count)
 
-# Arrange
-movie_title = "Title A"
-genre = "Horror"
-rating = 3.5
+max = 0
+max_genre = None
 
-# Act
-new_movie = create_movie(movie_title, genre, rating)
+for genre in set(all_genres):
+    count = 0
+    for genre_item in all_genres:
+        if genre_item == genre:
+            count += 1
+    if count > max:
+        max = count
+        max_genre = genre
 
-print(new_movie)
+print(max)
+print(max_genre)
