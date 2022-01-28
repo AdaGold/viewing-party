@@ -28,10 +28,28 @@ FANTASY_3 = {
     "rating": 4.0
 }
 
+FANTASY_4 = {
+    "title": "Fantasy 4",
+    "genre": "Fantasy",
+    "rating": 4.0
+}
+
 ACTION_1 = {
-    "title": "Title B",
+    "title": "Action 1",
     "genre": "Action",
     "rating": 2.2
+}
+
+ACTION_2 = {
+    "title": "Action 2",
+    "genre": "Action",
+    "rating": 4.2
+}
+
+ACTION_3 = {
+    "title": "Action 3",
+    "genre": "Action",
+    "rating": 3.5
 }
 
 INTRIGUE_1 = {
@@ -51,10 +69,62 @@ INTRIGUE_3 = {
     "genre": "Intrigue",
     "rating": 3.0
 }
-USER_DATA_1 = {
-    "watched": [FANTASY_1, FANTASY_2, FANTASY_3, ACTION_1, INTRIGUE_1, INTRIGUE_2],    
+USER_DATA = {
+    "watched": [
+        FANTASY_1, 
+        FANTASY_2, 
+        FANTASY_3, 
+        ACTION_1, 
+        INTRIGUE_1, 
+        INTRIGUE_2
+        ],    
 }
 
 EMPTY_USER_DATA = {
     "watched": [],
 }
+
+#-----WAVE 3--------
+USER_DATA["friends"] =  [
+        {
+            "watched": [
+                FANTASY_1,
+                FANTASY_3,
+                FANTASY_4,
+                HORROR_1,
+            ]
+        },
+        {
+            "watched": [
+                FANTASY_1,
+                ACTION_1,
+                INTRIGUE_1,
+                INTRIGUE_3,
+            ]
+        }
+    ]  
+
+#-----WAVE 4--------
+HORROR_1["host"] = "netflix"
+FANTASY_1["host"] = "netflix"
+FANTASY_2["host"] = "netflix"
+FANTASY_3["host"] = "amazon"
+FANTASY_4["host"] = "hulu"
+ACTION_1["host"] = "amazon"
+ACTION_2["host"] = "amazon"
+ACTION_3["host"] = "hulu"
+INTRIGUE_1["host"] = "hulu"
+INTRIGUE_2["host"] = "disney+"
+INTRIGUE_3["host"] = "disney+"
+
+USER_DATA["subscriptions"] = ["netflix", "hulu"]  
+
+
+#----WAVE 5-----------
+
+USER_DATA["favorites"] = [
+    FANTASY_1, 
+    FANTASY_2, 
+    INTRIGUE_1,
+    INTRIGUE_2
+    ]
