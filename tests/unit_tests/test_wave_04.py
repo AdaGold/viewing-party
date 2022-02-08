@@ -14,6 +14,7 @@ def test_get_available_friend_rec():
     assert len(recommendations) is 2
     assert HORROR_1b in recommendations
     assert FANTASY_4b in recommendations
+    assert amandas_data is USER_DATA_4
 
 
 def test_no_available_friend_recs():

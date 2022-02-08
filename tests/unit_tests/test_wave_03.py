@@ -14,6 +14,7 @@ def test_my_unique_movies():
     assert len(amandas_unique_movies) is 2
     assert FANTASY_2 in amandas_unique_movies
     assert INTRIGUE_2 in amandas_unique_movies
+    assert amandas_data is USER_DATA_3
 
 
 def test_my_not_unique_movies():
@@ -40,6 +41,7 @@ def test_friends_unique_movies():
     assert INTRIGUE_3 in friends_unique_movies
     assert HORROR_1 in friends_unique_movies
     assert FANTASY_4 in friends_unique_movies
+    assert amandas_data is USER_DATA_3
 
 #@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_unique_movies_not_duplicated():

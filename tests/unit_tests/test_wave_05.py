@@ -15,6 +15,7 @@ def test_new_genre_rec():
         assert rec not in sonyas_data["watched"]
     assert len(recommendations) is 1
     assert FANTASY_4b in recommendations
+    assert sonyas_data is USER_DATA_5
 
 
 def test_new_genre_rec_from_empty_watched():
@@ -70,6 +71,7 @@ def test_unique_rec_from_favorites():
     assert len(recommendations) is 2
     assert FANTASY_2b in recommendations
     assert INTRIGUE_2b in recommendations
+    assert sonyas_data is USER_DATA_5
 
 
 def test_unique_from_empty_favorites():

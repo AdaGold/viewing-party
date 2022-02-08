@@ -12,6 +12,7 @@ def test_calculates_watched_average_rating():
 
     # Assert
     assert average == pytest.approx(3.58333)
+    assert janes_data is USER_DATA_2
 
 
 def test_empty_watched_average_rating_is_zero():
@@ -37,6 +38,7 @@ def test_most_watched_genre():
 
     # Assert
     assert popular_genre is "Fantasy"
+    assert janes_data is USER_DATA_2
 
 
 def test_genre_is_None_if_empty_watched():
