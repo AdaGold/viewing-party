@@ -1,14 +1,9 @@
 import copy
 
 #----------WAVE01-------------
-MOVIE_TITLE_1 = "It came from the stack trace"
+MOVIE_TITLE_1 = "It Came from the Stack Trace"
 GENRE_1 = "Horror"
 RATING_1 = 3.5
-
-EMPTY_USER_DATA = {
-    "watched": [],
-    "watchlist": [],
-}
 
 #----------WAVE02-------------
 HORROR_1 = {
@@ -16,63 +11,53 @@ HORROR_1 = {
     "genre": GENRE_1,
     "rating": RATING_1
 }
-
 FANTASY_1 = {
-    "title": "Fantasy 1",
+    "title": "The Lord of the Functions: The Fellowship of the Function",
     "genre": "Fantasy",
     "rating": 4.8
 }
-
 FANTASY_2 = {
-    "title": "Fantasy 2",
+    "title": "The Lord of the Functions: The Two Parameters",
     "genre": "Fantasy",
     "rating": 4.0
 }
-
 FANTASY_3 = {
-    "title": "Fantasy 3",
+    "title": "The Lord of the Functions: The Return of the Value",
     "genre": "Fantasy",
     "rating": 4.0
 }
-
 FANTASY_4 = {
-    "title": "Fantasy 4",
+    "title": "The Programmer: An Unexpected Stack Trace",
     "genre": "Fantasy",
     "rating": 4.0
 }
-
 ACTION_1 = {
-    "title": "Action 1",
+    "title": "The JavaScript and the React",
     "genre": "Action",
     "rating": 2.2
 }
-
 ACTION_2 = {
-    "title": "Action 2",
+    "title": "2 JavaScript 2 React",
     "genre": "Action",
     "rating": 4.2
 }
-
 ACTION_3 = {
-    "title": "Action 3",
+    "title": "JavaScript 3: VS Code Lint",
     "genre": "Action",
     "rating": 3.5
 }
-
 INTRIGUE_1 = {
-    "title": "Intrigue 1",
+    "title": "Recursion",
     "genre": "Intrigue",
     "rating": 2.0
 }
-
 INTRIGUE_2 = {
-    "title": "Intrigue 2",
+    "title": "Instructor Student TA Manager",
     "genre": "Intrigue",
     "rating": 4.5
 }
-
 INTRIGUE_3 = {
-    "title": "Intrigue 3",
+    "title": "Zero Dark Python",
     "genre": "Intrigue",
     "rating": 3.0
 }
