@@ -77,6 +77,8 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
+We will use a Test Driven Development programming workflow to work on this project.
+
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
 ```bash
@@ -89,34 +91,54 @@ $ source venv/bin/activate
    - In that test file, read through each test case
    - Remove all lines that contain `@pytest.mark.skip()`
 
-3. Run the tests!
+3. Check if the test is complete or not. 
+
+  - If it is incomplete, write the test. 
+    - Is this a nominal or edge case?
+    - What type of input do we need to test this case?
+    - What is the expected output for the given input?
+
+  - If it is complete, read the test critically.
+    - How does this test map on to the requirement described in the project instructions?
+    - What is the expected output for the given input?
+
+4. Run the test(s)! (RED)
 
 ```bash
-# Must be in activated virtual environment
+# Must be in activated virtual environment in the project-root directory
 $ pytest
 ```
 
-4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
+```bash
+# To run a single test by name, for example
+$ pytest tests/test_wave_01.py::test_create_successful_movie
+```
 
-5. Make a plan to fix the test failure.
+5. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
-6. Write code to fix the test failure.
+6. Make a plan to implement code to pass the test.
 
-7. Re-run the tests.
+7. Write code to pass the test.
 
-8. Repeat steps 5-7 until that test passes!
+8. Re-run the tests.
 
-9. Repeats steps 4-8 until you have finished all tests in the file.
+9. Repeat steps 4-8 until that test passes! (GREEN)
 
-10. Begin using the test file of the next wave!
+10. Repeats steps 3-9 until you have finished all tests in the file.
 
-11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+11. Begin using the test file of the next wave!
+
+12. Look for opportunities to improve your code (REFACTOR)
+
+13. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
 ```bash
 $ deactivate
 ```
 
 ## Details About How to Run Tests
+
+The following commands should be run from the project-root directory. 
 
 Run all unskipped tests that exist in this project with:
 
@@ -139,7 +161,14 @@ If you want to run all unskipped tests that exist in one file, use:
 $ pytest tests/test_file_name.py
 ```
 
-... where `test_file_name.py` is relpaced with the correct test file name.
+If you want to run a single test by name:
+
+```bash
+# Must be in activated virtual environment
+$ pytest tests/test_file_name.py::test_name
+```
+
+... where `test_name` is relpaced with the function name for the test.
 
 ## Project Write-Up: How to Complete and Submit
 

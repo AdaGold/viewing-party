@@ -1,5 +1,7 @@
 import copy
 
+# Data for Unit Tests
+
 #----------WAVE01-------------
 MOVIE_TITLE_1 = "It Came from the Stack Trace"
 GENRE_1 = "Horror"
@@ -119,7 +121,7 @@ INTRIGUE_1b["host"] = "hulu"
 INTRIGUE_2b["host"] = "disney+"
 INTRIGUE_3b["host"] = "disney+"
 
-USER_DATA_4 = USER_DATA_2 = {
+USER_DATA_4 = {
     "watched": [
         FANTASY_1b, 
         FANTASY_2b, 
