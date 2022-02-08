@@ -5,7 +5,7 @@ from tests.test_constants import *
 @pytest.mark.integration_test
 def test_get_most_watched_genre():
     # Arrange
-    user_data = USER_DATA
+    user_data = USER_DATA_2
     empty_user_data = EMPTY_USER_DATA
 
     # user data
