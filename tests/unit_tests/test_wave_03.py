@@ -1,93 +1,25 @@
 import pytest
 from viewing_party.party import *
+from tests.test_constants import *
 
 
 def test_my_unique_movies():
     # Arrange
-    amandas_data = {
-        "watched": [
-            {
-                "title": "Title A"
-            },
-            {
-                "title": "Title B"
-            },
-            {
-                "title": "Title C"
-            },
-            {
-                "title": "Title D"
-            },
-            {
-                "title": "Title E"
-            },
-        ],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title D"
-                    },
-                    {
-                        "title": "Title F"
-                    }
-                ]
-            }
-        ]
-    }
+    amandas_data = USER_DATA_3
 
     # Act
     amandas_unique_movies = get_unique_watched(amandas_data)
 
     # Arrange
     assert len(amandas_unique_movies) is 2
-    assert {"title": "Title B"} in amandas_unique_movies
-    assert {"title": "Title E"} in amandas_unique_movies
+    assert FANTASY_2 in amandas_unique_movies
+    assert INTRIGUE_2 in amandas_unique_movies
 
 
 def test_my_not_unique_movies():
     # Arrange
-    amandas_data = {
-        "watched": [],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title D"
-                    },
-                    {
-                        "title": "Title F"
-                    }
-                ]
-            }
-        ]
-    }
+    amandas_data = copy.deepcopy(USER_DATA_3)
+    amandas_data["watched"] = []
 
     # Act
     amandas_unique_movies = get_unique_watched(amandas_data)
@@ -98,115 +30,46 @@ def test_my_not_unique_movies():
 #@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_unique_movies():
     # Arrange
-    amandas_data = {
-        "watched": [
-            {
-                "title": "Title A"
-            },
-            {
-                "title": "Title B"
-            },
-            {
-                "title": "Title C"
-            }
-        ],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title D"
-                    },
-                    {
-                        "title": "Title E"
-                    }
-                ]
-            }
-        ]
-    }
-
-    # Act
-    friends_unique_movies = get_friends_unique_watched(amandas_data)
-
-    # Arrange
-    assert len(friends_unique_movies) is 2
-    assert {"title": "Title D"} in friends_unique_movies
-    assert {"title": "Title E"} in friends_unique_movies
-
-#@pytest.mark.skip(reason="no way of currently testing this")
-def test_friends_unique_movies_not_duplicated():
-    # Arrange
-    amandas_data = {
-        "watched": [],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title B"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title C"
-                    }
-                ]
-            }
-        ]
-    }
+    amandas_data = USER_DATA_3
 
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
 
     # Arrange
     assert len(friends_unique_movies) is 3
-    assert {"title": "Title A"} in friends_unique_movies
-    assert {"title": "Title B"} in friends_unique_movies
-    assert {"title": "Title C"} in friends_unique_movies
+    assert INTRIGUE_3 in friends_unique_movies
+    assert HORROR_1 in friends_unique_movies
+    assert FANTASY_4 in friends_unique_movies
+
+#@pytest.mark.skip(reason="no way of currently testing this")
+def test_friends_unique_movies_not_duplicated():
+    # Arrange
+    amandas_data = copy.deepcopy(USER_DATA_3)
+    amandas_data["friends"][0]["watched"].append(INTRIGUE_3)
+
+    # Act
+    friends_unique_movies = get_friends_unique_watched(amandas_data)
+
+    # Arrange
+    assert len(friends_unique_movies) is 3
+    assert INTRIGUE_3 in friends_unique_movies
+    assert HORROR_1 in friends_unique_movies
+    assert FANTASY_4 in friends_unique_movies
 
 #@pytest.mark.skip(reason="no way of currently testing this")
 def test_friends_not_unique_movies():
     # Arrange
     amandas_data = {
         "watched": [
-            {
-                "title": "Title A"
-            },
-            {
-                "title": "Title B"
-            },
-            {
-                "title": "Title C"
-            }
+            HORROR_1,
+            FANTASY_1,
+            INTRIGUE_1
         ],
         "friends": [
             {
                 "watched": [
-                    {
-                        "title": "Title A"
-                    },
-                    {
-                        "title": "Title C"
-                    }
+                    HORROR_1,
+                    FANTASY_1,
                 ]
             },
             {

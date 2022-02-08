@@ -4,7 +4,7 @@ from tests.test_constants import *
 
 @pytest.mark.integration_test
 def test_get_friends_unique():
-    user_data = USER_DATA
+    user_data = USER_DATA_3
 
     unique_movies = get_unique_watched(user_data)
 
