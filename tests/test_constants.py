@@ -3,6 +3,11 @@ MOVIE_TITLE_1 = "It came from the stack trace"
 GENRE_1 = "Horror"
 RATING_1 = 3.5
 
+EMPTY_USER_DATA = {
+    "watched": [],
+    "watchlist": [],
+}
+
 #----------WAVE02-------------
 HORROR_1 = {
     "title": MOVIE_TITLE_1,
@@ -78,10 +83,6 @@ USER_DATA = {
         INTRIGUE_1, 
         INTRIGUE_2
         ],    
-}
-
-EMPTY_USER_DATA = {
-    "watched": [],
 }
 
 #-----WAVE 3--------
