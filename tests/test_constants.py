@@ -134,8 +134,36 @@ INTRIGUE_1b["host"] = "hulu"
 INTRIGUE_2b["host"] = "disney+"
 INTRIGUE_3b["host"] = "disney+"
 
-USER_DATA_4 = copy.deepcopy(USER_DATA_3)
-USER_DATA_3["subscriptions"] = ["netflix", "hulu"]  
+USER_DATA_4 = USER_DATA_2 = {
+    "watched": [
+        FANTASY_1b, 
+        FANTASY_2b, 
+        FANTASY_3b, 
+        ACTION_1b, 
+        INTRIGUE_1b, 
+        INTRIGUE_2b
+        ],  
+    "friends":  [
+        {
+            "watched": [
+                FANTASY_1b,
+                FANTASY_3b,
+                FANTASY_4b,
+                HORROR_1b,
+            ]
+        },
+        {
+            "watched": [
+                FANTASY_1b,
+                ACTION_1b,
+                INTRIGUE_1b,
+                INTRIGUE_3b,
+            ]
+        }  
+    ]
+}
+
+USER_DATA_4["subscriptions"] = ["netflix", "hulu"]  
 
 
 #----WAVE 5-----------
