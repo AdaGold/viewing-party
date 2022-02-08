@@ -2,7 +2,7 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
-
+@pytest.mark.skip()
 def test_my_unique_movies():
     # Arrange
     amandas_data = USER_DATA_3
@@ -16,7 +16,7 @@ def test_my_unique_movies():
     assert INTRIGUE_2 in amandas_unique_movies
     assert amandas_data is USER_DATA_3
 
-
+@pytest.mark.skip()
 def test_my_not_unique_movies():
     # Arrange
     amandas_data = copy.deepcopy(USER_DATA_3)
@@ -28,7 +28,7 @@ def test_my_not_unique_movies():
     # Arrange
     assert len(amandas_unique_movies) is 0
 
-#@pytest.mark.skip(reason="no way of currently testing this")
+@pytest.mark.skip()
 def test_friends_unique_movies():
     # Arrange
     amandas_data = USER_DATA_3
@@ -43,7 +43,7 @@ def test_friends_unique_movies():
     assert FANTASY_4 in friends_unique_movies
     assert amandas_data is USER_DATA_3
 
-#@pytest.mark.skip(reason="no way of currently testing this")
+@pytest.mark.skip()
 def test_friends_unique_movies_not_duplicated():
     # Arrange
     amandas_data = copy.deepcopy(USER_DATA_3)
@@ -58,7 +58,7 @@ def test_friends_unique_movies_not_duplicated():
     assert HORROR_1 in friends_unique_movies
     assert FANTASY_4 in friends_unique_movies
 
-#@pytest.mark.skip(reason="no way of currently testing this")
+@pytest.mark.skip()
 def test_friends_not_unique_movies():
     # Arrange
     amandas_data = {

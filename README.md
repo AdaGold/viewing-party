@@ -77,7 +77,7 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
-We will use a Test Driven Development programming workflow to work on this project.
+We will use a Test Driven Development programming workflow to work on this project. Notice the Red-Green-Refactor steps in the workflow steps outlined below.
 
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
@@ -91,7 +91,7 @@ $ source venv/bin/activate
    - In that test file, read through each test case
    - Remove all lines that contain `@pytest.mark.skip()`
 
-3. Check if the test is complete or not. 
+3. For each test, check if the test is complete or not. 
 
   - If it is incomplete, write the test. 
     - Is this a nominal or edge case?
@@ -109,12 +109,8 @@ $ source venv/bin/activate
 $ pytest
 ```
 
-```bash
-# To run a single test by name, for example
-$ pytest tests/test_wave_01.py::test_create_successful_movie
-```
-
-5. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
+5. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+  - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does this test need modification?
 
 6. Make a plan to implement code to pass the test.
 

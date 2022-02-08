@@ -2,7 +2,7 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
-
+@pytest.mark.skip()
 def test_get_available_friend_rec():
     # Arrange
     amandas_data = USER_DATA_4
@@ -16,7 +16,7 @@ def test_get_available_friend_rec():
     assert FANTASY_4b in recommendations
     assert amandas_data is USER_DATA_4
 
-
+@pytest.mark.skip()
 def test_no_available_friend_recs():
     # Arrange
     amandas_data = {
