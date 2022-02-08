@@ -14,7 +14,7 @@ Solving problems with...
 
 You and your friends enjoy watching things together online. Of course, everyone has seen different things, has different favorites, and different things they want to watch.
 
-You've been using a spreadsheet to compare everyone's watched list, favorites list, and watchlist, but it's been getting too cumbersome. In order to find things you've watched and your friends haven't watched, or things that your friends have watched and yo haven't watched, you have to comb through the spreadsheet. You know that there are different ways we can get that information: we can use Python!
+You've been using a spreadsheet to compare everyone's watched list, favorites list, and watchlist, but it's been getting too cumbersome. In order to find things you've watched and your friends haven't watched, or things that your friends have watched and you haven't watched, you have to comb through the spreadsheet. You know that there are different ways we can get that information: we can use Python!
 
 For this project, you will be given some data structure that represents the things you've watched, favorited, and want to watch. The directions below will lead you to create a series of functions. These functions will modify the data, and implement features like adding and removing things between different lists. Other features include creating recommendations!
 
@@ -118,7 +118,7 @@ $ pytest tests/test_wave_01.py::test_create_successful_movie
 
 6. Make a plan to implement code to pass the test.
 
-7. Write code to pass the test.
+7. Write code in `party.py` to pass the test.
 
 8. Re-run the tests.
 
@@ -135,6 +135,8 @@ $ pytest tests/test_wave_01.py::test_create_successful_movie
 ```bash
 $ deactivate
 ```
+
+Finally, at submission time, **no matter where you are**, submit the project via Learn.
 
 ## Details About How to Run Tests
 
@@ -183,20 +185,6 @@ python3 play_tester.py
 ```
 
 There is some starter code provided in `play_tester.py`. This code prints the test data that is used for many of the tests. Looking closely at this data can help us think critically about the expected output for given input for each function. Then, calling each function with this data allows us to observe the **actual** output for given input. 
-
-## Project Write-Up: How to Complete and Submit
-
-The goal of this project is to write code in `party.py` so that as many of the tests pass as possible.
-
-To complete this project, use the above workflow and follow these steps:
-
-1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in `main.py` and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in `main.py`
-1. Repeat on all test files until submission time.
-
-At submission time, no matter where you are, submit the project via Learn.
 
 ## Project Directions
 
