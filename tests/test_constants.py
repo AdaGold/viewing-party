@@ -1,3 +1,5 @@
+import copy
+
 #----------WAVE01-------------
 MOVIE_TITLE_1 = "It came from the stack trace"
 GENRE_1 = "Horror"
@@ -74,7 +76,7 @@ INTRIGUE_3 = {
     "genre": "Intrigue",
     "rating": 3.0
 }
-USER_DATA = {
+USER_DATA_2 = {
     "watched": [
         FANTASY_1, 
         FANTASY_2, 
@@ -86,7 +88,8 @@ USER_DATA = {
 }
 
 #-----WAVE 3--------
-USER_DATA["friends"] =  [
+USER_DATA_3 = copy.deepcopy(USER_DATA_2)
+USER_DATA_3["friends"] =  [
         {
             "watched": [
                 FANTASY_1,
@@ -106,26 +109,42 @@ USER_DATA["friends"] =  [
     ]  
 
 #-----WAVE 4--------
-HORROR_1["host"] = "netflix"
-FANTASY_1["host"] = "netflix"
-FANTASY_2["host"] = "netflix"
-FANTASY_3["host"] = "amazon"
-FANTASY_4["host"] = "hulu"
-ACTION_1["host"] = "amazon"
-ACTION_2["host"] = "amazon"
-ACTION_3["host"] = "hulu"
-INTRIGUE_1["host"] = "hulu"
-INTRIGUE_2["host"] = "disney+"
-INTRIGUE_3["host"] = "disney+"
 
-USER_DATA["subscriptions"] = ["netflix", "hulu"]  
+HORROR_1b = copy.deepcopy(HORROR_1)
+FANTASY_1b = copy.deepcopy(FANTASY_1)
+FANTASY_2b = copy.deepcopy(FANTASY_2)
+FANTASY_3b = copy.deepcopy(FANTASY_3)
+FANTASY_4b = copy.deepcopy(FANTASY_4)
+ACTION_1b = copy.deepcopy(ACTION_1)
+ACTION_2b = copy.deepcopy(ACTION_2)
+ACTION_3b = copy.deepcopy(ACTION_3)
+INTRIGUE_1b = copy.deepcopy(INTRIGUE_1)
+INTRIGUE_2b = copy.deepcopy(INTRIGUE_2)
+INTRIGUE_3b = copy.deepcopy(INTRIGUE_3)
+
+HORROR_1b["host"] = "netflix"
+FANTASY_1b["host"] = "netflix"
+FANTASY_2b["host"] = "netflix"
+FANTASY_3b["host"] = "amazon"
+FANTASY_4b["host"] = "hulu"
+ACTION_1b["host"] = "amazon"
+ACTION_2b["host"] = "amazon"
+ACTION_3b["host"] = "hulu"
+INTRIGUE_1b["host"] = "hulu"
+INTRIGUE_2b["host"] = "disney+"
+INTRIGUE_3b["host"] = "disney+"
+
+USER_DATA_4 = copy.deepcopy(USER_DATA_3)
+USER_DATA_3["subscriptions"] = ["netflix", "hulu"]  
 
 
 #----WAVE 5-----------
 
-USER_DATA["favorites"] = [
-    FANTASY_1, 
-    FANTASY_2, 
-    INTRIGUE_1,
-    INTRIGUE_2
+USER_DATA_5 = copy.deepcopy(USER_DATA_4)
+
+USER_DATA_5["favorites"] = [
+    FANTASY_1b, 
+    FANTASY_2b, 
+    INTRIGUE_1b,
+    INTRIGUE_2b
     ]
