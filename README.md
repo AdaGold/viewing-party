@@ -138,41 +138,55 @@ $ deactivate
 
 ## Details About How to Run Tests
 
-The following commands should be run from the project-root directory. 
+All the commands described below should be run from the project-root directory `viewing-party`. Note that the project-root directory is the repository `viewing-party`. It is distinct from the directory `viewing_party` that contains the source code in `party.py`.
 
-Run all unskipped tests that exist in this project with:
+To run all unskipped tests that exist in this project with:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest
 ```
 
-If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest -s
 ```
 
-If you want to run all unskipped tests that exist in one file, use:
+To run all unskipped tests that exist in one file, use:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest tests/test_file_name.py
 ```
 
-If you want to run a single test by name:
+... where `test_file_name.py` is relpaced with the correct test file name.
+
+To run a single test by name:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest tests/test_file_name.py::test_name
 ```
 
-... where `test_name` is relpaced with the function name for the test.
+... where `test_name.py` is relpaced with the name of the function.
+
+## Play Testing
+
+While we will mainly use a Test Driven Development (TDD) workflow for this project, it can be helpful to run code independently from running tests. To do this, a file `play_tester.py` is provided.
+
+To run this file, use:
+
+```bash
+python3 play_tester.py
+```
+
+There is some starter code provided in `play_tester.py`. This code prints the test data that is used for many of the tests. Looking closely at this data can help us think critically about the expected output for given input for each function. Then, calling each function with this data allows us to observe the **actual** output for given input. 
 
 ## Project Write-Up: How to Complete and Submit
 
-The goal of this project is to write code in `main.py` so that as many of the tests pass as possible.
+The goal of this project is to write code in `party.py` so that as many of the tests pass as possible.
 
 To complete this project, use the above workflow and follow these steps:
 
@@ -194,22 +208,22 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 1. The first four tests are about a `create_movie()` function.
 
-In `main.py`, there should be a function named `create_movie`. This function should...
+In `party.py`, there should be a function named `create_movie`. This function should...
 
 - take three parameters: `title`, `genre`, `rating`
-- If those there attributes are truthy, then return a dictionary. This dictionary should...
+- If those three attributes are truthy, then return a dictionary. This dictionary should...
   - Have three key-value pairs, with specific keys
   - The three keys should be `"title"`, `"genre"`, and `"rating"`
   - The values of these key-value pairs should be appropriate values
 - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
 
-2. The next test is about a `add_to_watched()` function.
+2. The next two tests are about an `add_to_watched()` function.
 
-In `main.py`, there should be a function named `add_to_watched`. This function should...
+In `party.py`, there should be a function named `add_to_watched`. This function should...
 
 - take two parameters: `user_data`, `movie`
-  - the value of `user_data` will be a dictionary with a key `"watched"`, and a value `[]`
-    - This represents that the user has no movies in their watched list
+  - the value of `user_data` will be a dictionary with a key `"watched"`, and a value which is a list of dictionaries representing the movies the user has watched
+    - An empty list represents that the user has no movies in their watched list
   - the value of `movie` will be a dictionary in this format:
     - ```python
       {
@@ -221,13 +235,13 @@ In `main.py`, there should be a function named `add_to_watched`. This function s
 - add the `movie` to the `"watched"` list inside of `user_data`
 - return the `user_data`
 
-3. The next test is about a `add_to_watchlist()` function.
+3. The next two tests are about an `add_to_watchlist()` function.
 
-In `main.py`, there should be a function named `add_to_watchlist`. This function should...
+In `party.py`, there should be a function named `add_to_watchlist`. This function should...
 
 - take two parameters: `user_data`, `movie`
-  - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value `[]`
-    - This represents that the user has no movies in their watchlist
+  - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value which is a list of dictionaries representing the movies the user wants to watch
+    - An empty list represents that the user has no movies in their watchlist
   - the value of `movie` will be a dictionary in this format:
     - ```python
       {
@@ -241,7 +255,7 @@ In `main.py`, there should be a function named `add_to_watchlist`. This function
 
 4. There are three tests about a `watch_movie()` function.
 
-In `main.py`, there should be a function named `watch_movie`. This function should...
+In `party.py`, there should be a function named `watch_movie`. This function should...
 
 - take two parameters: `user_data`, `title`
   - the value of `user_data` will be a dictionary with a `"watchlist"` and a `"watched"`
@@ -259,7 +273,7 @@ In `main.py`, there should be a function named `watch_movie`. This function shou
 
 1. The first two tests are about a `get_watched_avg_rating()` function.
 
-In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+In `party.py`, there should be a function named `get_watched_avg_rating`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries
@@ -268,9 +282,9 @@ In `main.py`, there should be a function named `get_watched_avg_rating`. This fu
   - The average rating of an empty watched list is `0.0`
 - return the average rating
 
-2. The next two tests are about a `get_most_watched_genre()` function.
+2. The next three tests are about a `get_most_watched_genre()` function.
 
-In `main.py`, there should be a function named `get_watched_avg_rating`. This function should...
+In `party.py`, there should be a function named `get_most_watched_genre`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries. Each movie dictionary has a key `"genre"`.
@@ -283,7 +297,7 @@ In `main.py`, there should be a function named `get_watched_avg_rating`. This fu
 
 1. The first two tests are about a `get_unique_watched()` function.
 
-In `main.py`, there should be a function named `get_unique_watched`. This function should...
+In `party.py`, there should be a function named `get_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
@@ -294,9 +308,9 @@ In `main.py`, there should be a function named `get_unique_watched`. This functi
 - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user has watched, but none of their friends have watched.
 - Return a list of dictionaries, that represents a list of movies
 
-2. The next two tests are about a `get_friends_unique_watched()` function.
+2. The next three tests are about a `get_friends_unique_watched()` function.
 
-In `main.py`, there should be a function named `get_friends_unique_watched`. This function should...
+In `party.py`, there should be a function named `get_friends_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
@@ -304,19 +318,19 @@ In `main.py`, there should be a function named `get_friends_unique_watched`. Thi
     - The value of `"friends"` is a list
     - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
     - Each movie dictionary has a `"title"`.
-- Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user's friends have watched, but the user has not watched.
+- Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
 - Return a list of dictionaries, that represents a list of movies
 
 ### Wave 4
 
-1. There are two tests about a `get_available_recs` function
+1. There are four tests about a `get_available_recs` function
 
 Create a function named `get_available_recs`
 
 - takes one parameter: `user_data`
   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
     - This represents the names of streaming services that the user has access to
-    - each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which a string that says what streaming service it's hosted on
+    - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
 - Determine a list of recommended movies. A movie should be added to this list if and only if:
   - The user has not watched it
   - At least one of the user's friends has watched
@@ -325,7 +339,7 @@ Create a function named `get_available_recs`
 
 ### Wave 5
 
-1. There are five tests about a `get_new_rec_by_genre` function
+1. There are four tests about a `get_new_rec_by_genre` function
 
 Create a function named `get_new_rec_by_genre`
 
@@ -336,14 +350,14 @@ Create a function named `get_new_rec_by_genre`
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-1. There are three tests about a `get_rec_from_favorites` function
+2. There are also two tests about a `get_rec_from_favorites` function
 
-Create a function named `get_new_rec_by_genre`
+Create a function named `get_rec_from_favorites`
 
 - takes one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
     - This represents the user's favorite movies
-- Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+- Then, determine a list of recommended movies. A movie should be added to this list if and only if:
   - The movie is in the user's `"favorites"`
   - None of the user's friends have watched it
 - Return the list of recommended movies
