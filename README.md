@@ -87,46 +87,41 @@ $ source venv/bin/activate
 
 2. Find the test file that contains the test you want to run. Ensure that the test(s) you want to run isn't skipped.
 
-   - Check the `tests` folder, and find the test file you want to run
+    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
-   - Remove all lines that contain `@pytest.mark.skip()`
+      - If it is incomplete, complete the test. 
+        - *Is this a nominal or edge case?*
+        - *What type of input do we need to test this case?*
+        - *What is the expected output for the given input?*
+   - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
 
-3. For each test, check if the test is complete or not. 
-
-  - If it is incomplete, write the test. 
-    - Is this a nominal or edge case?
-    - What type of input do we need to test this case?
-    - What is the expected output for the given input?
-
-  - If it is complete, read the test critically.
-    - How does this test map on to the requirement described in the project instructions?
-    - What is the expected output for the given input?
-
-4. Run the test(s)! (RED)
+3. Run the test(s)! (RED)
+    - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
 
 ```bash
 # Must be in activated virtual environment in the project-root directory
 $ pytest
 ```
 
-5. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
-  - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does this test need modification?
+4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+    - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
-6. Make a plan to implement code to pass the test.
 
-7. Write code in `party.py` to pass the test.
+5. Make a plan to implement code to pass the test.
 
-8. Re-run the tests.
+6. Write code in `party.py` to pass the test.
 
-9. Repeat steps 4-8 until that test passes! (GREEN)
+7. Re-run the tests.
 
-10. Repeats steps 3-9 until you have finished all tests in the file.
+8. Repeat steps 4-7 until that test passes! (GREEN)
+
+9. Repeats steps 3-8 until you have finished all tests in the file.
+
+10. Consider looking for opportunities to improve your code (REFACTOR)
 
 11. Begin using the test file of the next wave!
 
-12. Look for opportunities to improve your code (REFACTOR)
-
-13. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
 ```bash
 $ deactivate
