@@ -27,9 +27,5 @@ RUN pip install -r /app/requirements.txt
 ARG SUBMISSION_SUBFOLDER
 ADD $SUBMISSION_SUBFOLDER /app
 
-# Overwrite files in student fork with upstream files
-ADD test.sh /app
-ADD tests /app/tests
-
 # User defined requirements
 # RUN make init
