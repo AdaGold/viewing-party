@@ -2,7 +2,6 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
-
 @pytest.mark.skip()
 def test_calculates_watched_average_rating():
     # Arrange
