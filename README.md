@@ -271,6 +271,7 @@ In `party.py`, there should be a function named `get_most_watched_genre`. This f
     - The values of `"genre"` is a string.
 - Determine which genre is most frequently occurring in the watched list
 - return the genre that is the most frequently watched
+- If the value of "watched" is an empty list, `get_most_watched_genre` should return `None`.
 
 ### Wave 3
 
