@@ -129,6 +129,8 @@ $ deactivate
 
 Finally, at submission time, **no matter where you are**, submit the project via Learn.
 
+This will let us give feedback on what you've finished so that you can be better prepared for the next project.
+
 ## Details About How to Run Tests
 
 All the commands described below should be run from the project-root directory `viewing-party`. Note that the project-root directory is the repository `viewing-party`. It is distinct from the directory `viewing_party` that contains the source code in `party.py`.
@@ -196,7 +198,7 @@ In `party.py`, there should be a function named `create_movie`. This function sh
   - The values of these key-value pairs should be appropriate values
 - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
 
-2. The next two tests are about an `add_to_watched()` function.
+2. The next two tests are about the `add_to_watched()` function.
 
 In `party.py`, there should be a function named `add_to_watched`. This function should...
 
