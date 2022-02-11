@@ -163,3 +163,17 @@ USER_DATA_5["favorites"] = [
     INTRIGUE_1b,
     INTRIGUE_2b
     ]
+
+#----Functions that return clean data for each test----
+
+def clean_wave_2_data():
+    return copy.deepcopy(USER_DATA_2)
+
+def clean_wave_3_data():
+    return copy.deepcopy(USER_DATA_3)
+
+def clean_wave_4_data():
+    return copy.deepcopy(USER_DATA_4)
+
+def clean_wave_5_data():
+    return copy.deepcopy(USER_DATA_5)
