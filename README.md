@@ -181,7 +181,7 @@ There is some starter code provided in `play_tester.py`. This code prints the te
 
 We will note that much of the test data for this project is provided by the file `test_constants.py`. As test data gets more and more complex, it is helpful to organize this data in its own file to enhance consistency and readability. Pytest, like many testing libraries, provide a special too for test data called **fixtures**. We will learn about fixtures later in the curriculum. 
 
-For the time being, we need to make sure that the data provided to each test is clean and free of any changes that running another test may have introduced. Recall modifying mutable objects section of the [Variables Are References](https://learn-2.galvanize.com/cohorts/2330/blocks/1829/content_files/variables-and-memory/variables-are-references.md#modifying-mutable-objects) lesson. To ensure that the data for each test is storied in a unique place in memory, there are functions implemented in `test_constants.py` that provide clean test data (i.e. `clean_wave_3_data`) by using `copy.deepcopy`. 
+For the time being, we need to make sure that the data provided to each test is clean and free of any changes that running another test may have introduced. Recall the *Modifying Mutable Objects* section of the *Variables Are References lesson.* To ensure that the data for each test is storied in a unique place in memory, there are functions implemented in `test_constants.py` that provide clean test data (i.e. `clean_wave_3_data`) by using `copy.deepcopy`. 
 
 ## Project Directions
 
