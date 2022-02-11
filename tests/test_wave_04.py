@@ -5,16 +5,16 @@ from tests.test_constants import *
 @pytest.mark.skip()
 def test_get_available_friend_rec():
     # Arrange
-    amandas_data = USER_DATA_4
+    amandas_data = clean_wave_4_data()
 
     # Act
     recommendations = get_available_recs(amandas_data)
 
     # Arrange
-    assert len(recommendations) is 2
+    assert len(recommendations) == 2
     assert HORROR_1b in recommendations
     assert FANTASY_4b in recommendations
-    assert amandas_data is USER_DATA_4
+    assert amandas_data == clean_wave_4_data()
 
 @pytest.mark.skip()
 def test_no_available_friend_recs():
@@ -36,4 +36,4 @@ def test_no_available_friend_recs():
     recommendations = get_available_recs(amandas_data)
 
     # Arrange
-    assert len(recommendations) is 0
+    assert len(recommendations) == 0
