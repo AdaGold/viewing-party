@@ -259,6 +259,8 @@ In `party.py`, there should be a function named `watch_movie`. This function sho
 - If the title is not a movie in the user's watchlist:
   - return the `user_data`
 
+Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions should not modify `user_data`.
+
 ### Wave 2
 
 1. The first two tests are about a `get_watched_avg_rating()` function.
