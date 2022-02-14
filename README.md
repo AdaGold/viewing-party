@@ -81,6 +81,8 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
+We will use a Test Driven Development programming workflow to work on this project. Notice the Red-Green-Refactor steps in the workflow steps outlined below.
+
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
 ```bash
@@ -89,54 +91,69 @@ $ source venv/bin/activate
 
 2. Find the test file that contains the test you want to run. Ensure that the test(s) you want to run isn't skipped.
 
-   - Check the `tests` folder, and find the test file you want to run
+    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
-   - Remove all lines that contain `@pytest.mark.skip()`
+      - If it is incomplete, complete the test. 
+        - *Is this a nominal or edge case?*
+        - *What type of input do we need to test this case?*
+        - *What is the expected output for the given input?*
+   - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
 
-3. Run the tests!
+3. Run the test(s)! (RED)
+    - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
 
 ```bash
-# Must be in activated virtual environment
+# Must be in activated virtual environment in the project-root directory
 $ pytest
 ```
 
-4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
+4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+    - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
-5. Make a plan to fix the test failure.
 
-6. Write code to fix the test failure.
+5. Make a plan to implement code to pass the test.
+
+6. Write code in `party.py` to pass the test.
 
 7. Re-run the tests.
 
-8. Repeat steps 5-7 until that test passes!
+8. Repeat steps 4-7 until that test passes! (GREEN)
 
-9. Repeats steps 4-8 until you have finished all tests in the file.
+9. Repeats steps 3-8 until you have finished all tests in the file.
 
-10. Begin using the test file of the next wave!
+10. Consider looking for opportunities to improve your code (REFACTOR)
 
-11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+11. Begin using the test file of the next wave!
+
+12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
 ```bash
 $ deactivate
 ```
 
+Finally, at submission time, **no matter where you are**, submit the project via Learn.
+
+This will let us give feedback on what you've finished so that you can be better prepared for the next project.
+
 ## Details About How to Run Tests
 
-Run all unskipped tests that exist in this project with:
+All the commands described below should be run from the project-root directory `viewing-party`. Note that the project-root directory is the repository `viewing-party`. It is distinct from the directory `viewing_party` that contains the source code in `party.py`.
+
+To run all unskipped tests that exist in this project with:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest
 ```
 
-If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest -s
 ```
 
-If you want to run all unskipped tests that exist in one file, use:
+To run all unskipped tests that exist in one file, use:
 
 ```bash
 # Must be in activated virtual environment
@@ -145,19 +162,33 @@ $ pytest tests/test_file_name.py
 
 ... where `test_file_name.py` is replaced with the correct test file name.
 
-## Project Write-Up: How to Complete and Submit
+To run a single test by name:
 
-The goal of this project is to write code in `party.py` so that as many of the tests pass as possible.
+```bash
+# Must be in activated virtual environment
+$ pytest tests/test_file_name.py::test_name
+```
 
-To complete this project, use the above workflow and follow these steps:
+... where `test_name.py` is relpaced with the name of the function.
 
-1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in `party.py` and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in `party.py`
-1. Repeat on all test files until submission time.
+## Play Testing
 
-At submission time, no matter where you are, submit the project via Learn.
+While we will mainly use a Test Driven Development (TDD) workflow for this project, it can be helpful to run code independently from running tests. To do this, a file `play_tester.py` is provided.
+
+To run this file, use:
+
+```bash
+# Must be in activated virtual environment in the project root-directory
+python3 play_tester.py
+```
+
+There is some starter code provided in `play_tester.py`. This code prints the test data that is used for many of the tests. Looking closely at this data can help us think critically about the expected output for given input for each function. Then, calling each function with this data allows us to observe the **actual** output for given input. 
+
+## Test Data
+
+We will note that much of the test data for this project is provided by the file `test_constants.py`. As test data gets more and more complex, it is helpful to organize this data in its own file to enhance consistency and readability. Pytest, like many testing libraries, provide a special too for test data called **fixtures**. We will learn about fixtures later in the curriculum. 
+
+For the time being, we need to make sure that the data provided to each test is clean and free of any changes that running another test may have introduced. Recall the *Modifying Mutable Objects* section of the *Variables Are References lesson.* To ensure that the data for each test is storied in a unique place in memory, there are functions implemented in `test_constants.py` that provide clean test data (i.e. `clean_wave_3_data`) by using `copy.deepcopy`. 
 
 ## Project Directions
 
@@ -178,7 +209,7 @@ In `party.py`, there should be a function named `create_movie`. This function sh
   - The values of these key-value pairs should be appropriate values
 - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
 
-2. The next two tests are about an `add_to_watched()` function.
+2. The next two tests are about the `add_to_watched()` function.
 
 In `party.py`, there should be a function named `add_to_watched`. This function should...
 
@@ -230,6 +261,8 @@ In `party.py`, there should be a function named `watch_movie`. This function sho
 - If the title is not a movie in the user's watchlist:
   - return the `user_data`
 
+Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions should not modify `user_data`.
+
 ### Wave 2
 
 1. The first two tests are about a `get_watched_avg_rating()` function.
@@ -253,6 +286,7 @@ In `party.py`, there should be a function named `get_most_watched_genre`. This f
     - The values of `"genre"` is a string.
 - Determine which genre is most frequently occurring in the watched list
 - return the genre that is the most frequently watched
+- If the value of "watched" is an empty list, `get_most_watched_genre` should return `None`.
 
 ### Wave 3
 

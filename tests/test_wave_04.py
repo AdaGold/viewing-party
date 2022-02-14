@@ -1,163 +1,33 @@
 import pytest
 from viewing_party.party import *
+from tests.test_constants import *
 
-
-def test_get_available_recs_returns_appropriate_recommendations_for_valid_input():
+@pytest.mark.skip()
+def test_get_available_friend_rec():
     # Arrange
-    amandas_data = {
-        "subscriptions": ["Service A", "Service B"],
-        "watched": [],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title C",
-                        "host": "Service C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title B",
-                        "host": "Service B"
-                    },
-                    {
-                        "title": "Title D",
-                        "host": "Service D"
-                    }
-                ]
-            }
-        ]
-    }
+    amandas_data = clean_wave_4_data()
 
     # Act
     recommendations = get_available_recs(amandas_data)
 
-    # Assert
+    # Arrange
     assert len(recommendations) == 2
-    assert {"title": "Title A", "host": "Service A"} in recommendations
-    assert {"title": "Title B", "host": "Service B"} in recommendations
+    assert HORROR_1b in recommendations
+    assert FANTASY_4b in recommendations
+    assert amandas_data == clean_wave_4_data()
 
-
-def test_get_available_recs_doesnt_recommend_watched_movie():
+@pytest.mark.skip()
+def test_no_available_friend_recs():
     # Arrange
     amandas_data = {
-        "subscriptions": ["Service A", "Service B"],
-        "watched": [{ "title": "Title A" }],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title C",
-                        "host": "Service C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title B",
-                        "host": "Service B"
-                    },
-                    {
-                        "title": "Title D",
-                        "host": "Service D"
-                    }
-                ]
-            }
-        ]
-    }
-
-    # Act
-    recommendations = get_available_recs(amandas_data)
-
-    # Arrange
-    assert len(recommendations) == 1
-    assert {"title": "Title B", "host": "Service B"} in recommendations
-
-
-def test_get_available_recs_returns_nothing_if_all_watched():
-    # Arrange
-    amandas_data = {
-        "subscriptions": ["Service A", "Service B"],
-        "watched": [{ "title": "Title A" }, { "title": "Title B" }],
-        "friends": [
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title C",
-                        "host": "Service C"
-                    }
-                ]
-            },
-            {
-                "watched": [
-                    {
-                        "title": "Title A",
-                        "host": "Service A"
-                    },
-                    {
-                        "title": "Title B",
-                        "host": "Service B"
-                    },
-                    {
-                        "title": "Title D",
-                        "host": "Service D"
-                    }
-                ]
-            }
-        ]
-    }
-
-    # Act
-    recommendations = get_available_recs(amandas_data)
-
-    # Arrange
-    assert len(recommendations) == 0
-
-
-def test_get_available_recs_returns_empty_list_for_valid_input_with_no_intersection_in_subscriptions():
-    # Arrange
-    amandas_data = {
-        "subscriptions": ["Service A", "Service B"],
+        "subscriptions": ["hulu", "disney+"],
         "watched": [],
         "friends": [
             {
-                "watched": [
-                    {
-                        "title": "Title C",
-                        "host": "Service C"
-                    }
-                ]
+                "watched": [HORROR_1b]
             },
             {
-                "watched": [
-                    {
-                        "title": "Title D",
-                        "host": "Service D"
-                    }
-                ]
+                "watched": [FANTASY_3b]
             }
         ]
     }
@@ -165,5 +35,5 @@ def test_get_available_recs_returns_empty_list_for_valid_input_with_no_intersect
     # Act
     recommendations = get_available_recs(amandas_data)
 
-    # Assert
+    # Arrange
     assert len(recommendations) == 0
