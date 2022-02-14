@@ -174,6 +174,7 @@ While we will mainly use a Test Driven Development (TDD) workflow for this proje
 To run this file, use:
 
 ```bash
+# Must be in activated virtual environment in the project root-directory
 python3 play_tester.py
 ```
 
