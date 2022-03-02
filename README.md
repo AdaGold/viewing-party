@@ -89,9 +89,8 @@ We will use a Test Driven Development programming workflow to work on this proje
 $ source venv/bin/activate
 ```
 
-2. Find the test file that contains the test you want to run. Ensure that the test(s) you want to run isn't skipped.
+2. Check the `tests` folder, and find the test file you want to run
 
-    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
       - If it is incomplete, complete the test. 
         - *Is this a nominal or edge case?*
@@ -107,7 +106,7 @@ $ source venv/bin/activate
 $ pytest
 ```
 
-4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
     - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
 
