@@ -116,9 +116,9 @@ $ pytest
 
 7. Re-run the tests.
 
-8. Repeat steps 4-7 until that test passes! (GREEN)
+8. Repeat steps 3-7 until that test passes! (GREEN)
 
-9. Repeats steps 3-8 until you have finished all tests in the file.
+9. Repeats steps 2-8 until you have finished all tests in the file.
 
 10. Consider looking for opportunities to improve your code (REFACTOR)
 
