@@ -119,7 +119,7 @@ $ pytest
 
 8. Repeat steps 3-7 until that test passes!
 
-9. Repeat steps 2-9 until you have finished all tests in the file.
+9. Repeat steps 2-8 until you have finished all tests in the file.
 
 10. Consider looking for opportunities to improve your code.
 
