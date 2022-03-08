@@ -108,7 +108,7 @@ $ pytest
 ```
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
-    - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
+    - If it is a test you wrote, consider whether the code is actually testing what you intend to test. Does the test need modification?
 
 
 5. Make a plan to implement code to pass the test.
@@ -117,9 +117,9 @@ $ pytest
 
 7. Re-run the tests.
 
-8. Repeat steps 4-7 until that test passes!
+8. Repeat steps 3-7 until that test passes!
 
-9. Repeats steps 3-8 until you have finished all tests in the file.
+9. Repeat steps 2-9 until you have finished all tests in the file.
 
 10. Consider looking for opportunities to improve your code.
 
