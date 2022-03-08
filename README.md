@@ -121,15 +121,21 @@ $ pytest
 
 10. Consider looking for opportunities to improve your code.
 
-11. Begin using the test file of the next wave!
+11. Before moving to the next wave, make sure you haven't missed any skipped tests.
+      - *Search the file (**Cmd** **F**) for `@pytest.mark.skip`*
+      - *To search all files in the project, use **Cmd** **Shift** **F***
 
-12. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
+12. Begin using the test file of the next wave!
+
+13. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
 
 ```bash
 $ deactivate
 ```
 
 Finally, at submission time, **no matter where you are**, submit the project via Learn.
+
+
 
 This will let us give feedback on what you've finished so that you can be better prepared for the next project.
 
