@@ -81,7 +81,7 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
-We will use a Test Driven Development programming workflow to work on this project. Notice the Red-Green-Refactor steps in the workflow steps outlined below.
+We will use a Test Driven Development programming workflow to work on this project.
 
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
@@ -99,7 +99,7 @@ $ source venv/bin/activate
         - *What is the expected output for the given input?*
    - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
 
-3. Run the test(s)! (RED)
+3. Run the test(s)!
     - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
 
 ```bash
@@ -117,11 +117,11 @@ $ pytest
 
 7. Re-run the tests.
 
-8. Repeat steps 4-7 until that test passes! (GREEN)
+8. Repeat steps 4-7 until that test passes!
 
 9. Repeats steps 3-8 until you have finished all tests in the file.
 
-10. Consider looking for opportunities to improve your code (REFACTOR)
+10. Consider looking for opportunities to improve your code.
 
 11. Begin using the test file of the next wave!
 
