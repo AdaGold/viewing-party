@@ -146,7 +146,7 @@ To run all unskipped tests that exist in this project with:
 $ pytest
 ```
 
-To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statement's output in the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment
