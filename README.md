@@ -81,7 +81,7 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
-We will use a Test Driven Development programming workflow to work on this project. Notice the Red-Green-Refactor steps in the workflow steps outlined below.
+We will use a Test Driven Development programming workflow to work on this project.
 
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
@@ -98,7 +98,7 @@ $ source venv/bin/activate
         - *What is the expected output for the given input?*
    - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
 
-3. Run the test(s)! (RED)
+3. Run the test(s)!
     - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
 
 ```bash
@@ -109,22 +109,21 @@ $ pytest
 4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
     - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
-
 5. Make a plan to implement code to pass the test.
 
 6. Write code in `party.py` to pass the test.
 
 7. Re-run the tests.
 
-8. Repeat steps 3-7 until that test passes! (GREEN)
+8. Repeat steps 3-7 until that test passes!
 
-9. Repeats steps 2-8 until you have finished all tests in the file.
+9. Repeat steps 2-8 until you have finished all tests in the file.
 
-10. Consider looking for opportunities to improve your code (REFACTOR)
+10. Consider looking for opportunities to improve your code.
 
 11. Begin using the test file of the next wave!
 
-12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+12. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
 
 ```bash
 $ deactivate
@@ -145,7 +144,7 @@ To run all unskipped tests that exist in this project with:
 $ pytest
 ```
 
-To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statement's output in the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment
