@@ -125,7 +125,7 @@ $ pytest
 
 11. Begin using the test file of the next wave!
 
-12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+12. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
 
 ```bash
 $ deactivate
