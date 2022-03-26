@@ -308,7 +308,7 @@ Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions sho
 
 1. Create a function named `get_available_recs`. This function should...
 
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
     - This represents the names of streaming services that the user has access to
     - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
@@ -331,10 +331,10 @@ Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions sho
 
 2. Create a function named  `get_rec_from_favorites`. This function should...
 
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
     - This represents the user's favorite movies
-- Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+- Determine a list of recommended movies. A movie should be added to this list if and only if:
   - The movie is in the user's `"favorites"`
   - None of the user's friends have watched it
 - Return the list of recommended movies
