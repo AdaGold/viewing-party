@@ -322,7 +322,7 @@ Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions sho
 
 1. Create a function named  `get_new_rec_by_genre`. This function should...
 
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
 - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
   - The user has not watched it
   - At least one of the user's friends has watched
