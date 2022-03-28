@@ -202,9 +202,7 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 ### Wave 1
 
-1. The first four tests are about a `create_movie()` function.
-
-In `party.py`, there should be a function named `create_movie`. This function should...
+1. Create a function named  `create_movie`. This function and all subsequent functions should be in `party.py`. `create_movie` should...
 
 - take three parameters: `title`, `genre`, `rating`
 - If those three attributes are truthy, then return a dictionary. This dictionary should...
@@ -213,9 +211,7 @@ In `party.py`, there should be a function named `create_movie`. This function sh
   - The values of these key-value pairs should be appropriate values
 - If `title` is falsy, `genre` is falsy, or `rating` is falsy, this function should return `None`
 
-2. The next two tests are about the `add_to_watched()` function.
-
-In `party.py`, there should be a function named `add_to_watched`. This function should...
+2. Create a function named `add_to_watched`. This function should...
 
 - take two parameters: `user_data`, `movie`
   - the value of `user_data` will be a dictionary with a key `"watched"`, and a value which is a list of dictionaries representing the movies the user has watched
@@ -231,9 +227,7 @@ In `party.py`, there should be a function named `add_to_watched`. This function 
 - add the `movie` to the `"watched"` list inside of `user_data`
 - return the `user_data`
 
-3. The next two tests are about an `add_to_watchlist()` function.
-
-In `party.py`, there should be a function named `add_to_watchlist`. This function should...
+3. Create a function named `add_to_watchlist`. This function should...
 
 - take two parameters: `user_data`, `movie`
   - the value of `user_data` will be a dictionary with a key `"watchlist"`, and a value which is a list of dictionaries representing the movies the user wants to watch
@@ -249,9 +243,7 @@ In `party.py`, there should be a function named `add_to_watchlist`. This functio
 - add the `movie` to the `"watchlist"` list inside of `user_data`
 - return the `user_data`
 
-4. There are three tests about a `watch_movie()` function.
-
-In `party.py`, there should be a function named `watch_movie`. This function should...
+4. Create a function named `watch_movie`. This function should...
 
 - take two parameters: `user_data`, `title`
   - the value of `user_data` will be a dictionary with a `"watchlist"` and a `"watched"`
@@ -269,9 +261,7 @@ Note: For Waves 2, 3, 4, and 5, your implementation of each of the functions sho
 
 ### Wave 2
 
-1. The first two tests are about a `get_watched_avg_rating()` function.
-
-In `party.py`, there should be a function named `get_watched_avg_rating`. This function should...
+1. Create a function named `get_watched_avg_rating`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries
@@ -280,9 +270,7 @@ In `party.py`, there should be a function named `get_watched_avg_rating`. This f
   - The average rating of an empty watched list is `0.0`
 - return the average rating
 
-2. The next three tests are about a `get_most_watched_genre()` function.
-
-In `party.py`, there should be a function named `get_most_watched_genre`. This function should...
+2. Create a function named `get_most_watched_genre`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries. Each movie dictionary has a key `"genre"`.
@@ -294,9 +282,7 @@ In `party.py`, there should be a function named `get_most_watched_genre`. This f
 
 ### Wave 3
 
-1. The first two tests are about a `get_unique_watched()` function.
-
-In `party.py`, there should be a function named `get_unique_watched`. This function should...
+1. Create a function named `get_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
@@ -307,9 +293,7 @@ In `party.py`, there should be a function named `get_unique_watched`. This funct
 - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user has watched, but none of their friends have watched.
 - Return a list of dictionaries, that represents a list of movies
 
-2. The next three tests are about a `get_friends_unique_watched()` function.
-
-In `party.py`, there should be a function named `get_friends_unique_watched`. This function should...
+2. Create a function named `get_friends_unique_watched`. This function should...
 
 - take one parameter: `user_data`
   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
@@ -322,11 +306,9 @@ In `party.py`, there should be a function named `get_friends_unique_watched`. Th
 
 ### Wave 4
 
-1. There are four tests about a `get_available_recs` function
+1. Create a function named `get_available_recs`. This function should...
 
-Create a function named `get_available_recs`
-
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
     - This represents the names of streaming services that the user has access to
     - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
@@ -338,25 +320,21 @@ Create a function named `get_available_recs`
 
 ### Wave 5
 
-1. There are four tests about a `get_new_rec_by_genre` function
+1. Create a function named  `get_new_rec_by_genre`. This function should...
 
-Create a function named `get_new_rec_by_genre`
-
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
 - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
   - The user has not watched it
   - At least one of the user's friends has watched
   - The `"genre"` of the movie is the same as the user's most frequent genre
 - Return the list of recommended movies
 
-2. There are also two tests about a `get_rec_from_favorites` function
+2. Create a function named  `get_rec_from_favorites`. This function should...
 
-Create a function named `get_rec_from_favorites`
-
-- takes one parameter: `user_data`
+- take one parameter: `user_data`
   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
     - This represents the user's favorite movies
-- Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+- Determine a list of recommended movies. A movie should be added to this list if and only if:
   - The movie is in the user's `"favorites"`
   - None of the user's friends have watched it
 - Return the list of recommended movies
