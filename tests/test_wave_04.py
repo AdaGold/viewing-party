@@ -10,7 +10,7 @@ def test_get_available_friend_rec():
     # Act
     recommendations = get_available_recs(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(recommendations) == 2
     assert HORROR_1b in recommendations
     assert FANTASY_4b in recommendations
@@ -35,5 +35,5 @@ def test_no_available_friend_recs():
     # Act
     recommendations = get_available_recs(amandas_data)
 
-    # Arrange
+    # Assert
     assert len(recommendations) == 0
