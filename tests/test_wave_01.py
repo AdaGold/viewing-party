@@ -74,7 +74,7 @@ def test_adds_movie_to_user_watched():
     updated_data = add_to_watched(user_data, movie)
 
     # Assert
-    assert len(updated_data["watched"]) is 1
+    assert len(updated_data["watched"]) == 1
     assert updated_data["watched"][0]["title"] == MOVIE_TITLE_1
     assert updated_data["watched"][0]["genre"] == GENRE_1
     assert updated_data["watched"][0]["rating"] == RATING_1
@@ -95,7 +95,7 @@ def test_adds_movie_to_user_watchlist():
     updated_data = add_to_watchlist(user_data, movie)
 
     # Assert
-    assert len(updated_data["watchlist"]) is 1
+    assert len(updated_data["watchlist"]) == 1
     assert updated_data["watchlist"][0]["title"] == MOVIE_TITLE_1
     assert updated_data["watchlist"][0]["genre"] == GENRE_1
     assert updated_data["watchlist"][0]["rating"] == RATING_1
@@ -116,8 +116,8 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     updated_data = watch_movie(janes_data, MOVIE_TITLE_1)
 
     # Assert
-    assert len(updated_data["watchlist"]) is 0
-    assert len(updated_data["watched"]) is 1
+    assert len(updated_data["watchlist"]) == 0
+    assert len(updated_data["watched"]) == 1
     
     raise Exception("Test needs to be completed.")
     # *******************************************************************************************
@@ -140,8 +140,8 @@ def test_moves_movie_from_watchlist_to_watched():
     updated_data = watch_movie(janes_data, movie_to_watch["title"])
 
     # Assert
-    assert len(updated_data["watchlist"]) is 1
-    assert len(updated_data["watched"]) is 2
+    assert len(updated_data["watchlist"]) == 1
+    assert len(updated_data["watched"]) == 2
     
     raise Exception("Test needs to be completed.")
     # *******************************************************************************************
