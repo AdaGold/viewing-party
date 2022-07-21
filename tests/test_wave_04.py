@@ -37,3 +37,25 @@ def test_no_available_friend_recs():
 
     # Assert
     assert len(recommendations) == 0
+
+@pytest.mark.skip()
+def test_no_available_friend_recs_watched_all():
+    # Arrange
+    amandas_data = {
+        "subscriptions": ["netflix", "amazon"],
+        "watched": [HORROR_1b, FANTASY_3b],
+        "friends": [
+            {
+                "watched": [HORROR_1b]
+            },
+            {
+                "watched": [FANTASY_3b]
+            }
+        ]
+    }
+
+    # Act
+    recommendations = get_available_recs(amandas_data)
+
+    # Arrange
+    assert len(recommendations) == 0
