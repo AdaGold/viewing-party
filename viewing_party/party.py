@@ -1,7 +1,11 @@
 # ------------- WAVE 1 --------------------
 
+from turtle import home
+
+
 def create_movie(title, genre, rating):
-    pass
+    return home
+    #  this originally said "pass." Change to committ
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
