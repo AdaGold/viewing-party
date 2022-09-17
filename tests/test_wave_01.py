@@ -45,7 +45,7 @@ def test_create_no_genre_movie():
     # Assert
     assert new_movie is None
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 def test_create_no_rating_movie():
     # Arrange
     movie_title = "Title A"
