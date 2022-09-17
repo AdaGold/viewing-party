@@ -17,6 +17,11 @@ pp = pprint.PrettyPrinter(indent=4)
 # print("\n-----Wave 02 user_data-----")
 # pp.pprint(clean_wave_2_data())
 
+janes_data = clean_wave_2_data()
+
+average = get_watched_avg_rating(janes_data)
+print(average)
+
 #print("\n-----Wave 03 user_data-----")
 #pp.pprint(clean_wave_3_data())
 
