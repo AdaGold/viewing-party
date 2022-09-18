@@ -24,21 +24,6 @@ pp = pprint.PrettyPrinter(indent=4)
 #print("\n-----Wave 04 user_data-----")
 #pp.pprint(clean_wave_4_data())
 
-amandas_data = {
-        "subscriptions": ["hulu", "disney+"],
-        "watched": [],
-        "friends": [
-            {
-                "watched": [HORROR_1b]
-            },
-            {
-                "watched": [FANTASY_3b]
-            }
-        ]
-    }
-
-recommendations = get_available_recs(amandas_data)
-
 # Wave 05 user data
 #print("\n-----Wave 05 user_data-----")
 #pp.pprint(clean_wave_5_data())
