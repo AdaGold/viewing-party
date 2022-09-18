@@ -27,6 +27,3 @@ pp = pprint.PrettyPrinter(indent=4)
 # Wave 05 user data
 #print("\n-----Wave 05 user_data-----")
 #pp.pprint(clean_wave_5_data())
-
-sonyas_data = clean_wave_5_data()
-recommendations = get_rec_from_favorites(sonyas_data)

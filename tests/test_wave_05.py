@@ -101,7 +101,7 @@ def test_unique_from_empty_favorites():
     # Assert
     assert len(recommendations) == 0
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 def test_new_rec_from_empty_friends():
     # Arrange
     sonyas_data = {
