@@ -44,13 +44,19 @@ def get_watched_avg_rating(user_data):
 
 def get_most_watched_genre(user_data):
     watched_genres = {}
+    
+    if len(user_data) == 0:
+        return None
+    
     for movie in user_data["watched"]:
         if movie["genre"] not in watched_genres:
             watched_genres[movie["genre"]] = 0
         else:
             watched_genres[movie["genre"]] += 1
+    
     most_watched = 0
     most_watched_genre = None
+    
     for genre, frequency in watched_genres.items():
         if frequency > most_watched:
             most_watched = frequency
