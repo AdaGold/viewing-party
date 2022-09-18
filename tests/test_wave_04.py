@@ -2,7 +2,7 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 def test_get_available_friend_rec():
     # Arrange
     amandas_data = clean_wave_4_data()

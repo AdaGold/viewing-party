@@ -111,6 +111,15 @@ def get_friends_unique_watched(user_data):
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
 
+def get_available_recs(user_data):
+    friends_recs = []
+    friends_unique_movies = get_friends_unique_watched(user_data)
+    for movie in friends_unique_movies:
+        if movie["rating"] >= 3.5:
+            friends_recs.append(movie)
+    return friends_recs
+
+
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
