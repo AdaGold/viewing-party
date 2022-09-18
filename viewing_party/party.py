@@ -156,6 +156,9 @@ def get_rec_from_favorites(user_data):
     recommendations = []
     genres = {}
 
+    if len(user_data["watched"]) == 0:
+        return recommendations
+
     for movie in user_data["favorites"]:
         if movie["genre"] not in genres:
             genres[movie["genre"]] = [movie]
