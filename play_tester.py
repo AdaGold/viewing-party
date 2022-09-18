@@ -17,6 +17,14 @@ pp = pprint.PrettyPrinter(indent=4)
 # print("\n-----Wave 02 user_data-----")
 # pp.pprint(clean_wave_2_data())
 
+janes_data = clean_wave_2_data()
+
+# Act
+popular_genre = get_most_watched_genre(janes_data)
+
+# Assert
+print(popular_genre)
+
 #print("\n-----Wave 03 user_data-----")
 #pp.pprint(clean_wave_3_data())
 
