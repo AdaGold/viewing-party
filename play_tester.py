@@ -21,7 +21,7 @@ pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(clean_wave_3_data())
 
 amandas_data = clean_wave_3_data()
-amandas_unique_movies = get_unique_watched(amandas_data)
+friends_unique_movies = get_friends_unique_watched(amandas_data)
 
 # Wave 04 user data
 #print("\n-----Wave 04 user_data-----")

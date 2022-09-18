@@ -86,6 +86,25 @@ def get_unique_watched(user_data):
             unique_movies.append(movie)
     return unique_movies
 
+
+def get_friends_unique_watched(user_data):
+    user_set = set()
+    for movie in user_data["watched"]:
+        user_set.add(movie["title"])
+    
+    friend_set = set()
+    for friend_data in user_data["friends"]:
+        for movie in friend_data["watched"]:
+            friend_set.add(movie["title"])
+    
+    friends_unique_set = friend_set - user_set
+
+    friends_unique_movies = []
+    for friend_data in user_data["friends"]:
+        for movie in friend_data["watched"]:
+            if movie["title"] in friends_unique_set:
+                friends_unique_movies.append(movie)
+    return friends_unique_movies
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
