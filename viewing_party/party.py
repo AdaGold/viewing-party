@@ -114,9 +114,14 @@ def get_friends_unique_watched(user_data):
 def get_available_recs(user_data):
     friends_recs = []
     friends_unique_movies = get_friends_unique_watched(user_data)
+
+    if user_data["watched"] == []:
+        return friends_recs
+
     for movie in friends_unique_movies:
         if movie["rating"] >= 3.5:
             friends_recs.append(movie)
+
     return friends_recs
 
 
