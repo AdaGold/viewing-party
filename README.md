@@ -87,7 +87,6 @@ We will use a Test Driven Development programming workflow to work on this proje
 
 ```bash
 $ source venv/bin/activate
-```
 
 2. Check the `tests` folder, and find the test file you want to run
 
