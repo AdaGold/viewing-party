@@ -75,8 +75,8 @@ def get_user_set(user_data):
 
 def get_friend_set(user_data):
     friend_set = set()
-    for friend_data in user_data["friends"]:
-        for movie in friend_data["watched"]:
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
             friend_set.add(movie["title"])
     return friend_set
 
@@ -99,8 +99,8 @@ def get_friends_unique_watched(user_data):
     friends_unique_set = friend_set - user_set
 
     friends_unique_movies = []
-    for friend_data in user_data["friends"]:
-        for movie in friend_data["watched"]:
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
             if movie["title"] in friends_unique_set and movie not in friends_unique_movies:
                 friends_unique_movies.append(movie)
     return friends_unique_movies
@@ -114,12 +114,10 @@ def get_available_recs(user_data):
     friends_recs = []
     friends_unique_movies = get_friends_unique_watched(user_data)
 
-    if len(user_data["watched"]) == 0:
-        return friends_recs
-
-    for movie in friends_unique_movies:
-        if movie["rating"] >= 3.5:
-            friends_recs.append(movie)
+    if len(user_data["watched"]) > 0:
+        for movie in friends_unique_movies:
+            if movie["rating"] >= 3.5:
+                friends_recs.append(movie)
 
     return friends_recs
 
