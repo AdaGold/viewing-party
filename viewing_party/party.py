@@ -140,23 +140,17 @@ def get_new_rec_by_genre(user_data):
 
 
 def get_rec_from_favorites(user_data):
-    # should return FANTASY_2b, INTRIGUE_2b
-    # loop through all the movies, organize by genre
-    # return genre_list[-1] and append to recommendations
-
     recommendations = []
-    genres = {}
+    favorites_genres = {}
 
-    if len(user_data["watched"]) == 0:
-        return recommendations
+    if len(user_data["watched"]) > 0:
+        for movie in user_data["favorites"]:
+            if movie["genre"] not in favorites_genres:
+                favorites_genres[movie["genre"]] = [movie]
+            else:
+                favorites_genres[movie["genre"]].append(movie)
+        
+        for genre in favorites_genres:
+            recommendations.append(favorites_genres[genre][-1])
 
-    for movie in user_data["favorites"]:
-        if movie["genre"] not in genres:
-            genres[movie["genre"]] = [movie]
-        else:
-            genres[movie["genre"]].append(movie)
-    
-    for genre in genres:
-        recommendations.append(genres[genre][-1])
-    
     return recommendations
