@@ -35,6 +35,7 @@ def watch_movie(user_data, title):
             user_data["watched"].append(movie)
     return(user_data)
 
+
         
 
         
@@ -46,6 +47,17 @@ def watch_movie(user_data, title):
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
+
+def get_watched_avg_rating(user_data):
+#  user data = {watched: [{movie2}, {movie2}]}
+    user_rating = []
+
+    for movie in user_data["watched"]:
+        user_rating.append(movie["rating"])
+    average_rating = (sum(user_rating)) / (len(user_rating))
+    # print(user_rating)
+    # print(average_rating)
+    return(average_rating)
 
 
 # -----------------------------------------
