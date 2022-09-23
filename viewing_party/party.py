@@ -2,6 +2,9 @@
 
 
 def create_movie(title, genre, rating):
+    # if truthy return a dictionary
+    # dictionary contains 3 key-value pairs
+    # return none if falsy
     title_genre_rating = {}
     if title and genre and rating:
         title_genre_rating.update({'title': title, 'genre': genre, 'rating': rating})
@@ -36,13 +39,6 @@ def watch_movie(user_data, title):
     return(user_data)
 
 
-        
-
-        
-
-    # if truthy return a dictionary
-    # dictionary contains 3 key-value pairs
-    # return none if falsy
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
@@ -51,13 +47,17 @@ def watch_movie(user_data, title):
 def get_watched_avg_rating(user_data):
 #  user data = {watched: [{movie2}, {movie2}]}
     user_rating = []
-
-    for movie in user_data["watched"]:
-        user_rating.append(movie["rating"])
-    average_rating = (sum(user_rating)) / (len(user_rating))
+    
+    if len(user_data["watched"]) == 0:
+        average_rating = 0.0
+        return average_rating
+    else:
+        for movie in user_data["watched"]:
+            user_rating.append(movie["rating"])
+            average_rating = (sum(user_rating)) / (len(user_rating))
     # print(user_rating)
     # print(average_rating)
-    return(average_rating)
+        return(average_rating)
 
 
 # -----------------------------------------
