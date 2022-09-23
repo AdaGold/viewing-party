@@ -1,5 +1,7 @@
 # ------------- WAVE 1 --------------------
 
+from enum import unique
+from turtle import title
 from tests.test_constants import clean_wave_2_data
 
 
@@ -64,31 +66,24 @@ def get_most_watched_genre(user_data):
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
 def get_unique_watched(user_data):
-    watched_list = user_data["watched"]
-    friend_list = user_data["friends"]
-
-    for value in friend_list:
-        #print(value)
-        for movie in value.values():
-            print(movie)
     
-        
+    unique_movies = []
+    friend_movies_list = []
 
+    #creating a dictionary of friend's watched movies and putting into a list
+    for watchlist in user_data["friends"]:
+        for watched in watchlist.values():
+            for movies_dict in watched:
+                friend_movies_list.append(movies_dict)
+    
+    #comparing user list and friends list for unique titles
+    for movies in user_data["watched"]:
+        if movies not in friend_movies_list:
+            unique_movies.append(movies)
+    
+    return unique_movies
 
-
-
-
-    # for movie in watched_list:
-    #     for friend in friend_watch_list:
-    #         for movie2 in friend["watched"]:
-    #             print(movie2["title"])
-                
-                
-
-    #     if movie["title"] not in friend_watch_list:
-    #         unique.append(movie)
-    # return unique
-        
+            
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
