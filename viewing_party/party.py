@@ -62,6 +62,9 @@ def get_watched_avg_rating(user_data):
 def get_most_watched_genre(user_data):
     
     genres_watched = {}
+
+    if not user_data["watched"]:
+        return None
     
     for movie in user_data["watched"]:
         if movie["genre"] not in genres_watched:
