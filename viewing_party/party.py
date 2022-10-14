@@ -103,6 +103,22 @@ def get_unique_watched(user_data):
             unique_movies.append(movie)
             # watched_titles.append(movie["title"])
     return(unique_movies)
+
+def get_friends_unique_watched(user_data):
+    all_movies_watched = []
+    unique_movies_watched_by_friends = []
+    
+    for movie in user_data["watched"]:
+        movie_watched = movie["title"]
+        # add all the movies watched to new list
+        all_movies_watched.append(movie_watched)
+    for friend in user_data["friends"]:
+        for movie_details in friend["watched"]:
+            movie_title = movie_details["title"]
+            if movie_title not in all_movies_watched:
+                # create list of dictionary containing movie details
+                unique_movies_watched_by_friends.append(movie_details)
+    return unique_movies_watched_by_friends
         
 
         
