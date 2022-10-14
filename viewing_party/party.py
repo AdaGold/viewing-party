@@ -90,15 +90,20 @@ def get_unique_watched(user_data):
     # each movie dict in watched_key has a title
 
     unique_movies = []
-    for watched_movie in user_data["watched"]:
-    # friends_movies.append(watched_movie)
-        for movie in user_data["friends"]:
-    #     for movie in user_data["friends"]:
-            if watched_movie["title"] in unique_movies:
-                continue
-            elif watched_movie["title"] not in movie["watched"]:
-                unique_movies.append(watched_movie["title"])
-    return unique_movies
+    movies_watched_by_friends = []
+    
+    for friend in user_data["friends"]:
+        for movie_details in friend["watched"]:
+            movie_title = movie_details["title"]
+            movies_watched_by_friends.append(movie_title)
+            # print(movie_details["title"])
+    for movie in user_data["watched"]:
+        movie_watched = movie["title"]
+        if movie_watched not in movies_watched_by_friends:
+            unique_movies.append(movie)
+            # watched_titles.append(movie["title"])
+    return(unique_movies)
+        
 
         
 # -----------------------------------------
