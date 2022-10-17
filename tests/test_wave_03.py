@@ -58,6 +58,8 @@ def test_friends_unique_movies_not_duplicated():
     # raise Exception("Test needs to be completed.")
 
     assert friends_unique_movies[-2] == HORROR_1
+    assert friends_unique_movies[0] == FANTASY_4
+    # this assert makes sures that the second to last item is not INTRIGUE_3 which would mean it was duplicated
     # *************************************************************************************************
     # ****** Add assertions here to test that the correct movies are in friends_unique_movies **********
     # **************************************************************************************************
