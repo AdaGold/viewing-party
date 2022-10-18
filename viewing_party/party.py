@@ -136,11 +136,6 @@ def get_available_recs(user_data):
             recommended_movies.append(movie)
     return recommended_movies
 
-
-
-
-
-
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
