@@ -6,10 +6,10 @@ def create_movie(title, genre, rating):
     if title == None or genre == None or rating == None:
         return None
     else:
-     new_movie["title"] = title
-     new_movie["genre"] = genre
-     new_movie["rating"] = rating
-     return new_movie
+        new_movie["title"] = title
+        new_movie["genre"] = genre
+        new_movie["rating"] = rating
+        return new_movie
 
 def add_to_watched(user_data, movie):
     updated_user_data = {
@@ -83,9 +83,7 @@ def get_friends_unique_watched(user_data):
     if len(user_data["watched"]) == 0:
         for i in range(len(user_data["friends"])):
             for j in range(len(user_data["friends"][i]["watched"])):
-                if (friends_movie_list[i] not in friends_unique_movies):
-                    friends_movie_list.append(user_data["friends"][i]["watched"][j])
-        #friends_unique_movies = set(friends_movie_list)
+                friends_movie_list.append(user_data["friends"][i]["watched"][j])
         return friends_unique_movies
     else:
         for i in range(len(user_data["friends"])):
@@ -94,13 +92,24 @@ def get_friends_unique_watched(user_data):
         for k in range(len(friends_movie_list)):
             if (friends_movie_list[k] not in user_data["watched"]) and ((friends_movie_list[k] not in friends_unique_movies)):
                 friends_unique_movies.append(friends_movie_list[k])
-        #friends_unique_movies_set = set(friends_unique_movies)
         return friends_unique_movies#_set
         
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
-
+def get_available_recs(user_data):
+    list_of_recommended_movies = list()
+    unique_friends_movie = get_friends_unique_watched(user_data)
+    if not user_data["watched"] or not unique_friends_movie or not user_data["subscriptions"]:
+        return list_of_recommended_movies
+    else:
+        for i in range(len(unique_friends_movie)):
+            if unique_friends_movie[i]["host"] in user_data["subscriptions"]:
+                list_of_recommended_movies.append(unique_friends_movie[i])
+        if not list_of_recommended_movies:
+            return list_of_recommended_movies
+        else:
+            return list_of_recommended_movies
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
