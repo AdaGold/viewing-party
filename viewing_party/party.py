@@ -137,7 +137,7 @@ def get_rec_from_favorites(user_data):
     if not user_data["watched"]:
         return recommended_movies
     else:
-        unique_movies = get_unique_watched(user_data)
+        unique_movies = get_unique_watched(user_data) #user's watched movies, different from friend's movies
         for i in range(len(user_data["favorites"])):
             favorite_movies.append(user_data["favorites"][i])
         for movie in unique_movies:
