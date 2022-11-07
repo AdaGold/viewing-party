@@ -51,13 +51,12 @@ def test_friends_unique_movies_not_duplicated():
 
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
-    list_of_title = list()
-    for i in range(len(friends_unique_movies)):
-        list_of_title.append(friends_unique_movies[i]["title"])
         
     # Assert
     assert len(friends_unique_movies) == 3
-    assert len(set(list_of_title)) == len(list_of_title)
+    assert INTRIGUE_3 in friends_unique_movies
+    assert HORROR_1 in friends_unique_movies
+    assert FANTASY_4 in friends_unique_movies
     
     
 def test_friends_not_unique_movies():
