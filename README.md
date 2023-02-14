@@ -9,6 +9,7 @@ Solving problems with...
 - Dictionaries
 - Nested loops
 - Nested data structures
+- Pair-programming techniques
 
 ## Goal
 
@@ -16,23 +17,45 @@ You and your friends enjoy watching things together online. Of course, everyone 
 
 You've been using a spreadsheet to compare everyone's watched list, favorites list, and watchlist, but it's been getting too cumbersome. In order to find things you've watched and your friends haven't watched, or things that your friends have watched and you haven't watched, you have to comb through the spreadsheet. You know that there are different ways we can get that information: we can use Python!
 
-For this project, you will be given some data structure that represents the things you've watched, favorited, and want to watch. The directions below will lead you to create a series of functions. These functions will modify the data, and implement features like adding and removing things between different lists. Other features include creating recommendations!
+For this project, you and your partner will be given some data structure that represents the things you've watched, favorited, and want to watch. The directions below will lead you and your partner to create a series of functions. These functions will modify the data, and implement features like adding and removing things between different lists. Other features include creating recommendations!
+
+## Pair Programming
+
+Utilize good pair programming practices. Refer to this [medium article](https://medium.com/@weblab_tech/pair-programming-guide-a76ca43ff389), and the lesson in Learn titled Intro to Pair Programming from Approaching a Problem if you need a refresher for some best practices. Switch _driver_ and _navigator_ roles often. When there is uncertainty or confusion, step away from the keyboard and discuss, plan, and document on paper or whiteboard before continuing.
 
 ## One-Time Project Setup
 
-Follow these directions once, a the beginning of your project:
+Follow these directions once, at the beginning of your project:
 
-1. Navigate to your projects folder named `projects`
+*Only one member of the team should complete the following two steps steps:*
+
+1. In Github, click on the "Fork" button in github and fork the repository to your Github account.  This will make a copy of the project in your github account. 
+
+![Fork Button](images/fork.png)
+
+2. In Github, add the other member(s) of your team as collaborators to the repository. Do this by a The student who forked the respository should first choosing **Settings** from the top menu bar, then **Collaborators and teams** from the left navigation, and finally **Invite teams or people**.
+
+You can find detailed instructions [here](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/).
+
+![Settings](images/settings.png)
+
+<img src="images/manage-access.png" alt="Collaborators and teams" width="250"/>
+
+![Invite teams or people](images/invite.png)
+
+The member(s) who are invite will need to accept the invitation either by accepting an email invitation or accepting the invitation in Github.
+
+Both members of the team will be working from the same forked repository.  Be sure to follow proper git protocol from the Intro to Git topic in Learn.
+
+*Each member of the pair should complete the following steps:*
+
+3. Navigate to your projects folder named `projects`
 
 ```bash
 $ cd ~/Developer/projects
 ```
 
-2. In Github click on the "Fork" button in github and fork the repository to your Github account.  This will make a copy of the project in your github account. 
-
-![Fork Button](images/fork.png)
-
-3. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `viewing-party`, and then puts the project into this new folder.  Make sure you are cloning from your copy of the project and not the class version (ada-cX).
+4. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `viewing-party`, and then puts the project into this new folder.  Make sure you are cloning from your copy of the project and not the class version (ada-cX).
 
 ```bash
 $ git clone ...
@@ -40,19 +63,19 @@ $ git clone ...
 
 Use `ls` to confirm there's a new project folder
 
-4. Move your location into this project folder
+5. Move your location into this project folder
 
 ```bash
 $ cd viewing-party
 ```
 
-5. Create a virtual environment named `venv` for this project:
+6. Create a virtual environment named `venv` for this project:
 
 ```bash
 $ python3 -m venv venv
 ```
 
-6. Activate this environment:
+7. Activate this environment:
 
 ```bash
 $ source venv/bin/activate
@@ -63,7 +86,7 @@ Verify that you're in a python3 virtual environment by running:
 - `$ python --version` should output a Python 3 version
 - `$ pip --version` should output that it is working with Python 3
 
-7. Install dependencies once at the beginning of this project with
+8. Install dependencies once at the beginning of this project with
 
 ```bash
 # Must be in activated virtual environment
@@ -71,7 +94,11 @@ $ pip install -r requirements.txt
 ```
 
 Summary of one-time project setup:
+One person:
+- [ ] Fork the project respository
+- [ ] Invite team members to the respository
 
+All team members:
 - [ ] `cd` into your `projects` folder
 - [ ] Clone the project onto your machine
 - [ ] `cd` into the `viewing-party` folder
@@ -106,10 +133,10 @@ $ source venv/bin/activate
 $ pytest
 ```
 
-4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+4. Read through the test failure, and understand why the failure is happening. Confirm your findings with your partner. 
     - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
-5. Make a plan to implement code to pass the test.
+5. Make a plan with your partner to implement code to pass the test.
 
 6. Write code in `party.py` to pass the test.
 
@@ -117,9 +144,9 @@ $ pytest
 
 8. Repeat steps 3-7 until that test passes!
 
-9. Repeat steps 2-8 until you have finished all tests in the file.
+9. Repeat steps 2-8 until you have finished all tests in the file. Consider switching driver/navigator rolls. Make sure the current driver pushes using `git push` and the new driver pulls using `git pull`.
 
-10. Consider looking for opportunities to improve your code.
+10. Consider looking for opportunities with your partner to improve your code.
 
 11. Before moving to the next wave, make sure you haven't missed any skipped tests.
       - *Search the file (**Cmd** **F**) for `@pytest.mark.skip`*
@@ -135,9 +162,7 @@ $ deactivate
 
 Finally, at submission time, **no matter where you are**, submit the project via Learn.
 
-
-
-This will let us give feedback on what you've finished so that you can be better prepared for the next project.
+In addition to submitting your Pull Request, submit a reflection to the pair programming reflection prompt.
 
 ## Details About How to Run Tests
 
@@ -195,6 +220,12 @@ We will note that much of the test data for this project is provided by the file
 For the time being, we need to make sure that the data provided to each test is clean and free of any changes that running another test may have introduced. Recall the *Modifying Mutable Objects* section of the *Variables Are References lesson.* To ensure that the data for each test is storied in a unique place in memory, there are functions implemented in `test_constants.py` that provide clean test data (i.e. `clean_wave_3_data`) by using `copy.deepcopy`. 
 
 ## Project Directions
+
+### Setup a Pair Plan
+
+First, come up with a "plan of action" for how you want to work as a pair. Discuss your learning style, how you prefer to receive feedback, and one team communication skill you want to improve with this experience.
+
+We recommend spending at least a portion of the time pair programming and working collaboratively from the same machine.  Zoom and screen sharing or [VSCode Live Share](https://code.visualstudio.com/learn/collaboration/live-share) are good tools to consider.  Some teams will choose to pair program and work collaboratively from the same machine for the entire project.  Some teams will choose to divide a portion of the work and combine their code using git.
 
 This project is designed such that one could puzzle together how to implement this project without many directions. Being able to read tests to understand what is expected of our program is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
