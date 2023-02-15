@@ -33,7 +33,7 @@ Follow these directions once, at the beginning of your project:
 
 ![Fork Button](images/fork.png)
 
-2. In Github, add the other member(s) of your team as collaborators to the repository. Do this by a The student who forked the respository should first choosing **Settings** from the top menu bar, then **Collaborators and teams** from the left navigation, and finally **Invite teams or people**.
+2. In Github, add the other member(s) of your team as collaborators to the repository. The student who forked the respository should do this by first choosing **Settings** from the top menu bar, then choosing **Collaborators** from the navigation bar on the left, and finally selecting the green **Add People** button.
 
 You can find detailed instructions [here](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/).
 
