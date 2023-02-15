@@ -223,7 +223,7 @@ For the time being, we need to make sure that the data provided to each test is 
 
 ## Project Directions
 
-### Setup a Pair Plan
+### Set Up a Pair Plan
 
 First, come up with a "plan of action" for how you want to work as a pair. Discuss your learning style, how you prefer to receive feedback, and one team communication skill you want to improve with this experience.
 
