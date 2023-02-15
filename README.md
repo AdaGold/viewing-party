@@ -43,7 +43,7 @@ You can find detailed instructions [here](https://help.github.com/articles/invit
 
 ![Invite teams or people](images/invite.png)
 
-The member(s) who are invite will need to accept the invitation either by accepting an email invitation or accepting the invitation in Github.
+The invited member(s) will need to accept the invitation either by accepting the email invitation or accepting the invitation in Github.
 
 Both members of the team will be working from the same forked repository.  Be sure to follow proper git protocol from the Intro to Git topic in Learn.
 
