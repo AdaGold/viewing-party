@@ -27,7 +27,7 @@ Utilize good pair programming practices. Refer to this [medium article](https://
 
 Follow these directions once, at the beginning of your project:
 
-*Only one member of the team should complete the following two steps steps:*
+*Only one member of the team should complete the following two steps:*
 
 1. In Github, click on the "Fork" button in github and fork the repository to your Github account.  This will make a copy of the project in your github account. 
 
