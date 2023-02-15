@@ -146,7 +146,7 @@ $ pytest
 
 8. Repeat steps 3-7 until that test passes!
 
-9. Repeat steps 2-8 until you have finished all tests in the file. Consider switching driver/navigator rolls. Make sure the current driver pushes using `git push` and the new driver pulls using `git pull`.
+9. Repeat steps 2-8 until you have finished all tests in the file. Consider switching driver/navigator roles. Make sure the current driver pushes using `git push` and the new driver pulls using `git pull`.
 
 10. Consider looking for opportunities with your partner to improve your code.
 
