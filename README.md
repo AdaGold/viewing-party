@@ -49,7 +49,9 @@ Both members of the team will be working from the same forked repository.  Be su
 
 *Each member of the pair should complete the following steps:*
 
-3. Navigate to your projects folder named `projects`
+3. Navigate to your projects folder which is named `projects`. 
+
+If you followed Ada's recommended file system structure from the Intro to Dev Environment lesson in Learn, you can navigate to your projects folder with the following command:
 
 ```bash
 $ cd ~/Developer/projects
