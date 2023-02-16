@@ -29,7 +29,7 @@ Follow these directions once, at the beginning of your project:
 
 *Only one member of the team should complete the following two steps:*
 
-1. In Github, click on the "Fork" button in github and fork the repository to your Github account.  This will make a copy of the project in your github account. 
+1. In GitHub, click on the "Fork" button and fork the repository to your GitHub account.  This will make a copy of the project in your GitHub account. 
 
 ![Fork Button](images/fork.png)
 
