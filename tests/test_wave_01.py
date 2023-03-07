@@ -80,6 +80,26 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["rating"] == RATING_1
 
 @pytest.mark.skip()
+def test_adds_movie_to_non_empty_user_watched():
+    # Arrange
+    movie = {
+        "title": MOVIE_TITLE_1,
+        "genre": GENRE_1,
+        "rating": RATING_1
+    }
+    user_data = {
+        "watched": [FANTASY_2]
+    }
+
+    # Act
+    updated_data = add_to_watched(user_data, movie)
+
+    # Assert
+    assert len(updated_data["watched"]) == 2
+    assert movie in updated_data["watched"]
+    assert FANTASY_2 in updated_data["watched"]
+
+@pytest.mark.skip()
 def test_adds_movie_to_user_watchlist():
     # Arrange
     movie = {
@@ -99,6 +119,26 @@ def test_adds_movie_to_user_watchlist():
     assert updated_data["watchlist"][0]["title"] == MOVIE_TITLE_1
     assert updated_data["watchlist"][0]["genre"] == GENRE_1
     assert updated_data["watchlist"][0]["rating"] == RATING_1
+
+@pytest.mark.skip()
+def test_adds_movie_to_non_empty_user_watchlist():
+    # Arrange
+    movie = {
+        "title": MOVIE_TITLE_1,
+        "genre": GENRE_1,
+        "rating": RATING_1
+    }
+    user_data = {
+        "watched": [FANTASY_2]
+    }
+
+    # Act
+    updated_data = add_to_watchlist(user_data, movie)
+
+    # Assert
+    assert len(updated_data["watchlist"]) == 2
+    assert movie in updated_data["watchlist"]
+    assert FANTASY_2 in updated_data["watchlist"]
 
 @pytest.mark.skip()
 def test_moves_movie_from_watchlist_to_empty_watched():
