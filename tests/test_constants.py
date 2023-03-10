@@ -78,6 +78,17 @@ USER_DATA_2 = {
         ],    
 }
 
+USER_DATA_2b = {
+    "watched": [
+        INTRIGUE_1,
+        FANTASY_2,
+        ACTION_1,
+        FANTASY_1,
+        FANTASY_3,
+        INTRIGUE_2,
+    ]
+}
+
 #-----WAVE 3--------
 USER_DATA_3 = copy.deepcopy(USER_DATA_2)
 USER_DATA_3["friends"] =  [
@@ -146,6 +157,7 @@ USER_DATA_4 = {
         {
             "watched": [
                 FANTASY_1b,
+                FANTASY_4b,
                 ACTION_1b,
                 INTRIGUE_1b,
                 INTRIGUE_3b,
@@ -172,6 +184,9 @@ USER_DATA_5["favorites"] = [
 
 def clean_wave_2_data():
     return copy.deepcopy(USER_DATA_2)
+
+def clean_wave_2b_data():
+    return copy.deepcopy(USER_DATA_2b)
 
 def clean_wave_3_data():
     return copy.deepcopy(USER_DATA_3)
