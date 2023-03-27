@@ -11,21 +11,24 @@
 def create_movie(title, genre, rating):
     
     #possible us of isinstance method
-    #not accounting for opposite condition of none
-    new_movie = {}
 
-    if title or genre != str:
+    if title is None or genre is None or rating is None:
         return None
-    if rating != int:
-        return None
-        
+
+    new_movie = {"title": title, "genre": genre, "rating": rating}
+
+    if isinstance(title, str) or isinstance(genre, str) or isinstance(rating, int):
+        return {
+            "title": title,
+            "genre": genre,
+            "rating": rating
+        }
     else:
-        new_movie["title"] = title
-        new_movie["genre"] = genre
-        new_movie["rating"] = rating
+        return None
 
     return new_movie
-    print(new_movie)
+
+    
     
 
 
