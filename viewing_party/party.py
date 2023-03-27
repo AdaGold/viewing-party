@@ -19,15 +19,31 @@ def add_to_watched(user_data, movie):
     user_data["watched"].append(movie)
     return user_data
 
+
 def add_to_watchlist(user_data, movie):
     user_data["watchlist"].append(movie)
     return user_data
 
 
-# create fun named add_to_watchlist
-# 2 param, user_data & movie
-# add movie to user_data of watch_list
-# return user_data
+def watch_movie(user_data, title):
+    # Parse through the movies in watchlist
+    for movie in user_data["watchlist"]:
+
+        # if title == the movie title then operate on it
+        if title == movie["title"]:
+            user_data["watched"].append(movie)
+            user_data["watchlist"].remove(movie)
+
+    # return modified user_data
+    return user_data
+
+# if title in watchlist(user_data)
+    # remove movie dict from watchilst(user_data)
+    # add movie dict to watched(user_data)
+    # return user data
+# if title not in watchlist
+    # return userdata without changing anything
+
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
