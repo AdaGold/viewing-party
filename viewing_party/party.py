@@ -36,14 +36,6 @@ def watch_movie(user_data, title):
 
     # return modified user_data
     return user_data
-
-# if title in watchlist(user_data)
-    # remove movie dict from watchilst(user_data)
-    # add movie dict to watched(user_data)
-    # return user data
-# if title not in watchlist
-    # return userdata without changing anything
-
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
