@@ -1,3 +1,5 @@
+from statistics import mean
+
 # ------------- WAVE 1 --------------------
 
 def create_movie(title, genre, rating): 
@@ -40,6 +42,18 @@ def watch_movie(user_data, title):
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
 
+def get_watched_avg_rating(user_data):
+#create function get_watched_avg_rating(user_data)
+        # user data is dict with 'watched' [{}]
+    if user_data["watched"] == []:
+        average_rating = 0.0
+        return average_rating
+
+    ratings = []
+    for movie in user_data["watched"]:
+        ratings.append(movie['rating'])
+    average_rating = mean(ratings)
+    return average_rating
 
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
