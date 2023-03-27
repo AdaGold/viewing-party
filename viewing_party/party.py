@@ -25,10 +25,18 @@ def create_movie(title, genre, rating):
         new_movie["rating"] = rating
 
     return new_movie
-    print(new_movie)
     
-
-
+def add_to_watched(user_data, movie):
+    """
+    input: 
+    user_data - a dict with "watched" as key 
+    and a list of dictionaries as the value
+    movie - a dict with title, genre, rating keys
+    output: an updated version of user_data with
+    movie added.
+    """
+    if not movie:
+        user_data["watched"].append(movie)
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
