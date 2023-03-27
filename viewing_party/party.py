@@ -22,6 +22,8 @@ def add_to_watched(user_data, movie):
 def add_to_watchlist(user_data, movie):
     user_data["watchlist"].append(movie)
     return user_data
+
+
 # create fun named add_to_watchlist
 # 2 param, user_data & movie
 # add movie to user_data of watch_list
