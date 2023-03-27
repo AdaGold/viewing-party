@@ -1,23 +1,33 @@
 # ------------- WAVE 1 --------------------
 
-def create_movie(title, genre, rating):
-    """
+"""
     first function create movie
     function takes 3 paramaters/attributes, titles, genre, rating
     if three attributers are truthy, return dictionary
     if title falsy, genre is falsy or rating is falsy, these should return none
     
-    """
-    #new_movie = {}
+"""
 
-    if not title | genre:
-        return true
-    if rating != int:
-        return none
-
-    return title, genre, rating
+def create_movie(title, genre, rating):
     
-    pass
+    #possible us of isinstance method
+    #not accounting for opposite condition of none
+    new_movie = {}
+
+    if title or genre != str:
+        return None
+    if rating != int:
+        return None
+        
+    else:
+        new_movie["title"] = title
+        new_movie["genre"] = genre
+        new_movie["rating"] = rating
+
+    return new_movie
+    print(new_movie)
+    
+
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
