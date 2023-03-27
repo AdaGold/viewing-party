@@ -2,7 +2,7 @@
 
 def create_movie(title, genre, rating): 
     # if any of the vars are None, return None
-    if not title and not genre and not rating:
+    if not title or not genre or not rating:
         return None
     
     # create new dict
