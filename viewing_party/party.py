@@ -1,7 +1,19 @@
 # ------------- WAVE 1 --------------------
 
-def create_movie(title, genre, rating):
+def create_movie(title, genre, rating): 
+    # if any of the vars are None, return None
+    if not title or not genre or not rating:
+        return None
     
+    # create new dict
+    new_movie = {
+        "title": title,
+        "genre": genre,
+        "rating":rating,
+    }
+
+    return new_movie
+
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
