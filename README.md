@@ -97,16 +97,16 @@ $ pip install -r requirements.txt
 
 Summary of one-time project setup:
 One person:
-- [ ] Fork the project respository
-- [ ] Invite team members to the respository
+- [√] Fork the project respository
+- [√] Invite team members to the respository
 
 All team members:
-- [ ] `cd` into your `projects` folder
-- [ ] Clone the project onto your machine
-- [ ] `cd` into the `viewing-party` folder
-- [ ] Create the virtual environment `venv`
-- [ ] Activate the virtual environment `venv`
-- [ ] Install the dependencies with `pip`
+- [√] `cd` into your `projects` folder
+- [√] Clone the project onto your machine
+- [√] `cd` into the `viewing-party` folder
+- [√] Create the virtual environment `venv`
+- [√] Activate the virtual environment `venv`
+- [√] Install the dependencies with `pip`
 
 ## Project Development Workflow
 
