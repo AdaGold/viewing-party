@@ -2,6 +2,7 @@
 
 def create_movie(title, genre, rating):
     pass
+#writing a comment to test
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
