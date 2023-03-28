@@ -1,41 +1,40 @@
 # ------------- WAVE 1 --------------------
+# git testing
 
-def create_movie(movie_title, genre, rating):
+def create_movie(title, genre, rating):
+    if not title or not genre or not rating:
+        return None
+    else:
+        movie = {}
+        movie["title"] = title
+        movie["genre"] = genre
+        movie["rating"] = rating
 
-    new_movie = {}
-
-    if movie_title and genre and rating:
-        new_movie["title"] =  movie_title
-        new_movie["genre"] = genre
-        new_movie["rating"] = rating
-        return new_movie
-    
-    return None
+    return movie
 
 def add_to_watched(user_data, movie):
-    if user_data["watched"]:
-        user_data["watched"].append(movie)
-    else:
-        user_data["watched"] = [movie]
+    user_data["watched"].append(movie)
+
     return user_data
 
 def add_to_watchlist(user_data, movie):
-    if user_data["watchlist"]:
-        user_data["watchlist"].append(movie)
-    else:
-        user_data["watchlist"] = [movie]
-    return user_data
+    user_data["watchlist"].append(movie)
 
+    return user_data
+        
 def watch_movie(user_data, title):
-    new_watchlist = []
-    for i in range(len(user_data["watchlist"])):
+    user_data_copy = user_data.copy()
+    
+    for i in range(len(user_data_copy["watchlist"])):
         if title == user_data["watchlist"][i]["title"]:
             add_to_watched(user_data, user_data["watchlist"][i])
-        else:
-            new_watchlist.append(user_data["watchlist"][i])
-    user_data["watchlist"] = new_watchlist
+            
 
-    return user_data
+    # for k,v in user_data.items():
+    #     for i in v:
+    #         if i["title"] == title
+
+
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
