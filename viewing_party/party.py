@@ -23,16 +23,16 @@ def add_to_watchlist(user_data, movie):
     return user_data
         
 def watch_movie(user_data, title):
-    user_data_copy = user_data.copy()
-    
-    for i in range(len(user_data_copy["watchlist"])):
+    new_watchlist = []
+    for i in range(len(user_data["watchlist"])):
         if title == user_data["watchlist"][i]["title"]:
             add_to_watched(user_data, user_data["watchlist"][i])
-            
+        else:
+            new_watchlist.append(user_data["watchlist"][i])
+    user_data["watchlist"] = new_watchlist
 
-    # for k,v in user_data.items():
-    #     for i in v:
-    #         if i["title"] == title
+    return user_data
+            
 
 
 
