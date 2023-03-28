@@ -81,9 +81,27 @@ def watch_movie(user_data, title):
 # watch_movie(user_data, title)
 
 
-# -----------------------------------------
-# ------------- WAVE 2 --------------------
-# -----------------------------------------
+# 1st function in Wave 2
+def get_watched_avg_rating(user_data):
+# created a variable for the sum of all ratings, the # of movies and the average
+    movie_count = 0
+    ratings_sum = 0
+    ratings_avg = 0
+# check if there are movies in "watched"
+    if user_data["watched"]:
+# loop through movies in watched
+        for index in range(len(user_data["watched"])):
+# update variables
+            movie_count += 1
+            ratings_sum += user_data["watched"][index]["rating"]
+        ratings_avg = ratings_sum/movie_count
+    return ratings_avg
+
+# get_watched_avg_rating testing info, please leave commented incase it breaks
+# get_watched_avg_rating(user_data)
+
+#wave 2 
+#function 2
 def get_most_watched_genre(user_data):
 
     most_watched_genre = user_data.get("watched",[])
@@ -103,6 +121,21 @@ def get_most_watched_genre(user_data):
     most_watched_genre = max(genres, key=genres.get)
 
     return most_watched_genre #most viewed genre
+
+# get_watched_avg_rating testing info, please leave commented incase it breaks
+# user_data = {
+#     "watchlist": [
+#         {"title": "Land Before Time", "rating": 2},
+#         {"title": "Spirited Away", "rating": 3}
+#     ],
+#     "watched": [
+#             {"title": "Lord of the Rings", "rating":4},
+#             {"title": "Parasyte", "rating":3},
+#             {"title": "Harry Potter", "rating":1},
+#             {"title": "Ready Player One", "rating":5}
+#     ]
+# }
+
 
 
 # -----------------------------------------
