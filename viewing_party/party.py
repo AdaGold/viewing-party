@@ -51,7 +51,7 @@ def add_to_watchlist(user_data, movie):
 # user_data = {
 #     "watchlist": [
 #         {"title": "Land Before Time"},
-#         {"title": "Spirited Away"}
+#         {"title": "Spirited Away"}git
 #     ],
 #     "watched": [
 #             {"title": "Lord of the Rings"},
@@ -84,6 +84,25 @@ def watch_movie(user_data, title):
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
+def get_most_watched_genre(user_data):
+
+    most_watched_genre = user_data.get("watched",[])
+    
+    if not most_watched_genre: 
+        return None
+
+
+    genres = {}
+    for movie in most_watched_genre:
+        genre = movie.get("genre")
+        if genre in genres:
+            genres[genre] += 1
+        else:
+            genres[genre] = 1
+
+    most_watched_genre = max(genres, key=genres.get)
+
+    return most_watched_genre #most viewed genre
 
 
 # -----------------------------------------

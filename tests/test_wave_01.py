@@ -4,11 +4,7 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
-<<<<<<< HEAD
-
-=======
 # @pytest.mark.skip() test 1
->>>>>>> d0e42a92998339c30573dfbf00b3a1ee633c53db
 def test_create_successful_movie():
     # Arrange
     movie_title = MOVIE_TITLE_1
@@ -23,11 +19,7 @@ def test_create_successful_movie():
     assert new_movie["genre"] == GENRE_1
     assert new_movie["rating"] == pytest.approx(RATING_1)
 
-<<<<<<< HEAD
 
-=======
-# @pytest.mark.skip() test 2
->>>>>>> d0e42a92998339c30573dfbf00b3a1ee633c53db
 def test_create_no_title_movie():
     # Arrange
     movie_title = None
@@ -215,3 +207,4 @@ def test_does_nothing_if_movie_not_in_watchlist():
     assert len(updated_data["watched"]) == 1
     assert movie_to_watch not in updated_data["watchlist"]
     assert movie_to_watch not in updated_data["watched"]
+
