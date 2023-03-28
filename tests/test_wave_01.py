@@ -4,7 +4,11 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
+<<<<<<< HEAD
 
+=======
+# @pytest.mark.skip() test 1
+>>>>>>> d0e42a92998339c30573dfbf00b3a1ee633c53db
 def test_create_successful_movie():
     # Arrange
     movie_title = MOVIE_TITLE_1
@@ -19,7 +23,11 @@ def test_create_successful_movie():
     assert new_movie["genre"] == GENRE_1
     assert new_movie["rating"] == pytest.approx(RATING_1)
 
+<<<<<<< HEAD
 
+=======
+# @pytest.mark.skip() test 2
+>>>>>>> d0e42a92998339c30573dfbf00b3a1ee633c53db
 def test_create_no_title_movie():
     # Arrange
     movie_title = None
@@ -32,7 +40,7 @@ def test_create_no_title_movie():
     # Assert
     assert new_movie is None
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 3
 def test_create_no_genre_movie():
     # Arrange
     movie_title = "Title A"
@@ -45,7 +53,7 @@ def test_create_no_genre_movie():
     # Assert
     assert new_movie is None
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 4
 def test_create_no_rating_movie():
     # Arrange
     movie_title = "Title A"
@@ -58,7 +66,7 @@ def test_create_no_rating_movie():
     # Assert
     assert new_movie is None
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 5
 def test_adds_movie_to_user_watched():
     # Arrange
     movie = {
@@ -79,7 +87,7 @@ def test_adds_movie_to_user_watched():
     assert updated_data["watched"][0]["genre"] == GENRE_1
     assert updated_data["watched"][0]["rating"] == RATING_1
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 6
 def test_adds_movie_to_non_empty_user_watched():
     # Arrange
     movie = {
@@ -99,7 +107,7 @@ def test_adds_movie_to_non_empty_user_watched():
     assert movie in updated_data["watched"]
     assert FANTASY_2 in updated_data["watched"]
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 7
 def test_adds_movie_to_user_watchlist():
     # Arrange
     movie = {
@@ -120,7 +128,7 @@ def test_adds_movie_to_user_watchlist():
     assert updated_data["watchlist"][0]["genre"] == GENRE_1
     assert updated_data["watchlist"][0]["rating"] == RATING_1
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 8
 def test_adds_movie_to_non_empty_user_watchlist():
     # Arrange
     movie = {
@@ -140,7 +148,7 @@ def test_adds_movie_to_non_empty_user_watchlist():
     assert movie in updated_data["watchlist"]
     assert FANTASY_2 in updated_data["watchlist"]
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 9
 def test_moves_movie_from_watchlist_to_empty_watched():
     # Arrange
     janes_data = {
@@ -159,12 +167,13 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     assert len(updated_data["watchlist"]) == 0
     assert len(updated_data["watched"]) == 1
     
-    raise Exception("Test needs to be completed.")
+    # raise Exception("Test needs to be completed.")
+    assert MOVIE_TITLE_1 == updated_data["watched"][0]["title"]
     # *******************************************************************************************
     # ****** Add assertions here to test that the correct movie was added to "watched" **********
     # *******************************************************************************************
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 10
 def test_moves_movie_from_watchlist_to_watched():
     # Arrange
     movie_to_watch = HORROR_1
@@ -183,12 +192,13 @@ def test_moves_movie_from_watchlist_to_watched():
     assert len(updated_data["watchlist"]) == 1
     assert len(updated_data["watched"]) == 2
     
-    raise Exception("Test needs to be completed.")
+    # raise Exception("Test needs to be completed.")
+    assert movie_to_watch["title"] not in updated_data["watchlist"]
     # *******************************************************************************************
     # ****** Add assertions here to test that the correct movie was added to "watched" **********
     # *******************************************************************************************
 
-@pytest.mark.skip()
+# @pytest.mark.skip() test 11
 def test_does_nothing_if_movie_not_in_watchlist():
     # Arrange
     movie_to_watch = HORROR_1
