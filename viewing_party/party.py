@@ -30,12 +30,15 @@ def watch_movie(user_data, title):
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
 def get_watched_avg_rating(user_data):
-    ratings = []
-    for movie in user_data:
-        ratings.append(movie["rating"])
-    avg_rating = len(ratings)/sum(ratings)
-    return avg_rating
-
+    ratings = 0
+    movie_count = 0
+    if user_data["watched"]:
+        for movie in user_data["watched"]:
+            ratings += (movie["rating"])
+            movie_count += 1
+        avg_rating = ratings/movie_count
+        return avg_rating
+    return ratings
 
 def get_most_watched_genre(user_data):
     if user_data["watched"]:
