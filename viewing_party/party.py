@@ -34,6 +34,16 @@ def add_to_watched(user_data, movie):
     
     if not movie:
         user_data["watched"].append(movie)
+
+def add_to_watchlist(user_data, movie):
+
+    watchlist = user_data.get("watchlist", [])
+
+    watchlist.append(movie)
+    user_data["watchlist"] = watchlist
+    
+    return user_data
+
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
