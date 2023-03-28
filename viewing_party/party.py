@@ -55,18 +55,6 @@ def get_watched_avg_rating(user_data):
     average_rating = mean(ratings)
     return average_rating
 
-
-# create func get_most_watched_genre 
-# 1 param user_data
-# which genre most freq. occuring
-# for movie in user_data of "watched"
-# create list of genres
-# append to list of genres
-# use count to find most freq. genres 
-# return max(set(List), key = List.count)
-# if user_data of watched = []
-# return None
-
 def get_most_watched_genre(user_data):
     # handles empty watchlist
     if user_data["watched"] == []:
@@ -86,8 +74,25 @@ def get_most_watched_genre(user_data):
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
+def get_unique_watched(user_data):
+    # get all the titels for users_watched
+    user_watched_titles = set([movie["title"] for movie in user_data['watched']])
 
-        
+    # build set of all friends watched
+    friends_watched_titles = []
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            friends_watched_titles.append(movie["title"])
+    friends_watched_titles = set(friends_watched_titles)
+
+    # find unique friends watched
+    unique_watched_titles = user_watched_titles.difference(friends_watched_titles)
+    unique_watched_movies = []
+    for movie in user_data["watched"]:
+        if movie["title"] in unique_watched_titles:
+            unique_watched_movies.append(movie)
+
+    return unique_watched_movies    
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
