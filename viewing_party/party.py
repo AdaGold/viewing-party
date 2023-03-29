@@ -128,17 +128,26 @@ def get_friends_unique_watched(user_data):
 
 
 def get_available_recs(user_data):
-    recommended_movies = []
 
     movies_to_consider = get_friends_unique_watched(user_data)
     subscriptions_owned = user_data["subscriptions"]
 
-    for movie in movies_to_consider:
-        if movie["host"] in subscriptions_owned:
-            recommended_movies.append(movie)
-
-    return recommended_movies
+    return [movie for movie in movies_to_consider
+            if movie["host"] in subscriptions_owned]
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
+
+
+def get_new_rec_by_genre(user_data):
+    pass
+
+
+def get_rec_from_favorites(user_data):
+
+    user_unique_watched_movies = get_unique_watched(user_data)
+    favorite_movies = user_data["favorites"]
+
+    return [movie for movie in user_unique_watched_movies
+            if movie in favorite_movies]
