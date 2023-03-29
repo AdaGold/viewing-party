@@ -47,7 +47,7 @@ def add_to_watchlist(user_data, movie):
     return user_data
 
 
-# watch_movie testing info, please leave commented incase it breaks
+# watch_movie testing info, please leave commented in case it breaks
 # user_data = {
 #     "watchlist": [
 #         {"title": "Land Before Time"},
@@ -80,7 +80,7 @@ def watch_movie(user_data, title):
 # watch_movie testing info, please leave commented incase it breaks
 # watch_movie(user_data, title)
 
-# get_watched_avg_rating testing info, please leave commented incase it breaks
+# get_watched_avg_rating testing info, please leave commented in case it breaks
 # user_data = {
 #     "watchlist": [
 #         {"title": "Land Before Time", "rating": 2},
@@ -110,7 +110,7 @@ def get_watched_avg_rating(user_data):
         ratings_avg = ratings_sum/movie_count
     return ratings_avg
 
-# get_watched_avg_rating testing info, please leave commented incase it breaks
+# get_watched_avg_rating testing info, please leave commented in case it breaks
 # get_watched_avg_rating(user_data)
 
 #wave 2 
@@ -135,7 +135,7 @@ def get_most_watched_genre(user_data):
 
     return most_watched_genre #most viewed genre
 
-# get_watched_avg_rating testing info, please leave commented incase it breaks
+# get_watched_avg_rating testing info, please leave commented in case it breaks
 # user_data = {
 #     "watchlist": [
 #         {"title": "Land Before Time", "rating": 2},
@@ -148,77 +148,80 @@ def get_most_watched_genre(user_data):
 #             {"title": "Ready Player One", "rating":5}
 #     ]
 # }
-# get_unique_watched testing info, please leave commented incase it breaks
-user_data = {   'friends': [   {   'watched': [   {   'genre': 'Fantasy',
-                                        'rating': 4.8,
-                                        'title': 'The Lord of the Functions: '
-                                                'The Fellowship of the '
-                                                'Function'},
-                                    {   'genre': 'Fantasy',
-                                        'rating': 4.0,
-                                        'title': 'The Lord of the Functions: '
-                                                'The Return of the Value'},
-                                    {   'genre': 'Fantasy',
-                                        'rating': 4.0,
-                                        'title': 'The Programmer: An '
-                                                'Unexpected Stack Trace'},
-                                    {   'genre': 'Horror',
-                                        'rating': 3.5,
-                                        'title': 'It Came from the Stack '
-                                                'Trace'}]},
-                {   'watched': [   {   'genre': 'Fantasy',
-                                        'rating': 4.8,
-                                        'title': 'The Lord of the Functions: '
-                                                'The Fellowship of the '
-                                                'Function'},
-                                    {   'genre': 'Action',
-                                        'rating': 2.2,
-                                        'title': 'The JavaScript and the '
-                                                'React'},
-                                    {   'genre': 'Intrigue',
-                                        'rating': 2.0,
-                                        'title': 'Recursion'},
-                                    {   'genre': 'Intrigue',
-                                        'rating': 3.0,
-                                        'title': 'Zero Dark Python'}]}],
-'watched': [   {   'genre': 'Fantasy',
-                    'rating': 4.8,
-                    'title': 'The Lord of the Functions: The Fellowship of '
-                            'the Function'},
-                {   'genre': 'Fantasy',
-                    'rating': 4.0,
-                    'title': 'The Lord of the Functions: The Two '
-                            'Parameters'},
-                {   'genre': 'Fantasy',
-                    'rating': 4.0,
-                    'title': 'The Lord of the Functions: The Return of the '
-                            'Value'},
-                {   'genre': 'Action',
-                    'rating': 2.2,
-                    'title': 'The JavaScript and the React'},
-                {'genre': 'Intrigue', 'rating': 2.0, 'title': 'Recursion'},
-                {   'genre': 'Intrigue',
-                    'rating': 4.5,
-                    'title': 'Instructor Student TA Manager'}]}
+# get_unique_watched testing info, please leave commented in case it breaks
+# user_data = {   'friends': [   {   'watched': [   {   'genre': 'Fantasy',
+#                                         'rating': 4.8,
+#                                         'title': 'The Lord of the Functions: '
+#                                                 'The Fellowship of the '
+#                                                 'Function'},
+#                                     {   'genre': 'Fantasy',
+#                                         'rating': 4.0,
+#                                         'title': 'The Lord of the Functions: '
+#                                                 'The Return of the Value'},
+#                                     {   'genre': 'Fantasy',
+#                                         'rating': 4.0,
+#                                         'title': 'The Programmer: An '
+#                                                 'Unexpected Stack Trace'},
+#                                     {   'genre': 'Horror',
+#                                         'rating': 3.5,
+#                                         'title': 'It Came from the Stack '
+#                                                 'Trace'}]},
+#                 {   'watched': [   {   'genre': 'Fantasy',
+#                                         'rating': 4.8,
+#                                         'title': 'The Lord of the Functions: '
+#                                                 'The Fellowship of the '
+#                                                 'Function'},
+#                                     {   'genre': 'Action',
+#                                         'rating': 2.2,
+#                                         'title': 'The JavaScript and the '
+#                                                 'React'},
+#                                     {   'genre': 'Intrigue',
+#                                         'rating': 2.0,
+#                                         'title': 'Recursion'},
+#                                     {   'genre': 'Intrigue',
+#                                         'rating': 3.0,
+#                                         'title': 'Zero Dark Python'}]}],
+# 'watched': [   {   'genre': 'Fantasy',
+#                     'rating': 4.8,
+#                     'title': 'The Lord of the Functions: The Fellowship of '
+#                             'the Function'},
+#                 {   'genre': 'Fantasy',
+#                     'rating': 4.0,
+#                     'title': 'The Lord of the Functions: The Two '
+#                             'Parameters'},
+#                 {   'genre': 'Fantasy',
+#                     'rating': 4.0,
+#                     'title': 'The Lord of the Functions: The Return of the '
+#                             'Value'},
+#                 {   'genre': 'Action',
+#                     'rating': 2.2,
+#                     'title': 'The JavaScript and the React'},
+#                 {'genre': 'Intrigue', 'rating': 2.0, 'title': 'Recursion'},
+#                 {   'genre': 'Intrigue',
+#                     'rating': 4.5,
+#                     'title': 'Instructor Student TA Manager'}]}
 
 
 # 1st function in Wave 3
 
 def get_unique_watched(user_data):
-# code below does not work because of first if statement aint workin, try using sets
-    user_only_movies = []
+# code below is adaptation of funk 2 in wave 3, can be refactored
+    friends_watched_list = []
+    friends_watched_set = None
+    friends_list = []
 
     for friend in user_data["friends"]:
-        for movie in user_data["watched"]:
-            if movie not in friend["watched"]:
-                if movie in user_only_movies:
-                    continue
-                else:
-                    user_only_movies.append(movie)
+        for movie in friend["watched"]:
+            friends_watched_list.append(movie["title"])
+            friends_watched_set = set(friends_watched_list)
+    # print(friends_watched_set)
+    for movie in user_data["watched"]:
+        if movie["title"] not in friends_watched_set and movie not in friends_list:
+            friends_list.append(movie)
 
-    return print(user_only_movies)
-
-get_unique_watched(user_data)      
+    return friends_list
+# get_unique_watched testing info, please leave commented in case it breaks
+# get_unique_watched(user_data)      
 
 
 #wave 3
@@ -227,13 +230,14 @@ def get_friends_unique_watched(user_data):
 
     user_watched = set([movie["title"] for movie in user_data["watched"]])
     friends_list = []
-
+    print(user_watched)
     for friend in user_data["friends"]:
         for movie in friend["watched"]:
             if movie["title"] not in user_watched and movie not in friends_list:
                 friends_list.append(movie)
 
     return friends_list
+
 
 """
 does not remove duplicates
@@ -256,7 +260,7 @@ does not remove duplicates
 #wave 4
 #function 1
 
-def get_available_recs(user_data):
+# def get_available_recs(user_data):
 #     """
 #     takes 1 parameter user_data
 #     user_data field subcscriptions
@@ -297,18 +301,19 @@ def get_available_recs(user_data):
 #     return list_of_rec_movies
 
 # Selenes psudo code below
-import copy
+# import copy
 
-list_of_movies_not_seen_by_user = get_friends_unique_watched(user_data)
-list_of_subscriptions_host_has = user_data["subscriptions"]
-list_of_movies_not_seen_on_users_subscriptions = []
-loop through each movie in list_of_movies_not_seen_by_user:
-    if movie[host] is in list_of_subscriptions_host_has:
-        new_movie = copy.deepcopy(movie)
-        list_of_movies_not_seen_on_users_subscriptions.append(new_movie)
-    else:
-        continue
-return list_of_movies_not_seen_on_users_subscriptions
+# list_of_movies_not_seen_by_user = get_friends_unique_watched(user_data)
+# # will this list^ have the host info in it?
+# list_of_subscriptions_host_has = user_data["subscriptions"]
+# list_of_movies_not_seen_on_users_subscriptions = []
+# loop through each movie in list_of_movies_not_seen_by_user:
+#     if movie[host] is in list_of_subscriptions_host_has:
+#         new_movie = copy.deepcopy(movie)
+#         list_of_movies_not_seen_on_users_subscriptions.append(new_movie)
+#     else:
+#         continue
+# return list_of_movies_not_seen_on_users_subscriptions
         
 
 
