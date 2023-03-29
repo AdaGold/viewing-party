@@ -201,6 +201,9 @@ def get_most_watched_genre(user_data):
 #                     'rating': 4.5,
 #                     'title': 'Instructor Student TA Manager'}]}
 
+# -----------------------------------------
+# ------------- WAVE 3 --------------------
+# -----------------------------------------
 
 # 1st function in Wave 3
 
@@ -255,7 +258,9 @@ does not remove duplicates
                 if key,value in friends_list["title"]
     return friends_list
 """
-
+# -----------------------------------------
+# ------------- WAVE 4 --------------------
+# -----------------------------------------
 
 #wave 4
 #function 1
@@ -306,7 +311,7 @@ does not remove duplicates
 # list_of_movies_not_seen_by_user = get_friends_unique_watched(user_data)
 # # will this list^ have the host info in it?
 # list_of_subscriptions_host_has = user_data["subscriptions"]
-# list_of_movies_not_seen_on_users_subscriptions = []
+# list_of_movies_not_seen_but_on_users_subscriptions = []
 # loop through each movie in list_of_movies_not_seen_by_user:
 #     if movie[host] is in list_of_subscriptions_host_has:
 #         new_movie = copy.deepcopy(movie)
@@ -315,17 +320,16 @@ does not remove duplicates
 #         continue
 # return list_of_movies_not_seen_on_users_subscriptions
         
+# working code below
+def get_available_recs(user_data):
+    unseen_by_user = get_friends_unique_watched(user_data)
+    user_subscriptions = user_data["subscriptions"]
+    available_recs = []
+    for movie in unseen_by_user:
+        if movie["host"] in user_subscriptions:
+            available_recs.append(movie)
+    return available_recs
 
-
-
-# -----------------------------------------
-# ------------- WAVE 3 --------------------
-# -----------------------------------------
-
-
-# -----------------------------------------
-# ------------- WAVE 4 --------------------
-# -----------------------------------------
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
