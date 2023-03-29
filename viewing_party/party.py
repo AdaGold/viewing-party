@@ -47,10 +47,12 @@ def get_most_watched_genre(user_data):
             genre_frequencies[movie["genre"]] = 0
         for movie in user_data["watched"]:
             genre_frequencies[movie["genre"]] += 1
-
-        # highest_count = max(genre_frequencies.values())
+        """max() will iterate over the genre_frequencies list
+        and compare the values within the list. it will
+        return the highest value."""
+        highest_count = max(genre_frequencies.values())
         for genre, count in genre_frequencies.items():
-            if count == max(genre_frequencies.values()):
+            if count == highest_count:
                 return genre
 
     return None
