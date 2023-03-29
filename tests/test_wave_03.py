@@ -32,6 +32,7 @@ def test_my_not_unique_movies():
 def test_friends_unique_movies():
     # Arrange
     amandas_data = clean_wave_3_data()
+    amandas_data["friends"][0]["watched"].append(INTRIGUE_3)
 
     # Act
     friends_unique_movies = get_friends_unique_watched(amandas_data)
