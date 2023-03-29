@@ -97,9 +97,21 @@ def get_available_recs(user_data):
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
-
+"""A movie should be added to this list if and only if:
+  - The user has not watched it
+  - At least one of the user's friends has watched
+  - The `"genre"` of the movie is the same as the user's most frequent genre
+- Return the list of recommended movies"""
 def get_new_rec_by_genre(user_data):
-    pass
+    top_genre = get_most_watched_genre(user_data)
+    recommended_movies = []
+    friends_movies = []
+    for friend in user_data["friends"]:
+        friends_movies +=friend["watched"]
+    for movie in friends_movies:
+        if movie not in user_data["watched"] and movie["genre"] == top_genre:
+            recommended_movies.append(movie)
+    return recommended_movies
 
 def get_rec_from_favorites(user_data):
     pass
