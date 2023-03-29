@@ -256,7 +256,7 @@ does not remove duplicates
 #wave 4
 #function 1
 
-# def get_available_recs(user_data):
+def get_available_recs(user_data):
 #     """
 #     takes 1 parameter user_data
 #     user_data field subcscriptions
@@ -285,7 +285,7 @@ does not remove duplicates
 #         ]
 #     }
 #     #subscription ['netflix','hulu','crunchyroll']
-#     friends = [friend:[movie : "host"(watched list)]]
+    # friends = [friend:[movie : "host"(watched list)]]
 #     list_of_rec_movies = []
 
 #     users_subscriptions = user_data[0]
@@ -295,7 +295,22 @@ does not remove duplicates
 #     one friend has watched
 #     host is a service users owns
 #     return list_of_rec_movies
-    
+
+# Selenes psudo code below
+import copy
+
+list_of_movies_not_seen_by_user = get_friends_unique_watched(user_data)
+list_of_subscriptions_host_has = user_data["subscriptions"]
+list_of_movies_not_seen_on_users_subscriptions = []
+loop through each movie in list_of_movies_not_seen_by_user:
+    if movie[host] is in list_of_subscriptions_host_has:
+        new_movie = copy.deepcopy(movie)
+        list_of_movies_not_seen_on_users_subscriptions.append(new_movie)
+    else:
+        continue
+return list_of_movies_not_seen_on_users_subscriptions
+        
+
 
 
 # -----------------------------------------
