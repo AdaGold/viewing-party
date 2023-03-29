@@ -80,6 +80,19 @@ def watch_movie(user_data, title):
 # watch_movie testing info, please leave commented incase it breaks
 # watch_movie(user_data, title)
 
+# get_watched_avg_rating testing info, please leave commented incase it breaks
+# user_data = {
+#     "watchlist": [
+#         {"title": "Land Before Time", "rating": 2},
+#         {"title": "Spirited Away", "rating": 3}
+#     ],
+#     "watched": [
+#             {"title": "Lord of the Rings", "rating":4},
+#             {"title": "Parasyte", "rating":3},
+#             {"title": "Harry Potter", "rating":1},
+#             {"title": "Ready Player One", "rating":5}
+#     ]
+# }
 
 # 1st function in Wave 2
 def get_watched_avg_rating(user_data):
@@ -135,12 +148,81 @@ def get_most_watched_genre(user_data):
 #             {"title": "Ready Player One", "rating":5}
 #     ]
 # }
+# get_unique_watched testing info, please leave commented incase it breaks
+user_data = {   'friends': [   {   'watched': [   {   'genre': 'Fantasy',
+                                        'rating': 4.8,
+                                        'title': 'The Lord of the Functions: '
+                                                'The Fellowship of the '
+                                                'Function'},
+                                    {   'genre': 'Fantasy',
+                                        'rating': 4.0,
+                                        'title': 'The Lord of the Functions: '
+                                                'The Return of the Value'},
+                                    {   'genre': 'Fantasy',
+                                        'rating': 4.0,
+                                        'title': 'The Programmer: An '
+                                                'Unexpected Stack Trace'},
+                                    {   'genre': 'Horror',
+                                        'rating': 3.5,
+                                        'title': 'It Came from the Stack '
+                                                'Trace'}]},
+                {   'watched': [   {   'genre': 'Fantasy',
+                                        'rating': 4.8,
+                                        'title': 'The Lord of the Functions: '
+                                                'The Fellowship of the '
+                                                'Function'},
+                                    {   'genre': 'Action',
+                                        'rating': 2.2,
+                                        'title': 'The JavaScript and the '
+                                                'React'},
+                                    {   'genre': 'Intrigue',
+                                        'rating': 2.0,
+                                        'title': 'Recursion'},
+                                    {   'genre': 'Intrigue',
+                                        'rating': 3.0,
+                                        'title': 'Zero Dark Python'}]}],
+'watched': [   {   'genre': 'Fantasy',
+                    'rating': 4.8,
+                    'title': 'The Lord of the Functions: The Fellowship of '
+                            'the Function'},
+                {   'genre': 'Fantasy',
+                    'rating': 4.0,
+                    'title': 'The Lord of the Functions: The Two '
+                            'Parameters'},
+                {   'genre': 'Fantasy',
+                    'rating': 4.0,
+                    'title': 'The Lord of the Functions: The Return of the '
+                            'Value'},
+                {   'genre': 'Action',
+                    'rating': 2.2,
+                    'title': 'The JavaScript and the React'},
+                {'genre': 'Intrigue', 'rating': 2.0, 'title': 'Recursion'},
+                {   'genre': 'Intrigue',
+                    'rating': 4.5,
+                    'title': 'Instructor Student TA Manager'}]}
+
+
+# 1st function in Wave 3
+
+def get_unique_watched(user_data):
+# code below does not work because of first if statement aint workin, try using sets
+    user_only_movies = []
+
+    for friend in user_data["friends"]:
+        for movie in user_data["watched"]:
+            if movie not in friend["watched"]:
+                if movie in user_only_movies:
+                    continue
+                else:
+                    user_only_movies.append(movie)
+
+    return print(user_only_movies)
+
+get_unique_watched(user_data)      
 
 
 #wave 3
 #function 2
-
-
 def get_friends_unique_watched(user_data):
 
     user_watched = set([movie["title"] for movie in user_data["watched"]])
@@ -214,6 +296,11 @@ does not remove duplicates
 #     host is a service users owns
 #     return list_of_rec_movies
     
+
+
+# -----------------------------------------
+# ------------- WAVE 3 --------------------
+# -----------------------------------------
 
 
 # -----------------------------------------
