@@ -75,7 +75,7 @@ def get_most_watched_genre(user_data):
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
 def get_unique_watched(user_data):
-    # get all the titels for users_watched
+    # get all the titles for users_watched
     user_watched_titles = set([movie["title"] for movie in user_data['watched']])
 
     # build set of all friends watched
@@ -85,14 +85,50 @@ def get_unique_watched(user_data):
             friends_watched_titles.append(movie["title"])
     friends_watched_titles = set(friends_watched_titles)
 
-    # find unique friends watched
-    unique_watched_titles = user_watched_titles.difference(friends_watched_titles)
-    unique_watched_movies = []
+    # find unique user watched
+    unique_user_watched_titles = user_watched_titles.difference(friends_watched_titles)
+    unique_user_watched_movies = []
     for movie in user_data["watched"]:
-        if movie["title"] in unique_watched_titles:
-            unique_watched_movies.append(movie)
+        if movie["title"] in unique_user_watched_titles:
+            unique_user_watched_movies.append(movie)
 
-    return unique_watched_movies    
+    return unique_user_watched_movies    
+
+
+def get_friends_unique_watched(user_data):
+    # get all the titles for users_watched
+    user_watched_titles = {movie["title"] for movie in user_data["watched"]}
+    
+    # build set of all friends watched
+    friends_watched_titles = {movie["title"] for friend in user_data["friends"] for movie in friend["watched"]}
+    
+    # find unique friends watched
+    friends_unique_watched_titles = friends_watched_titles - user_watched_titles
+    
+    # create non duplicated list of all the movies friends have watched and user
+    # has not.  Use a seperate list added_titles to be sure of no dups.
+    friends_unique_watched_movies = []
+    added_titles = []
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            if movie["title"] in friends_unique_watched_titles:
+                if movie["title"] not in added_titles:
+                    friends_unique_watched_movies.append(movie)
+                    added_titles.append(movie["title"])
+
+    return friends_unique_watched_movies    
+
+
+
+# create get_firends_unique_watched(user_data)
+        # userdata{
+        #   ["watched": [movies, movies]
+        #   "friends" = [{"watched": [movies, movies]},
+        #                  "watched: [movies]"]
+# determine movies friends have watched and user hasnt watched
+    #do the same thing we did in the previous func but change unique_watched_movies var
+# return [{movies} found above]
+
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
