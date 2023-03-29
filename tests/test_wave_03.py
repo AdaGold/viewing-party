@@ -58,6 +58,14 @@ def test_friends_unique_movies_not_duplicated():
     # *************************************************************************************************
     # ****** Add assertions here to test that the correct movies are in friends_unique_movies **********
     # **************************************************************************************************
+    assert INTRIGUE_3 in friends_unique_movies
+    assert HORROR_1 in friends_unique_movies
+    assert FANTASY_4 in friends_unique_movies
+    
+    """The count() method takes one argument, which is an element that the user is looking for in 
+    an iterable. Starting with a counter of zero, it loops over an iterable and increments
+    the counter by 1 each time it encounters the given argument. It then returns the counter as an
+    integer."""
     for movie in friends_unique_movies:
         assert friends_unique_movies.count(movie) == 1
 # @pytest.mark.skip()
