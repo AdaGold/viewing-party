@@ -18,13 +18,14 @@ def add_to_watchlist(user_data, movie):
 
 
 def watch_movie(user_data, title):
+    watchlist = user_data["watchlist"]
     new_watchlist = []
 
-    for i in range(len(user_data["watchlist"])):
-        if title == user_data["watchlist"][i]["title"]:
-            add_to_watched(user_data, user_data["watchlist"][i])
+    for i in range(len(watchlist)):
+        if title == watchlist[i]["title"]:
+            add_to_watched(user_data, watchlist[i])
         else:
-            new_watchlist.append(user_data["watchlist"][i])
+            new_watchlist.append(watchlist[i])
     user_data["watchlist"] = new_watchlist
 
     return user_data
@@ -33,25 +34,23 @@ def watch_movie(user_data, title):
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
-def get_watched_avg_rating(user_data):
-    ratings_sum = 0
-    movie_count = 0
 
+
+def get_watched_avg_rating(user_data):
     if not user_data["watched"]:
         return 0
 
-    for movie in user_data["watched"]:
-        ratings_sum += movie["rating"]
-        movie_count += 1
+    ratings_sum = sum([movie["rating"] for movie in user_data["watched"]])
+    movie_count = len(user_data["watched"])
 
     return ratings_sum/movie_count
 
 
 def get_most_watched_genre(user_data):
-    genre_count = {}
-
     if not user_data["watched"]:
         return None
+
+    genre_count = {}
 
     for movie in user_data["watched"]:
         if movie["genre"] in genre_count:
@@ -59,11 +58,8 @@ def get_most_watched_genre(user_data):
         else:
             genre_count[movie["genre"]] = 1
 
-    highest_rated_count = max(genre_count.values())
-    for genre, count in genre_count.items():
-        if count == highest_rated_count:
+    return max(genre_count, key=genre_count.get)
 
-            return genre
 
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
@@ -130,7 +126,9 @@ def get_available_recs(user_data):
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
-def get_new_rec_by_genre(user_data):    
+
+
+def get_new_rec_by_genre(user_data):
     movies_to_consider = get_friends_unique_watched(user_data)
 
     user_watched_genres = []
