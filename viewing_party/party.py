@@ -117,21 +117,27 @@ def get_friends_unique_watched(user_data):
                     added_titles.append(movie["title"])
 
     return friends_unique_watched_movies    
-
-
-
-# create get_firends_unique_watched(user_data)
-        # userdata{
-        #   ["watched": [movies, movies]
-        #   "friends" = [{"watched": [movies, movies]},
-        #                  "watched: [movies]"]
-# determine movies friends have watched and user hasnt watched
-    #do the same thing we did in the previous func but change unique_watched_movies var
-# return [{movies} found above]
-
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
+def get_available_recs(user_data):
+    # set up and get user-watched and subscriptions as sets
+    subscriptions = set(user_data["subscriptions"])
+    user_watched_titles = {movie['title'] for movie in user_data['watched']}
+
+    # initialize the recommended and already added movie titles
+    # then loop through the friends watched movies and add the 
+    # un-watched by user movies to the recommened list.
+    recommended = []
+    added_titles = []
+    for friend in user_data['friends']:
+        for movie in friend["watched"]:
+            if movie['title'] not in user_watched_titles and movie['host'] in subscriptions:
+                if movie['title'] not in added_titles:
+                    recommended.append(movie)
+                    added_titles.append(movie['title'])
+
+    return recommended
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
