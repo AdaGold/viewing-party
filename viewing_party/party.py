@@ -4,30 +4,22 @@
 def create_movie(title, genre, rating):
     if not title or not genre or not rating:
         return None
-    
-    else:
-        movie = {}
-        movie["title"] = title
-        movie["genre"] = genre
-        movie["rating"] = rating
-
-    return movie
+    return {"title": title, "genre": genre, "rating": rating}
 
 
 def add_to_watched(user_data, movie):
     user_data["watched"].append(movie)
-
     return user_data
 
 
 def add_to_watchlist(user_data, movie):
     user_data["watchlist"].append(movie)
-
     return user_data
 
 
 def watch_movie(user_data, title):
     new_watchlist = []
+
     for i in range(len(user_data["watchlist"])):
         if title == user_data["watchlist"][i]["title"]:
             add_to_watched(user_data, user_data["watchlist"][i])
@@ -128,16 +120,12 @@ def get_friends_unique_watched(user_data):
 
 
 def get_available_recs(user_data):
-    recommended_movies = []
 
     movies_to_consider = get_friends_unique_watched(user_data)
     subscriptions_owned = user_data["subscriptions"]
 
-    for movie in movies_to_consider:
-        if movie["host"] in subscriptions_owned:
-            recommended_movies.append(movie)
-
-    return recommended_movies
+    return [movie for movie in movies_to_consider
+            if movie["host"] in subscriptions_owned]
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
@@ -160,3 +148,12 @@ def get_new_rec_by_genre(user_data):
             list_of_recommended_movies.append(movie)
 
     return list_of_recommended_movies
+
+
+def get_rec_from_favorites(user_data):
+
+    user_unique_watched_movies = get_unique_watched(user_data)
+    favorite_movies = user_data["favorites"]
+
+    return [movie for movie in user_unique_watched_movies
+            if movie in favorite_movies]
