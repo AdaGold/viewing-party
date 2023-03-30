@@ -132,7 +132,6 @@ def get_new_rec_by_genre(user_data):
     return recommended_movies
 
 
-
 def get_rec_from_favorites(user_data):
     user_favorites = user_data['favorites'] #list of dictionaries
     rec_favorites = []
@@ -149,3 +148,6 @@ def get_rec_from_favorites(user_data):
             rec_favorites.append(favorite_movie)
 
     return rec_favorites
+            
+
+            
