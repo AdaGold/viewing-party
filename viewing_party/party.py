@@ -130,3 +130,22 @@ def get_new_rec_by_genre(user_data):
         if movie['genre'] == most_watched_genre:
             recommended_movies.append(movie)
     return recommended_movies
+
+
+
+def get_rec_from_favorites(user_data):
+    user_favorites = user_data['favorites'] #list of dictionaries
+    rec_favorites = []
+    friends_watched = []
+    for friends_dict in user_data['friends']: 
+        movies_list = friends_dict['watched'] #list of dictionary movies
+        for movies in movies_list:
+            friends_watched.append(movies)
+
+    for favorite_movie in user_favorites:
+        if favorite_movie in rec_favorites:
+            continue
+        if favorite_movie not in friends_watched:
+            rec_favorites.append(favorite_movie)
+
+    return rec_favorites
