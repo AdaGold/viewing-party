@@ -7,7 +7,7 @@
     if title falsy, genre is falsy or rating is falsy, these should return none
     
 """
-# 1st function
+# 1st function in Wave 1
 def create_movie(title, genre, rating):
     
     #possible us of isinstance method
@@ -25,18 +25,19 @@ def create_movie(title, genre, rating):
         }
     else:
         return None
+# COMMENTED LINE BELOW LOOKS LIKE IT CAN BE DELETED******************************
+    # return new_movie
 
-    return new_movie
-
-# 2nd function
+# 2nd function in Wave 1
 def add_to_watched(user_data, movie):
 
     (user_data["watched"]).append(movie)
     return user_data
-    if not movie:
-        user_data["watched"].append(movie)
+# TWO COMMENTED LINES BELOW LOOK LIKE THEY CAN BE DELETED******************************
+    # if not movie:
+    #     user_data["watched"].append(movie)
 
-#3rd function
+# 3rd function in Wave 1
 def add_to_watchlist(user_data, movie):
 
     watchlist = user_data.get("watchlist", [])
@@ -47,22 +48,7 @@ def add_to_watchlist(user_data, movie):
     return user_data
 
 
-# watch_movie testing info, please leave commented in case it breaks
-# user_data = {
-#     "watchlist": [
-#         {"title": "Land Before Time"},
-#         {"title": "Spirited Away"}git
-#     ],
-#     "watched": [
-#             {"title": "Lord of the Rings"},
-#             {"title": "Parasyte"},
-#             {"title": "Harry Potter"},
-#             {"title": "Ready Player One"}
-#     ]
-# }
-# title = "Land Before Time"
-
-# 4th function
+# 4th function in Wave 1
 def watch_movie(user_data, title):
     move_movie = False
     index = 0
@@ -77,22 +63,8 @@ def watch_movie(user_data, title):
         (user_data["watched"]).append(movie)
         del user_data["watchlist"][movie_index]
     return user_data
-# watch_movie testing info, please leave commented incase it breaks
-# watch_movie(user_data, title)
 
-# get_watched_avg_rating testing info, please leave commented in case it breaks
-# user_data = {
-#     "watchlist": [
-#         {"title": "Land Before Time", "rating": 2},
-#         {"title": "Spirited Away", "rating": 3}
-#     ],
-#     "watched": [
-#             {"title": "Lord of the Rings", "rating":4},
-#             {"title": "Parasyte", "rating":3},
-#             {"title": "Harry Potter", "rating":1},
-#             {"title": "Ready Player One", "rating":5}
-#     ]
-# }
+# ------------- WAVE 2 --------------------
 
 # 1st function in Wave 2
 def get_watched_avg_rating(user_data):
@@ -110,11 +82,8 @@ def get_watched_avg_rating(user_data):
         ratings_avg = ratings_sum/movie_count
     return ratings_avg
 
-# get_watched_avg_rating testing info, please leave commented in case it breaks
-# get_watched_avg_rating(user_data)
 
-#wave 2 
-#function 2
+# 2nd function in Wave 2
 def get_most_watched_genre(user_data):
 
     most_watched_genre = user_data.get("watched",[])
@@ -135,78 +104,9 @@ def get_most_watched_genre(user_data):
 
     return most_watched_genre #most viewed genre
 
-# get_watched_avg_rating testing info, please leave commented in case it breaks
-# user_data = {
-#     "watchlist": [
-#         {"title": "Land Before Time", "rating": 2},
-#         {"title": "Spirited Away", "rating": 3}
-#     ],
-#     "watched": [
-#             {"title": "Lord of the Rings", "rating":4},
-#             {"title": "Parasyte", "rating":3},
-#             {"title": "Harry Potter", "rating":1},
-#             {"title": "Ready Player One", "rating":5}
-#     ]
-# }
-# get_unique_watched testing info, please leave commented in case it breaks
-# user_data = {   'friends': [   {   'watched': [   {   'genre': 'Fantasy',
-#                                         'rating': 4.8,
-#                                         'title': 'The Lord of the Functions: '
-#                                                 'The Fellowship of the '
-#                                                 'Function'},
-#                                     {   'genre': 'Fantasy',
-#                                         'rating': 4.0,
-#                                         'title': 'The Lord of the Functions: '
-#                                                 'The Return of the Value'},
-#                                     {   'genre': 'Fantasy',
-#                                         'rating': 4.0,
-#                                         'title': 'The Programmer: An '
-#                                                 'Unexpected Stack Trace'},
-#                                     {   'genre': 'Horror',
-#                                         'rating': 3.5,
-#                                         'title': 'It Came from the Stack '
-#                                                 'Trace'}]},
-#                 {   'watched': [   {   'genre': 'Fantasy',
-#                                         'rating': 4.8,
-#                                         'title': 'The Lord of the Functions: '
-#                                                 'The Fellowship of the '
-#                                                 'Function'},
-#                                     {   'genre': 'Action',
-#                                         'rating': 2.2,
-#                                         'title': 'The JavaScript and the '
-#                                                 'React'},
-#                                     {   'genre': 'Intrigue',
-#                                         'rating': 2.0,
-#                                         'title': 'Recursion'},
-#                                     {   'genre': 'Intrigue',
-#                                         'rating': 3.0,
-#                                         'title': 'Zero Dark Python'}]}],
-# 'watched': [   {   'genre': 'Fantasy',
-#                     'rating': 4.8,
-#                     'title': 'The Lord of the Functions: The Fellowship of '
-#                             'the Function'},
-#                 {   'genre': 'Fantasy',
-#                     'rating': 4.0,
-#                     'title': 'The Lord of the Functions: The Two '
-#                             'Parameters'},
-#                 {   'genre': 'Fantasy',
-#                     'rating': 4.0,
-#                     'title': 'The Lord of the Functions: The Return of the '
-#                             'Value'},
-#                 {   'genre': 'Action',
-#                     'rating': 2.2,
-#                     'title': 'The JavaScript and the React'},
-#                 {'genre': 'Intrigue', 'rating': 2.0, 'title': 'Recursion'},
-#                 {   'genre': 'Intrigue',
-#                     'rating': 4.5,
-#                     'title': 'Instructor Student TA Manager'}]}
-
-# -----------------------------------------
 # ------------- WAVE 3 --------------------
-# -----------------------------------------
 
 # 1st function in Wave 3
-
 def get_unique_watched(user_data):
 # code below is adaptation of funk 2 in wave 3, can be refactored
     friends_watched_list = []
@@ -223,12 +123,8 @@ def get_unique_watched(user_data):
             friends_list.append(movie)
 
     return friends_list
-# get_unique_watched testing info, please leave commented in case it breaks
-# get_unique_watched(user_data)      
 
-
-#wave 3
-#function 2
+# 2nd function in Wave 3
 def get_friends_unique_watched(user_data):
 
     user_watched = set([movie["title"] for movie in user_data["watched"]])
@@ -258,9 +154,9 @@ does not remove duplicates
                 if key,value in friends_list["title"]
     return friends_list
 """
-# -----------------------------------------
+
 # ------------- WAVE 4 --------------------
-# -----------------------------------------
+
 
 #wave 4
 #function 1
@@ -305,22 +201,7 @@ does not remove duplicates
 #     host is a service users owns
 #     return list_of_rec_movies
 
-# Selenes psudo code below
-# import copy
-
-# list_of_movies_not_seen_by_user = get_friends_unique_watched(user_data)
-# # will this list^ have the host info in it?
-# list_of_subscriptions_host_has = user_data["subscriptions"]
-# list_of_movies_not_seen_but_on_users_subscriptions = []
-# loop through each movie in list_of_movies_not_seen_by_user:
-#     if movie[host] is in list_of_subscriptions_host_has:
-#         new_movie = copy.deepcopy(movie)
-#         list_of_movies_not_seen_on_users_subscriptions.append(new_movie)
-#     else:
-#         continue
-# return list_of_movies_not_seen_on_users_subscriptions
-        
-# working code below
+# 1st function in Wave 4
 def get_available_recs(user_data):
     unseen_by_user = get_friends_unique_watched(user_data)
     user_subscriptions = user_data["subscriptions"]
@@ -331,7 +212,19 @@ def get_available_recs(user_data):
     return available_recs
 
 
-# -----------------------------------------
 # ------------- WAVE 5 --------------------
-# -----------------------------------------
 
+
+# 2ND FUNCTION IN WAVE 5
+def get_rec_from_favorites(user_data):
+    user_favorites = user_data["favorites"]
+    recommended_movies = []
+
+    if user_data["friends"] == []:
+        return user_favorites
+    else:
+        unseen_by_friends = get_unique_watched(user_data)
+        for movie in unseen_by_friends:
+            if movie in user_favorites:
+                recommended_movies.append(movie)
+        return recommended_movies
