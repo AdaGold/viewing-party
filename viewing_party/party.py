@@ -121,25 +121,44 @@ def get_friends_unique_watched(user_data):
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
 def get_available_recs(user_data):
-    # set up and get user-watched and subscriptions as sets
+    # create subscriotions, user_watched, and friends_watched lists
     subscriptions = set(user_data["subscriptions"])
-    user_watched_titles = {movie['title'] for movie in user_data['watched']}
+    user_watched_titles = [title for movie in get_unique_watched(user_data) for title in movie["title"]]
+    friends_watched = get_friends_unique_watched(user_data)
 
-    # initialize the recommended and already added movie titles
-    # then loop through the friends watched movies and add the 
-    # un-watched by user movies to the recommened list.
+    # find the movies that are not in user watched and that are available with subscriptions
     recommended = []
-    added_titles = []
-    for friend in user_data['friends']:
-        for movie in friend["watched"]:
-            if movie['title'] not in user_watched_titles and movie['host'] in subscriptions:
-                if movie['title'] not in added_titles:
-                    recommended.append(movie)
-                    added_titles.append(movie['title'])
-
+    for movie in friends_watched:
+        if movie['title'] not in user_watched_titles and movie['host'] in subscriptions:
+            recommended.append(movie)
     return recommended
+
+
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
+def get_new_rec_by_genre(user_data):
+    # get most freq genere and friends watched.  
+    most_frequent_genre = get_most_watched_genre(user_data)
+    friends_watched = get_friends_unique_watched(user_data)
 
+    # find recommendations if user hasnt watched and genre is most freq
+    recommendations = []
+    for movie in friends_watched:
+        if movie not in user_data['watched'] and movie['genre'] == most_frequent_genre:
+            recommendations.append(movie)
+    return recommendations
+
+def get_rec_from_favorites(user_data):
+    # create favorites and user_watched_titles
+    favorites = user_data["favorites"]
+    user_watched_titles = [movie['title'] for movie in get_unique_watched(user_data)]
+
+    # get recommendations if the movie is in faves and unique user movies
+    recommendations = []
+    for movie in favorites:
+        if movie['title'] in user_watched_titles:
+            recommendations.append(movie)
+
+    return recommendations
