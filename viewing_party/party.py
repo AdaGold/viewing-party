@@ -67,48 +67,48 @@ def get_most_watched_genre(user_data):
 
 
 def get_unique_watched(user_data):
-    
-    friends_titles = []
-    for friend in user_data["friends"]:
-        for movie in friend["watched"]:
-            friends_titles.append(movie["title"])
+    friends_watched = []
+    list_of_movies = []
 
-    user_unique_movies = []
-    for movie in user_data["watched"]:
-        if movie["title"] not in set(friends_titles):
-            user_unique_movies.append(movie)
+    for i in user_data["friends"]:
+        for j in i["watched"]:
+            friends_watched.append(j["title"])
 
-    return user_unique_movies
+    for i in user_data["watched"]:
+        if i["title"] not in set(friends_watched):
+            list_of_movies.append(i)
+
+    return list_of_movies
 
 
-def get_friends_unique_watched(user_data):    
+def get_friends_unique_watched(user_data):
+    list_movies_titles = []
+    friends_watched = []
+    user_watched = []
+    list_of_movies = []
 
-    user_titles = []
-    for movie in user_data["watched"]:
-        user_titles.append(movie["title"])
+    for k in user_data["watched"]:
+        user_watched.append(k["title"])
 
-    friends_titles = []
-    for friend in user_data["friends"]:
-        for movie in friend["watched"]:
-            friends_titles.append(movie["title"])
+    for i in user_data["friends"]:
+        for j in i["watched"]:
+            friends_watched.append(j["title"])
 
-    friends_unique_titles = []
-    for item in set(friends_titles):
-        if item not in set(user_titles):
-            friends_unique_titles.append(item)
+    for item in set(friends_watched):
+        if item not in set(user_watched):
+            list_movies_titles.append(item)
 
-    friends_unique_movies = []
-    for friend in user_data["friends"]:
-        for movie in friend["watched"]:
-            if movie["title"] in set(friends_unique_titles):
-                friends_unique_movies.append(movie)
+    for i in user_data["friends"]:
+        for j in i["watched"]:
+            if j["title"] in set(list_movies_titles):
+                list_of_movies.append(j)
 
-    friends_unique_movies_no_duplicates = []
-    for movie in friends_unique_movies:
-        if movie not in friends_unique_movies_no_duplicates:
-            friends_unique_movies_no_duplicates.append(movie)
+    final_list = []
+    for movie in list_of_movies:
+        if movie not in final_list:
+            final_list.append(movie)
 
-    return friends_unique_movies_no_duplicates
+    return final_list
 
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
