@@ -233,7 +233,7 @@ def get_friends_unique_watched(user_data):
 
     user_watched = set([movie["title"] for movie in user_data["watched"]])
     friends_list = []
-    print(user_watched)
+    #print(user_watched)
     for friend in user_data["friends"]:
         for movie in friend["watched"]:
             if movie["title"] not in user_watched and movie not in friends_list:
@@ -330,8 +330,23 @@ def get_available_recs(user_data):
             available_recs.append(movie)
     return available_recs
 
+#wave 5
+#function 1
 
-# -----------------------------------------
-# ------------- WAVE 5 --------------------
-# -----------------------------------------
+def get_new_rec_by_genre(user_data):
+
+    #first find user's most watched genre
+    #from this genre find the movie that meets these requirments
+    #user has not watched
+    #1< views from friends
+    
+    user_most_watched_genre = ""
+    recommended_movies = []
+
+    if genre in 
+    if genre in movie and movie listed more then once:
+        recommended_movies.append(movie)
+
+
+    return recommended_movies
 
