@@ -6,14 +6,16 @@ def create_movie(title, genre, rating):
         return None
     else:
         movie = { "title" : title,
-                    "genre" : genre,
-                    "rating" : rating}
+                "genre" : genre,
+                "rating" : rating
+                }
         return movie
     
 def add_to_watched(user_data, movie):
 
     user_data["watched"].append(movie)
     return user_data
+
 
 def add_to_watchlist(user_data, movie):
 
@@ -35,23 +37,33 @@ def watch_movie(user_data, title):
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
 
-# Wave 2
-# Create a function named get_watched_avg_rating. This function should...
-# take one parameter: user_data
-# the value of user_data will be a dictionary with a "watched" list of movie dictionaries
-# This represents that the user has a list of watched movies
-# Calculate the average rating of all movies in the watched list
-# The average rating of an empty watched list is 0.0
-# return the average rating
-# Create a function named get_most_watched_genre. This function should...
-# take one parameter: user_data
-# the value of user_data will be a dictionary with a "watched" list of movie dictionaries. Each movie dictionary has a key "genre".
-# This represents that the user has a list of watched movies. Each watched movie has a genre.
-# The values of "genre" is a string.
-# Determine which genre is most frequently occurring in the watched list
-# return the genre that is the most frequently watched
-# If the value of "watched" is an empty list, get_most_watched_genre should return None.
+def get_watched_avg_rating(user_data):
+    rating_list = []
+    if not user_data["watched"]:
+        return 0.0
+    for movie in user_data["watched"]:
+        rating_list.append(movie["rating"])
+    average_rating = sum(rating_list) / len(rating_list)
+    return average_rating
 
+
+def get_most_watched_genre(user_data):
+    if not user_data["watched"]:
+        return None
+    
+    genre_list = []
+    for movie in user_data["watched"]:
+        genre_list.append(movie["genre"])
+    
+    most_watched_genre_frequency = 0
+    most_watched_genre = genre_list[0]
+    for genre in genre_list:
+        genre_frequency = genre_list.count(genre)
+        if genre_frequency > most_watched_genre_frequency:
+            most_watched_genre_frequency = genre_frequency
+            most_watched_genre = genre
+
+    return most_watched_genre
 
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
