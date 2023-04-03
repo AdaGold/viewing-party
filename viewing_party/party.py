@@ -141,14 +141,18 @@ def get_available_recs(user_data):
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
 
-# Wave 5
-# Create a function named get_new_rec_by_genre. This function should...
-# take one parameter: user_data
-# Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
-# The user has not watched it
-# At least one of the user's friends has watched
-# The "genre" of the movie is the same as the user's most frequent genre
-# Return the list of recommended movies
+def get_new_rec_by_genre(user_data):
+
+    most_watched_genre = get_most_watched_genre(user_data)
+    friends_recommended_movies = get_friends_unique_watched(user_data)
+
+    recommended_movies_by_genre = []
+    for movie in friends_recommended_movies:
+        if movie["genre"] == most_watched_genre:
+            recommended_movies_by_genre.append(movie)
+
+    return recommended_movies_by_genre
+
 # Create a function named get_rec_from_favorites. This function should...
 # take one parameter: user_data
 # user_data will have a field "favorites". The value of "favorites" is a list of movie dictionaries
@@ -157,6 +161,20 @@ def get_available_recs(user_data):
 # The movie is in the user's "favorites"
 # None of the user's friends have watched it
 # Return the list of recommended movies
+def get_rec_from_favorites(user_data):
+    pass
+    user_recommended_movies = []
+    user_unique_movies = get_unique_watched(user_data)
+    # for movie in user_data["favorites"]:
+    #     for friend in user_data["friends"]:
+    #         if movie not in friend["watched"] and movie not in user_recommended_movies:
+    #             user_recommended_movies.append(movie)
+    for movie in user_data["favorites"]:
+        if movie in user_unique_movies:
+            user_recommended_movies.append(movie)
+    return user_recommended_movies
+
+
 
 
 
