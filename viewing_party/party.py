@@ -69,24 +69,57 @@ def get_most_watched_genre(user_data):
 # ------------- WAVE 3 --------------------
 # -----------------------------------------
 
-# Create a function named get_unique_watched. This function should...
-# take one parameter: user_data
-# the value of user_data will be a dictionary with a "watched" list of movie dictionaries, and a "friends"
-# This represents that the user has a list of watched movies and a list of friends
-# The value of "friends" is a list
-# Each item in "friends" is a dictionary. This dictionary has a key "watched", which has a list of movie dictionaries.
-# Each movie dictionary has a "title".
-# Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies the user has watched, but none of their friends have watched.
-# Return a list of dictionaries, that represents a list of movies
-# Create a function named get_friends_unique_watched. This function should...
-# take one parameter: user_data
-# the value of user_data will be a dictionary with a "watched" list of movie dictionaries, and a "friends"
-# This represents that the user has a list of watched movies and a list of friends
-# The value of "friends" is a list
-# Each item in "friends" is a dictionary. This dictionary has a key "watched", which has a list of movie dictionaries.
-# Each movie dictionary has a "title".
-# Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
-# Return a list of dictionaries, that represents a list of movies
+def get_unique_watched(user_data):
+
+    user_watched_titles =[]
+    for movie in user_data["watched"]:
+        user_watched_titles.append(movie["title"])
+    
+    friends_watched_titles = []
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            if movie["title"] not in friends_watched_titles:
+                friends_watched_titles.append(movie["title"])
+    
+    user_unique_titles = []
+    for title in user_watched_titles:
+        if title not in friends_watched_titles:
+            user_unique_titles.append(title)
+    
+    user_unique_movies = []
+    for title in user_unique_titles:
+        for movie in user_data["watched"]:
+            if movie["title"] == title:
+                user_unique_movies.append(movie)
+
+    return user_unique_movies
+
+
+def get_friends_unique_watched(user_data):
+    
+    user_watched_titles =[]
+    for movie in user_data["watched"]:
+        user_watched_titles.append(movie["title"])
+    
+    friends_watched_titles = []
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            if movie["title"] not in friends_watched_titles:
+                friends_watched_titles.append(movie["title"])
+    
+    friends_unique_titles = []
+    for title in friends_watched_titles:
+        if title not in user_watched_titles:
+            friends_unique_titles.append(title)
+    
+    friends_unique_movies = []
+    for title in friends_unique_titles:
+        for friend in user_data["friends"]:
+            for movie in friend["watched"]:
+                if movie["title"] == title and movie not in friends_unique_movies:
+                    friends_unique_movies.append(movie)
+
+    return friends_unique_movies
 
         
 # -----------------------------------------
