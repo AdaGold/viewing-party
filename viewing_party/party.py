@@ -153,22 +153,12 @@ def get_new_rec_by_genre(user_data):
 
     return recommended_movies_by_genre
 
-# Create a function named get_rec_from_favorites. This function should...
-# take one parameter: user_data
-# user_data will have a field "favorites". The value of "favorites" is a list of movie dictionaries
-# This represents the user's favorite movies
-# Determine a list of recommended movies. A movie should be added to this list if and only if:
-# The movie is in the user's "favorites"
-# None of the user's friends have watched it
-# Return the list of recommended movies
+
 def get_rec_from_favorites(user_data):
-    pass
+
     user_recommended_movies = []
     user_unique_movies = get_unique_watched(user_data)
-    # for movie in user_data["favorites"]:
-    #     for friend in user_data["friends"]:
-    #         if movie not in friend["watched"] and movie not in user_recommended_movies:
-    #             user_recommended_movies.append(movie)
+
     for movie in user_data["favorites"]:
         if movie in user_unique_movies:
             user_recommended_movies.append(movie)
