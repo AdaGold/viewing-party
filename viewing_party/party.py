@@ -27,6 +27,7 @@ def watch_movie(user_data, title):
             user_data["watchlist"].pop(i)
             return user_data
     return user_data
+
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
