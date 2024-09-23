@@ -1,4 +1,6 @@
+# -----------------------------------------
 # ------------- WAVE 1 -------------------- #
+# -----------------------------------------
 
 def create_movie(title, genre, rating):
     if not title or not genre or not rating:
@@ -28,7 +30,9 @@ def watch_movie(user_data, title):
             return user_data
     return user_data
 
+# -----------------------------------------
 # ------------- WAVE 2 -------------------- #
+# -----------------------------------------
 
 def get_watched_avg_rating(user_data):
     avg_rating = 0
