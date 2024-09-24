@@ -31,14 +31,14 @@ def watch_movie(user_data, title):
 # ------------- WAVE 2 -------------------- #
 
 def get_watched_avg_rating(user_data):
+    rating_sum = 0
     avg_rating = 0
-
     if not user_data["watched"]:
         return avg_rating
     
     for movie in user_data["watched"]:
-        avg_rating += movie["rating"]
-    avg_rating = avg_rating/len(user_data["watched"])
+        rating_sum += movie["rating"]
+    avg_rating = rating_sum/len(user_data["watched"])
 
     return avg_rating
 
@@ -48,10 +48,8 @@ def get_most_watched_genre(user_data):
     genre_count={}
     for movie in user_data["watched"]:
         current_genre = movie["genre"]
-        if current_genre not in genre_count.keys():
-            genre_count[current_genre] = 1
-        else:
-            genre_count[current_genre] += 1
+        current_genre_count = genre_count.get(current_genre, 0)
+        genre_count[current_genre] = current_genre_count + 1
     most_popular =[]
     for genre, count in genre_count.items():
         if not most_popular or most_popular[1] < count:
@@ -61,17 +59,28 @@ def get_most_watched_genre(user_data):
 # ------------- WAVE 3 -------------------- #
 
 def get_unique_watched(user_data):
-    unique_movie_list = user_data["watched"].copy()
-    removal_list = []
+    user_movie_list = user_data["watched"].copy()
+    user_unique_list = []
+    common_movies_list = []
     for friend in user_data["friends"]:
         friend_movie_list = friend["watched"]
-        for user_movie in unique_movie_list:
-            if user_movie in friend_movie_list:
-                removal_list.append(user_movie)
-    for movie in removal_list:
-        if movie in unique_movie_list:
-            unique_movie_list.remove(movie)
-    return unique_movie_list
+        for user_movie in user_movie_list:
+            if user_movie in friend_movie_list and user_movie in user_unique_list:
+                user_unique_list.remove(user_movie)
+            elif user_movie not in friend_movie_list and user_movie not in user_unique_list:
+                user_unique_list.append(user_movie)
+    return user_unique_list
+    # unique_movie_list = user_data["watched"].copy()
+    # removal_list = []
+    # for friend in user_data["friends"]:
+    #     friend_movie_list = friend["watched"]
+    #     for user_movie in unique_movie_list:
+    #         if user_movie in friend_movie_list:
+    #             removal_list.append(user_movie)
+    # for movie in removal_list:
+    #     if movie in unique_movie_list:
+    #         unique_movie_list.remove(movie)
+    # return unique_movie_list
 
 def get_friends_unique_watched(user_data):
     user_movie_list = user_data["watched"].copy()
@@ -119,8 +128,11 @@ def get_rec_from_favorites(user_data):
     elif not user_data["friends"]:
         recommendations = user_data["favorites"]
         return recommendations
-    
-    # for movie in user_data["favorites"]:
-    #     if movie["title"] not in user_data["friends"][0]["watched"]:
-    #         recommendations.append(movie["title"])
-    # return recommendations
+    else:
+        for movie in user_data["favorites"]:
+            for friend in user_data["friends"]:
+                if movie in friend["watched"] and movie in recommendations:
+                    recommendations.remove(movie)
+                if movie not in friend["watched"] and movie not in recommendations:
+                    recommendations.append(movie)
+    return recommendations
