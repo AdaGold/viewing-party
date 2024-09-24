@@ -86,6 +86,8 @@ def get_friends_unique_watched(user_data):
                 my_friends_unique.remove(movie["title"])  
 
     return friends_unique_movies
+
+# def get_avalable_recs(user_data)
 '''
 
 # Wave 3 READ_ME_INSTRUCTIONS
