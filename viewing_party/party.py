@@ -80,6 +80,9 @@ Wave 3 READ_ME_INSTRUCTIONS
 
 ### Wave 4
 
+# def get_avaialable_recs(user_data):
+#     subscriptions = ""
+
 1. Create a function named `get_available_recs`. This function should...
 
 - take one parameter: `user_data`
@@ -114,6 +117,10 @@ Wave 3 READ_ME_INSTRUCTIONS
 - Return the list of recommended movies
 
 '''
+'''
+
+
+
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
