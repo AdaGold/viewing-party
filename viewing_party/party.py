@@ -81,25 +81,8 @@ def get_friends_unique_watched(user_data):
 
     for my_friend in user_data["friends"]:
         for movie in my_friend["watched"]:
-<<<<<<< HEAD
             if movie["title"] not in my_movie_titles and movie not in friends_unique_movies:
                 friends_unique_movies.append(movie) 
-=======
-            if "title" in movie:
-                my_friends_unique.add(movie["title"])
-
-    watched_titles = {movie["title"] for movie in user_data["watched"] if "title" in movie}
-
-    for my_friend in user_data["friends"]:
-        for movie in my_friend["watched"]:
-            if movie["title"] in my_friends_unique and movie["title"] not in watched_titles:
-                friends_unique_movies.append(movie)
-                my_friends_unique.remove(movie["title"])  
-
-    return friends_unique_movies
-
-# def get_avalable_recs(user_data)
->>>>>>> f292115cb46b852f40f43fccabd60d451ab0fc09
 
     return list(friends_unique_movies)
 
