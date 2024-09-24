@@ -43,13 +43,13 @@ def get_most_watched_genre(user_data):
     max_frequency = 0
     most_watched_genre = None
 
-    for a_movie in user_data["watched"]:
-        genre = a_movie.get("genre")
-        if genre:
-            frequency_of_genre_index[genre] = frequency_of_genre_index.get(genre,0) + 1
-            if frequency_of_genre_index[genre] > max_frequency:
-              max_frequency = frequency_of_genre_index[genre]
-              most_watched_genre = genre
+    for single_movie in user_data["watched"]:
+        genre_type = single_movie.get("genre")
+        if genre_type:
+            frequency_of_genre_index[genre_type] = frequency_of_genre_index.get(genre_type,0) + 1
+            if frequency_of_genre_index[genre_type] > max_frequency:
+              max_frequency = frequency_of_genre_index[genre_type]
+              most_watched_genre = genre_type
 
     return most_watched_genre
 
