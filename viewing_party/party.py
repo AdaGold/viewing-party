@@ -87,6 +87,8 @@ def get_friends_unique_watched(user_data):
 
     return friends_unique_movies
 
+# def get_avalable_recs(user_data)
+
 
 # Wave 4
 def get_available_recs(user_data):
