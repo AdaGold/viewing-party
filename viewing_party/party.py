@@ -1,5 +1,4 @@
-# ------------- WAVE 1 --------------------
-
+# ------------------------------------------ WAVE 1 ---------------------------------------
 def create_movie(title, genre, rating):
     if not title or not genre or not rating:
         return None
@@ -21,6 +20,8 @@ def watch_movie(user_data, title):
             user_data["watchlist"].remove(movie)
             user_data["watched"].append(movie)
     return user_data
+
+# ------------------------------------------ WAVE 2 ---------------------------------------
 
 def get_watched_avg_rating(user_data):
     if not user_data["watched"]:
@@ -53,7 +54,9 @@ def get_most_watched_genre(user_data):
 
     return most_watched_genre
 
-def get_unique_watched (user_data):
+# ------------------------------------------ WAVE 3 ---------------------------------------
+
+def get_unique_watched(user_data):
 
     if not user_data["watched"]:
         return []
@@ -86,30 +89,33 @@ def get_friends_unique_watched(user_data):
 
     return list(friends_unique_movies)
 
-# Wave 4
+# ------------------------------------------ WAVE 4 ---------------------------------------
+
 def get_available_recs(user_data):
-    
+    recommended_movies = []
+    friends_unique_movies = get_friends_unique_watched(user_data)
+
     user_watched_titles = set()
     for movie in user_data.get('watched', []):
         user_watched_titles.add(movie['title'])
     user_subscriptions = set(user_data.get('subscriptions', []))
-    
-    recommended_movies = []
-    
-    for friend in user_data.get('friends', []):
-        for movie in friend.get('watched', []):
-            if movie['host'] in user_subscriptions and movie['title'] not in user_watched_titles:
-                if movie not in recommended_movies:
+
+    for movie in friends_unique_movies:
+        if movie['host'] in user_subscriptions and movie['title'] not in user_watched_titles:
+             if movie not in recommended_movies:
                     recommended_movies.append(movie)
+    
     return recommended_movies
+
+# ------------------------------------------ WAVE 5 ---------------------------------------
 
 def get_new_rec_by_genre(user_data):
 
     recommended_movie = []
-    genre = get_most_watched_genre(user_data)
+    most_watched_genre = get_most_watched_genre(user_data)
    
     for movie in get_available_recs(user_data):
-        if movie["genre"] == genre and movie in get_friends_unique_watched(user_data):
+        if movie["genre"] == most_watched_genre and movie in get_friends_unique_watched(user_data):
             recommended_movie.append(movie)
 
     return recommended_movie
@@ -128,44 +134,3 @@ def get_rec_from_favorites(user_data):
             recommended_movie.append(movie)
 
     return recommended_movie
-
-
-    # ### Wave 5
-
-    # 1. Create a function named  `get_new_rec_by_genre`. This function should...
-
-    # - take one parameter: `user_data`
-    # - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
-    #   - The user has not watched it
-    #   - At least one of the user's friends has watched
-    #   - The `"genre"` of the movie is the same as the user's most frequent genre
-    # - Return the list of recommended movies
-
-    # 2. Create a function named  `get_rec_from_favorites`. This function should...
-
-    # - take one parameter: `user_data`
-    #   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
-    #     - This represents the user's favorite movies
-    # - Determine a list of recommended movies. A movie should be added to this list if and only if:
-    #   - The movie is in the user's `"favorites"`
-    #   - None of the user's friends have watched it
-    # - Return the list of recommended movies
-    # '''
-    # -----------------------------------------
-    # ------------- WAVE 2 --------------------
-    # -----------------------------------------
-
-
-    # -----------------------------------------
-    # ------------- WAVE 3 --------------------
-    # -----------------------------------------
-
-            
-    # -----------------------------------------
-    # ------------- WAVE 4 --------------------
-    # -----------------------------------------
-
-    # -----------------------------------------
-    # ------------- WAVE 5 --------------------
-    # -----------------------------------------
-    # '''
