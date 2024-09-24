@@ -81,64 +81,122 @@ def get_friends_unique_watched(user_data):
 
     for my_friend in user_data["friends"]:
         for movie in my_friend["watched"]:
+<<<<<<< HEAD
             if movie["title"] not in my_movie_titles and movie not in friends_unique_movies:
                 friends_unique_movies.append(movie) 
+=======
+            if "title" in movie:
+                my_friends_unique.add(movie["title"])
+
+    watched_titles = {movie["title"] for movie in user_data["watched"] if "title" in movie}
+
+    for my_friend in user_data["friends"]:
+        for movie in my_friend["watched"]:
+            if movie["title"] in my_friends_unique and movie["title"] not in watched_titles:
+                friends_unique_movies.append(movie)
+                my_friends_unique.remove(movie["title"])  
+
+    return friends_unique_movies
+
+# def get_avalable_recs(user_data)
+>>>>>>> f292115cb46b852f40f43fccabd60d451ab0fc09
 
     return list(friends_unique_movies)
 
-# ### Wave 4
-
-# # def get_avaialable_recs(user_data):
-# #     subscriptions = ""
-
-# 1. Create a function named `get_available_recs`. This function should...
-
-# - take one parameter: `user_data`
-#   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
-#     - This represents the names of streaming services that the user has access to
-#     - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
-# - Determine a list of recommended movies. A movie should be added to this list if and only if:
-#   - The user has not watched it
-#   - At least one of the user's friends has watched
-#   - The `"host"` of the movie is a service that is in the user's `"subscriptions"`
-# - Return the list of recommended movies
-
-# ### Wave 5
-
-# 1. Create a function named  `get_new_rec_by_genre`. This function should...
-
-# - take one parameter: `user_data`
-# - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
-#   - The user has not watched it
-#   - At least one of the user's friends has watched
-#   - The `"genre"` of the movie is the same as the user's most frequent genre
-# - Return the list of recommended movies
-
-# 2. Create a function named  `get_rec_from_favorites`. This function should...
-
-# - take one parameter: `user_data`
-#   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
-#     - This represents the user's favorite movies
-# - Determine a list of recommended movies. A movie should be added to this list if and only if:
-#   - The movie is in the user's `"favorites"`
-#   - None of the user's friends have watched it
-# - Return the list of recommended movies
-# '''
-# -----------------------------------------
-# ------------- WAVE 2 --------------------
-# -----------------------------------------
+# Wave 4
+def get_available_recs(user_data):
+    
+    user_watched_titles = set()
+    for movie in user_data.get('watched', []):
+        user_watched_titles.add(movie['title'])
+    user_subscriptions = set(user_data.get('subscriptions', []))
+    
+    recommended_movies = []
+    
+    for friend in user_data.get('friends', []):
+        for movie in friend.get('watched', []):
+            if movie['host'] in user_subscriptions and movie['title'] not in user_watched_titles:
+                if movie not in recommended_movies:
+                    recommended_movies.append(movie)
+    return recommended_movies
 
 
-# -----------------------------------------
-# ------------- WAVE 3 --------------------
-# -----------------------------------------
 
-        
-# -----------------------------------------
-# ------------- WAVE 4 --------------------
-# -----------------------------------------
 
-# -----------------------------------------
-# ------------- WAVE 5 --------------------
-# -----------------------------------------
-# '''
+
+
+
+    '''
+
+    # Wave 3 READ_ME_INSTRUCTIONS
+
+    # 2. Create a function named `get_friends_unique_watched`. This function should...
+
+    # - take one parameter: `user_data`
+    #   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
+    #     - This represents that the user has a list of watched movies and a list of friends
+    #     - The value of `"friends"` is a list
+    #     - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
+    #     - Each movie dictionary has a `"title"`.
+    # - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
+    # - Return a list of dictionaries, that represents a list of movies
+
+
+    # ### Wave 4
+
+    def get_avaialable_recs(user_data):
+    # #     subscriptions = ""
+
+    # 1. Create a function named `get_available_recs`. This function should...
+
+    # - take one parameter: `user_data`
+    #   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
+    #     - This represents the names of streaming services that the user has access to
+    #     - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
+    # - Determine a list of recommended movies. A movie should be added to this list if and only if:
+    #   - The user has not watched it
+    #   - At least one of the user's friends has watched
+    #   - The `"host"` of the movie is a service that is in the user's `"subscriptions"`
+    # - Return the list of recommended movies
+
+
+
+    # ### Wave 5
+
+    # 1. Create a function named  `get_new_rec_by_genre`. This function should...
+
+    # - take one parameter: `user_data`
+    # - Consider the user's most frequently watched genre. Then, determine a list of recommended movies. A movie should be added to this list if and only if:
+    #   - The user has not watched it
+    #   - At least one of the user's friends has watched
+    #   - The `"genre"` of the movie is the same as the user's most frequent genre
+    # - Return the list of recommended movies
+
+    # 2. Create a function named  `get_rec_from_favorites`. This function should...
+
+    # - take one parameter: `user_data`
+    #   - `user_data` will have a field `"favorites"`. The value of `"favorites"` is a list of movie dictionaries
+    #     - This represents the user's favorite movies
+    # - Determine a list of recommended movies. A movie should be added to this list if and only if:
+    #   - The movie is in the user's `"favorites"`
+    #   - None of the user's friends have watched it
+    # - Return the list of recommended movies
+    # '''
+    # -----------------------------------------
+    # ------------- WAVE 2 --------------------
+    # -----------------------------------------
+
+
+    # -----------------------------------------
+    # ------------- WAVE 3 --------------------
+    # -----------------------------------------
+
+            
+    # -----------------------------------------
+    # ------------- WAVE 4 --------------------
+    # -----------------------------------------
+
+    # -----------------------------------------
+    # ------------- WAVE 5 --------------------
+    # -----------------------------------------
+    # '''
