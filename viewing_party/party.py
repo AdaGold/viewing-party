@@ -54,55 +54,37 @@ def get_most_watched_genre(user_data):
     return most_watched_genre
 
 def get_unique_watched (user_data):
-    my_unique_movies = []
-    my_friends_unique = set()
-    
+
     if not user_data["watched"]:
         return []
+    
+    my_unique_movies = []
+    my_friends_unique = set()
   
     for my_friends in user_data["friends"]:
-        my_friends_unique.update(movie["title"] for movie in my_friends["watched"] if "title" in movie)
+        for movie in my_friends["watched"]:
+            my_friends_unique.add(movie["title"])
+  
     for movie in user_data["watched"]:
-        if "title" in movie and movie["title"] not in my_friends_unique:
+        if movie["title"] not in my_friends_unique:
             my_unique_movies.append(movie)
 
     return my_unique_movies
 
 def get_friends_unique_watched(user_data):
-    friends_unique_movies = []  
-    my_friends_unique = set() 
+
+    friends_unique_movies = []
+    my_movie_titles = [] 
+    
+    for movie in user_data["watched"]:
+        my_movie_titles.append(movie["title"])
 
     for my_friend in user_data["friends"]:
         for movie in my_friend["watched"]:
-            if "title" in movie:
-                my_friends_unique.add(movie["title"])
+            if movie["title"] not in my_movie_titles and movie not in friends_unique_movies:
+                friends_unique_movies.append(movie) 
 
-    watched_titles = {movie["title"] for movie in user_data["watched"] if "title" in movie}
-
-    for my_friend in user_data["friends"]:
-        for movie in my_friend["watched"]:
-            if movie["title"] in my_friends_unique and movie["title"] not in watched_titles:
-                friends_unique_movies.append(movie)
-                my_friends_unique.remove(movie["title"])  
-
-    return friends_unique_movies
-
-# def get_avalable_recs(user_data)
-'''
-
-# Wave 3 READ_ME_INSTRUCTIONS
-
-# 2. Create a function named `get_friends_unique_watched`. This function should...
-
-# - take one parameter: `user_data`
-#   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
-#     - This represents that the user has a list of watched movies and a list of friends
-#     - The value of `"friends"` is a list
-#     - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
-#     - Each movie dictionary has a `"title"`.
-# - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
-# - Return a list of dictionaries, that represents a list of movies
-
+    return list(friends_unique_movies)
 
 # ### Wave 4
 
