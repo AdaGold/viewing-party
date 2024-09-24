@@ -103,45 +103,31 @@ def get_available_recs(user_data):
                     recommended_movies.append(movie)
     return recommended_movies
 
+def get_new_rec_by_genre(user_data):
 
+    recommended_movie = []
+    genre = get_most_watched_genre(user_data)
+   
+    for movie in get_available_recs(user_data):
+        if movie["genre"] == genre and movie in get_friends_unique_watched(user_data):
+            recommended_movie.append(movie)
 
+    return recommended_movie
 
+def get_rec_from_favorites(user_data):
+    recommended_movie = []
 
+    my_friends_watched = set()
+  
+    for my_friends in user_data["friends"]:
+        for movie in my_friends["watched"]:
+            my_friends_watched.add(movie["title"])
 
+    for movie in user_data["favorites"]:
+        if movie["title"] not in my_friends_watched: 
+            recommended_movie.append(movie)
 
-    '''
-
-    # Wave 3 READ_ME_INSTRUCTIONS
-
-    # 2. Create a function named `get_friends_unique_watched`. This function should...
-
-    # - take one parameter: `user_data`
-    #   - the value of `user_data` will be a dictionary with a `"watched"` list of movie dictionaries, and a `"friends"`
-    #     - This represents that the user has a list of watched movies and a list of friends
-    #     - The value of `"friends"` is a list
-    #     - Each item in `"friends"` is a dictionary. This dictionary has a key `"watched"`, which has a list of movie dictionaries.
-    #     - Each movie dictionary has a `"title"`.
-    # - Consider the movies that the user has watched, and consider the movies that their friends have watched. Determine which movies at least one of the user's friends have watched, but the user has not watched.
-    # - Return a list of dictionaries, that represents a list of movies
-
-
-    # ### Wave 4
-
-    def get_avaialable_recs(user_data):
-    # #     subscriptions = ""
-
-    # 1. Create a function named `get_available_recs`. This function should...
-
-    # - take one parameter: `user_data`
-    #   - `user_data` will have a field `"subscriptions"`. The value of `"subscriptions"` is a list of strings
-    #     - This represents the names of streaming services that the user has access to
-    #     - Each friend in `"friends"` has a watched list. Each movie in the watched list has a `"host"`, which is a string that says what streaming service it's hosted on
-    # - Determine a list of recommended movies. A movie should be added to this list if and only if:
-    #   - The user has not watched it
-    #   - At least one of the user's friends has watched
-    #   - The `"host"` of the movie is a service that is in the user's `"subscriptions"`
-    # - Return the list of recommended movies
-
+    return recommended_movie
 
 
     # ### Wave 5
