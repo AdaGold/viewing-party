@@ -64,9 +64,11 @@ def get_unique_watched(user_data):
     my_unique_movies = []
     my_friends_unique = set()
   
-    my_friends_unique = [movie["title"] for my_friends in user_data["friends"] for movie in my_friends["watched"]]
+    my_friends_unique = [movie["title"] for my_friends in user_data["friends"] 
+                         for movie in my_friends["watched"]]
     
-    my_unique_movies = [movie for movie in user_data["watched"] if movie["title"] not in my_friends_unique]   
+    my_unique_movies = [movie for movie in user_data["watched"] 
+                        if movie["title"] not in my_friends_unique]   
 
     return my_unique_movies
 
@@ -95,8 +97,9 @@ def get_available_recs(user_data):
 
     user_subscriptions = set(user_data.get('subscriptions', []))
 
-    recommended_movies = [movie for movie in friends_unique_movies if movie['host'] in user_subscriptions 
-                          and movie['title'] not in user_watched_titles if movie not in recommended_movies]
+    recommended_movies = [movie for movie in friends_unique_movies 
+                          if movie['host'] in user_subscriptions and movie['title'] not in user_watched_titles 
+                          if movie not in recommended_movies]
     
     return recommended_movies
 
@@ -106,8 +109,8 @@ def get_new_rec_by_genre(user_data):
     recommended_movie = []
     most_watched_genre = get_most_watched_genre(user_data)
 
-    recommended_movie = [movie for movie in get_available_recs(user_data) if movie["genre"] == 
-                         most_watched_genre and movie in get_friends_unique_watched(user_data)]
+    recommended_movie = [movie for movie in get_available_recs(user_data) 
+                         if movie["genre"] == most_watched_genre and movie in get_friends_unique_watched(user_data)]
 
     return recommended_movie
 
