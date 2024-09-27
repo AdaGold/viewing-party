@@ -39,9 +39,6 @@ def get_watched_avg_rating(user_data):
     return average_movie_rating
 
 def get_most_watched_genre(user_data):
-    if not user_data["watched"]:
-        return None
-
     frequency_of_genre_index = {}
     max_frequency = 0
     most_watched_genre = None
