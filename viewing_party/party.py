@@ -93,7 +93,8 @@ def get_available_recs(user_data):
     user_subscriptions = set(user_data.get('subscriptions', []))
 
     recommended_movies = [movie for movie in friends_unique_movies 
-                          if movie['host'] in user_subscriptions and movie['title'] not in user_watched_titles 
+                          if movie['host'] in user_subscriptions 
+                          and movie['title'] not in user_watched_titles 
                           if movie not in recommended_movies]
     
     return recommended_movies
@@ -111,8 +112,10 @@ def get_new_rec_by_genre(user_data):
 def get_rec_from_favorites(user_data):
     my_friends_watched = set()
 
-    my_friends_watched = [movie["title"] for my_friends in user_data["friends"] for movie in my_friends["watched"]]   
+    my_friends_watched = [movie["title"] for my_friends in user_data["friends"] 
+                          for movie in my_friends["watched"]]   
 
-    recommended_movie = [movie for movie in user_data["favorites"] if movie["title"] not in my_friends_watched]
+    recommended_movie = [movie for movie in user_data["favorites"] 
+                         if movie["title"] not in my_friends_watched]
 
     return recommended_movie
