@@ -95,7 +95,6 @@ def get_available_recs(user_data):
     
     for movie in user_data.get('watched', []):
         user_watched_titles.add(movie['title'])
-    # user_watched_titles = [movie['title'] for movie in user_data.get('watched', [])]
 
     user_subscriptions = set(user_data.get('subscriptions', []))
     for movie in friends_unique_movies:
