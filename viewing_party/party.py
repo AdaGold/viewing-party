@@ -16,10 +16,16 @@ def add_to_watchlist(user_data, movie):
     return user_data
 
 def watch_movie(user_data, title):
+    
+    new_copy_watchlist = []
+
     for movie in user_data["watchlist"]:
         if movie["title"] == title:
-            user_data["watchlist"].remove(movie)
             add_to_watched(user_data, movie)
+        else:
+            new_copy_watchlist.append(movie)
+    
+    user_data["watchlist"] = new_copy_watchlist
     return user_data
 
 # ---------------------------------------------------- WAVE 2 ----------------------------------------------------
@@ -58,8 +64,8 @@ def get_unique_watched(user_data):
     if not user_data["watched"]:
         return []
   
-    my_friends_unique = [movie["title"] for my_friends in user_data["friends"] 
-                         for movie in my_friends["watched"]]
+    my_friends_unique = {movie["title"] for my_friends in user_data["friends"] 
+                         for movie in my_friends["watched"]}
     
     my_unique_movies = [movie for movie in user_data["watched"] 
                         if movie["title"] not in my_friends_unique]   
