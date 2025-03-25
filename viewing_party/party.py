@@ -16,20 +16,19 @@ def create_movie(title, genre, rating):
 def add_to_watched(user_data, movie):
     # Create a duplicate of user data 
     updated_data = user_data.copy()
-    
     # Append the movie to the user's watched list
     updated_data["watched"].append(movie)
-    
     # Return the updated user data
     return updated_data
 
 def add_to_watchlist(user_data, movie):
     # Create a duplicate of user data
-
+    updated_data = user_data.copy()
     # Add movie to the user watchlist
-    
+    updated_data["watchlist"].append(movie)
     # Return user data
-    pass
+    return updated_data
+
 
 
 
