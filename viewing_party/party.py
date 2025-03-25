@@ -26,7 +26,17 @@ def add_to_watched(user_data, movie):
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
-
+def uses_available_letters(word, letter_bank):
+    #make a list to count how many times  each letter appears in the letter bank 
+    letter_counts = {}
+    #count each letter in the bank 
+    for letter in letter_bank:
+        if letter in letter_counts:
+            #increase letter counts by 1 
+            letter_counts[letter] += 1
+        else:
+            #else set it equal to 1 
+            letter_counts[letter] = 1
 
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
