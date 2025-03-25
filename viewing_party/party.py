@@ -23,6 +23,16 @@ def add_to_watched(user_data, movie):
     # Return the updated user data
     return updated_data
 
+def add_to_watchlist(user_data, movie):
+    # Create a duplicate of user data
+
+    # Add movie to the user watchlist
+    
+    # Return user data
+    pass
+
+
+
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
