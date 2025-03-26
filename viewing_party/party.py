@@ -35,17 +35,53 @@ def add_to_watchlist(user_data, movie):
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
 # -----------------------------------------
-def uses_available_letters(word, letter_bank):
-    #make a list to count how many times  each letter appears in the letter bank 
-    letter_counts = {}
-    #count each letter in the bank 
-    for letter in letter_bank:
-        if letter in letter_counts:
-            #increase letter counts by 1 
-            letter_counts[letter] += 1
+
+def get_watched_avg_rating(user_data):
+    # Grab the list of watched movies
+    watched = user_data["watched"]
+
+    # If they haven't watched any movies, return 0.0
+    if len(watched) == 0:
+        return 0.0
+
+    # Add up all the ratings
+    total_rating = 0
+    for movie in watched:
+        total_rating += movie["rating"]
+
+    # Divide the total rating by how many movies they watched
+    average = total_rating / len(watched)
+    return average
+
+def get_most_watched_genre(user_data):
+    # grab list of most watched genre 
+    watched = user_data["watched"]
+    if len(watched) == 0:
+        return None 
+    #track how many times each genre comes up 
+    genre_counts = {}
+    #go through each move in the list 
+    for movie in watched:
+        genre = movie["genre"]
+        #if the movie is already in dict add 1 
+        if genre in genre_counts: 
+            genre_counts[genre] += 1
+            # if not in dict start at 1 
         else:
-            #else set it equal to 1 
-            letter_counts[letter] = 1
+            genre_counts[genre] = 1 
+    #store genre we see the most
+    most_watched = None
+    highest_count = 0
+#look through all genres we counted
+    for genre in genre_counts:
+        #if the genre's count is bigger than what is current
+        if genre_counts[genre] > highest_count:
+            #update the most watched genre
+            most_watched = genre
+            #update its count
+            highest_count = genre_counts[genre]
+
+    return most_watched
 
 # -----------------------------------------
 # ------------- WAVE 3 --------------------
