@@ -30,7 +30,12 @@ def add_to_watchlist(user_data, movie):
     return updated_data
 
 
-
+def watch_movie(user_data, movie):
+    # Create a duplicate of user data
+    # Find movies in watchlist and change status to watched
+    # update watchlist with removed movie
+    # Return user data
+    pass
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
