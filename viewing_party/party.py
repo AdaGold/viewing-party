@@ -46,7 +46,7 @@ def watch_movie(user_data, movie_title):
         # Remove movie from watchlist
         updated_data["watchlist"].remove(movie_to_watch)
         # Add movie to watched
-        updated_data["watched"].end(movie_to_watch)
+        updated_data["watched"].append(movie_to_watch)
     
     # Return user data
     return updated_data
@@ -151,9 +151,26 @@ def get_friends_unique_watched(user_data):
     return friends_unique_movies
 
 
+
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
+
+def get_available_recs(user_data):
+    recommendations = []
+    user_watched = user_data["watched"]
+    user_subscriptions = user_data["subscriptions"]
+    
+    # check friends watched, subs, and current recs if no conficts add movie
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            if (movie not in user_watched and 
+                movie["host"] in user_subscriptions and 
+                movie not in recommendations):
+                recommendations.append(movie)
+    
+    return recommendations
+
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
