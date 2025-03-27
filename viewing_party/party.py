@@ -30,12 +30,26 @@ def add_to_watchlist(user_data, movie):
     return updated_data
 
 
-def watch_movie(user_data, movie):
+def watch_movie(user_data, movie_title):
     # Create a duplicate of user data
-    # Find movies in watchlist and change status to watched
-    # update watchlist with removed movie
-    # Return user data
-    pass
+    updated_data = user_data.copy()
+    
+    # Find movie in watchlist by title
+    movie_to_watch = None
+    for movie in updated_data["watchlist"]:
+        if movie["title"] == movie_title:
+            movie_to_watch = movie
+            break
+    
+    # If movie found in watchlist, move it to watched
+    if movie_to_watch:
+        # Remove movie from watchlist
+        updated_data["watchlist"].remove(movie_to_watch)
+        # Add movie to watched
+        updated_data["watched"].append(movie_to_watch)
+    
+    # Return updated user data
+    return updated_data
 
 # -----------------------------------------
 # ------------- WAVE 2 --------------------
