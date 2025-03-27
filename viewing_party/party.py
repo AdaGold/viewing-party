@@ -34,7 +34,7 @@ def watch_movie(user_data, movie_title):
     # Create a duplicate of user data
     updated_data = user_data.copy()
     
-    # Find movie in watchlist by title
+    # Find movie in watchlist
     movie_to_watch = None
     for movie in updated_data["watchlist"]:
         if movie["title"] == movie_title:
@@ -46,9 +46,9 @@ def watch_movie(user_data, movie_title):
         # Remove movie from watchlist
         updated_data["watchlist"].remove(movie_to_watch)
         # Add movie to watched
-        updated_data["watched"].append(movie_to_watch)
+        updated_data["watched"].end(movie_to_watch)
     
-    # Return updated user data
+    # Return user data
     return updated_data
 
 # -----------------------------------------
