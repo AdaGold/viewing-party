@@ -175,4 +175,70 @@ def get_available_recs(user_data):
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
 # -----------------------------------------
+def get_new_rec_by_genre(user_data):
+    # Count how many times the user has watched each genre
+    genre_count = {}
+
+    for movie in user_data["watched"]:
+        genre = movie["genre"]
+        if genre in genre_count:
+            genre_count[genre] = genre_count[genre] + 1
+        else:
+            genre_count[genre] = 1
+
+    # If the user hasn't watched anything, there's nothing to base recs on
+    if genre_count == {}:
+        return []
+
+    # Find the genre the user watches the most
+    most_genre = None
+    max_count = 0
+
+    for genre in genre_count:
+        if genre_count[genre] > max_count:
+            most_genre = genre
+            max_count = genre_count[genre]
+
+    # Store all titles the user has watched to avoid recommending them again
+    user_titles = []
+    for movie in user_data["watched"]:
+        user_titles.append(movie["title"])
+
+    # Build recommendations list
+    recs = []
+    rec_titles = []  # Keep track of what we've already added
+
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            title = movie["title"]
+            genre = movie["genre"]
+
+            # Recommend only if it's the favorite genre, not watched, and not already in recs
+            if title not in user_titles and genre == most_genre and title not in rec_titles:
+                recs.append(movie)
+                rec_titles.append(title)
+
+    return recs
+
+
+def get_rec_from_favorites(user_data):
+    # Gather all the movie titles that friends have watched
+    friends_titles = []
+
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            title = movie["title"]
+            if title not in friends_titles:
+                friends_titles.append(title)
+
+    # Recommend favorites only if none of the friends have watched them
+    recs = []
+
+    if "favorites" in user_data:
+        for movie in user_data["favorites"]:
+            title = movie["title"]
+            if title not in friends_titles:
+                recs.append(movie)
+
+    return recs
 
