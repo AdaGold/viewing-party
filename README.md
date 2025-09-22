@@ -200,7 +200,7 @@ To run a single test by name:
 $ pytest tests/test_file_name.py::test_name
 ```
 
-... where `test_name.py` is relpaced with the name of the function.
+... where `test_file_name.py` is replaced with the correct test file name and `test_name` is relpaced with the name of the function.
 
 ## Play Testing
 
